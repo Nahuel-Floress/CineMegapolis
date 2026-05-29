@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinemark</title>
+    <link rel="stylesheet" href="pages/ejercicio1.css">
+    <link rel="icon" href="img/logo3.png">
+</head>
+<body>
+ <div>
+<nav class="navbar">
+     <div class="uno">
+        <h1>CINEMARK <span>Hoyts</span></h1>
+         <a href="ejercicio1.html" class="nav-link active ">PELÍCULAS</a>
+      <a href="#" class="nav-link">CANDY</a>
+      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
+      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+      <a href="#" class="nav-link">STORE</a>
+     </div>
+     <div class="dos">
+        <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
+      <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
+        <span class="icon">👤</span>
+     </div>
+</nav> 
+  </nav> 
+    <div class="navbar-underline"></div>
+  </div>
+<br>
+<section class="container-carrusel">
+  <div class="slider-wrapper">
+    <div class="slider">
+
+      <img id="slider-1" src="../src/img/foton4.jpg" alt="">
+      <img id="slider-2" src="../src/img/foton7.jpg" alt="">
+      <img id="slider-3" src="../src/img/foton6.jpg" alt="">
+      <img id="slider-4" src="../src/img/banner2.webp" alt="">
+    </div>
+
+   
+    <div class="arrow left" id="prev" aria-hidden="true">
+      <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true"><path d="M12.7 15.3 7.4 10l5.3-5.3-1.4-1.4L4.6 10l6.7 6.7z"/></svg>
+    </div>
+    <div class="arrow right" id="next" aria-hidden="true">
+      <svg viewBox="0 0 20 20" focusable="false" aria-hidden="true"><path d="M7.3 4.7 12.6 10 7.3 15.3 8.7 16.7 15.4 10 8.7 3.3z"/></svg>
+    </div>
+
+    <div class="slider-nav">
+    
+      <a href="#slider-1" data-index="0" aria-label="Ir a slide 1"></a>
+      <a href="#slider-2" data-index="1" aria-label="Ir a slide 2"></a>
+      <a href="#slider-3" data-index="2" aria-label="Ir a slide 3"></a>
+      <a href="#slider-4" data-index="3" aria-label="Ir a slide 4"></a>
+    </div>
+  </div>
+</section>
+
+
+ <div class="sub-contenedor">
+  <h2 class="sub">PELÍCULAS EN CARTELERA</h2>
+  <button class="destacado">😉 DESTACADO</button>
+</div>
+
+<div class="caja-grande">
+  <select class="caja">
+    <option selected>Formatos ▼</option>
+    <option>2D</option>
+    <option>3D</option>
+    <option>XD</option>
+  </select>
+
+  <select class="caja">
+    <option selected>Idioma ▼</option>
+    <option>Español</option>
+    <option>Inglés subtitulado</option>
+    <option>Español latino</option>
+  </select>
+
+  <select class="caja">
+    <option selected>Otras opciones ▼</option>
+    <option>Con subtítulos</option>
+    <option>Con intermedio</option>
+    <option>Accesible</option>
+  </select>
+</div>
+
+<div class="peliculas">
+ <div class="pelicula"> <a href="pelicula.html" class="nav-link">
+  <div class="poster-container">
+    <img src="img/ds.jpg" alt="lilo y stich" class="poster">
+    <div class="tiempo">1h 48m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">LILO Y STITCH</h3>
+    <p class="formatos">3D · 4D E-MOTION · D-BOX · 2D · COMFORT · PREMIUM CLASS · XD</p>
+    <div class="etiqueta atp">ATP</div>
+    
+  </div>
+  </a>
+</div>
+<div class="pelicula"> <a href="pelicula2.html" class="nav-link">
+  <div class="poster-container">
+    <img src="img/ds2.jpg" alt="lilo y stich" class="poster">
+    <div class="tiempo">1h 50m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">DESTINO FINAL LAZOS DE SANGRE</h3>
+    <p class="formatos">2D . D-BOX</p>
+    <div class="etiqueta atp">+16</div>
+    </div>
+    </a>
+</div>
+
+
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/DS3.jpg" alt="Bailarina" class="poster">
+    <div class="tiempo">2h 5m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">DESTINO FINAL LAZOS DE SANGRE</h3>
+    <p class="formatos">2D . D-BOX . PREMIUM CLASS . XD DIGITAL</p>
+    <div class="etiqueta atp">+16</div>
+    </div>
+</div>
+
+
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds4.jpg" alt="MISION IMPOSIBLE" class="poster">
+    <div class="tiempo">2h 49m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">MISION IMPOSIBLE LA SENTENCIA FINAL</h3>
+    <p class="formatos">2D . CONFORT . PREMIUM CLASS </p>
+    <div class="etiqueta atp">+13</div>
+    </div>
+</div>
+
+
+
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds5.jpg" alt="EL ESQUEMA FENICIO" class="poster">
+    <div class="tiempo">1h 42m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">EL ESQUEMA FENICIO</h3>
+    <p class="formatos">2D </p>
+    <div class="etiqueta atp">+13</div>
+    </div>
+</div>
+
+
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds6.jpg" alt="DAN DA DAN EVIL EVE" class="poster">
+    <div class="tiempo">1h 33m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">DAN DA DAN EVIL EVE</h3>
+    <p class="formatos">2D </p>
+    <div class="etiqueta atp">+13</div>
+    </div>
+</div>
+
+
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds7.jpg" alt="VERMIGILIO" class="poster">
+    <div class="tiempo">1h 59m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">VERMIGILIO </h3>
+    <p class="formatos">2D </p>
+    <div class="etiqueta atp">+13</div>
+    </div>
+</div>
+
+
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds8.jpg" alt="29 EDICION SDC TODAS LAS FUERZAS" class="poster">
+    <div class="tiempo">1h 43m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">29 EDICION SDC TODAS LAS FUERZAS</h3>
+    <p class="formatos">2D </p>
+    <div class="etiqueta atp">+16</div>
+    </div>
+</div>
+
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds9.jpg" alt="29 EDICION SDC TODAS LAS FUERZAS" class="poster">
+    <div class="tiempo">1h 43m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">29 EDICION SDC VIEJO ALGO NUEVO</h3>
+    <p class="formatos">2D </p>
+    <div class="etiqueta atp">+16</div>
+    </div>
+</div>
+</div>
+
+ <div class="navbar-underline"></div>
+ 
+ <div class="sub-contenedor">
+  <h2 class="sub">PELÍCULAS EN PREVENTA</h2>
+</div>
+
+ 
+<div class="peliculas">
+ <div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds10.jpg" alt="COMO ENTRENAR A TU DRAGON" class="poster">
+    <div class="tiempo">2h 6m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">COMO ENTRENAR A TU DRAGON</h3>
+    <p class="formatos">3D · 4D E-MOTION · COMFORT · D-BOX · XD DIGITAL · 2D · PREMIUM CLASS</p>
+    <div class="etiqueta atp">ATP</div>
+    
+  </div>
+</div>
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds11.jpg" alt="F1 LA PELICULA" class="poster">
+    <div class="tiempo">2h 35m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">F1 LA PELICULA</h3>
+    <p class="formatos">2D . D-BOX</p>
+    <div class="etiqueta atp">+16</div>
+    </div>
+</div>
+
+
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds12.jpg" alt="MILEY CYRUS SOMETHING BEAUTIFUL" class="poster">
+    <div class="tiempo">55m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">MILEY CYRUS SOMETHING BEAUTIFUL</h3>
+    <p class="formatos">2D</p>
+    <div class="etiqueta atp">APT</div>
+    </div>
+</div>
+
+
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds13.jpg" alt="GATILLERO" class="poster">
+    <div class="tiempo">  1h 20m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">GATILLERO</h3>
+    <p class="formatos">2D </p>
+    <div class="etiqueta atp">+16</div>
+    </div>
+</div>
+ 
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds14.jpg" alt="ROGER WATERS THIS IS NOT A DRILL" class="poster">
+    <div class="tiempo">  2h 23m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">ROGER WATERS THIS IS NOT A DRILL</h3>
+    <p class="formatos">2D </p>
+    <div class="etiqueta atp">APT</div>
+    </div>
+</div>
+</div>
+
+ <div class="navbar-underline"></div>
+
+ <div class="sub-contenedor">
+  <h2 class="sub">DISFRUTÁ EN CINEMARK</h2>
+</div>
+  <div class="contenedor2">
+    <div class="tarjeta2">
+      <img class="centrada" src="img/disfruta2.jpg" alt="Promos">
+      
+    </div>
+
+    <div class="tarjeta2">
+      <img class="centrada" src="img/disfruta1.jpg" alt="15% OFF">
+      
+    </div>
+
+    <div class="tarjeta2">
+      <img class="centrada" src="img/disfruta3.jpg" alt="Cine Fan">
+      
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div class="navbar-underline"></div>
+ 
+ <div class="sub-contenedor">
+  <h2 class="sub">PROXIMOS ESTRENOS</h2>
+</div>
+
+<div class="peliculas">
+ <div class="pelicula">
+  <div class="poster-container">
+    <img src="img/proximos estrenos2.jpg" alt="LOS CUATRO FANTASTICOS" class="poster">
+    <div class="tiempo">1h 30m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">LOS CUATRO FANTASTICOS: PRIMEROS PASOS</h3>
+     <p class="formatos">24/07/2025</p>
+    <div class="etiqueta atp">ATP</div>
+    
+  </div>
+</div>
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/proximos estrenos3.jpg" alt="SUPERMAN" class="poster">
+    <div class="tiempo">2h 9m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">SUPERMAN</h3>
+    <p class="formatos">10/07/2025</p>
+    <div class="etiqueta atp">APT</div>
+    </div>
+</div>
+
+
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/proximos estrenos1.jpg" alt="AMORES MATERIALISTAS" class="poster">
+    <div class="tiempo">1h 30m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">AMORES MATERIALISTAS</h3>
+    <p class="formatos">31/07/2025</p>
+    <div class="etiqueta atp">APT</div>
+    </div>
+</div>
+
+
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds13.jpg" alt="GATILLERO" class="poster">
+    <div class="tiempo">  1h 20m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">GATILLERO</h3>
+    <p class="formatos">2D </p>
+    <div class="etiqueta atp">+16</div>
+    </div>
+</div>
+ 
+<div class="pelicula">
+  <div class="poster-container">
+    <img src="img/ds14.jpg" alt="ROGER WATERS THIS IS NOT A DRILL" class="poster">
+    <div class="tiempo">  2h 23m</div>
+  </div>
+  <div class="info">
+    <h3 class="titulo">ROGER WATERS THIS IS NOT A DRILL</h3>
+    <p class="formatos">2D </p>
+    <div class="etiqueta atp">APT</div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+<div class="sub-contenedor">
+  <h2 class="sub">DISFRUTÁ EN CINEMARK</h2>
+</div>
+  <div class="contenedor2">
+    <div class="tarjeta2">
+      <img class="centrada" src="img/disfruta4.jpg" alt="Promos">
+      
+    </div>
+
+    <div class="tarjeta2">
+      <img class="centrada" src="img/disfruta5.jpg" alt="15% OFF">
+      
+    </div>
+
+    <div class="tarjeta2">
+      <img class="centrada" src="img/disfruta6.jpg" alt="Cine Fan">
+      
+    </div>
+  </div>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="footer">
+  <div class="footer-top">
+    <div class="footer-column">
+      <h4>CINES</h4>
+      <ul>
+        <li><a href="#">Precios Vigentes</a></li>
+        <li><a href="#">Formatos</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>PROMOCIONES</h4>
+      <ul>
+        <li><a href="#">Promociones</a></li>
+        <li><a href="#">Asociá tu cuenta YPF</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>VENTAS CORPORATIVAS</h4>
+    </div>
+    <div class="footer-column">
+      <h4>CUMPLEAÑOS Y GRUPOS</h4>
+    </div>
+    <div class="footer-column">
+      <h4>AYUDA</h4>
+      <ul>
+        <li><a href="#">Preguntas Frecuentes</a></li>
+        <li><a href="#">Términos y Condiciones</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-link">
+      <ul>
+        <li><a href="#">Login</a></li>
+        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="#">Contacto Cine Fan</a></li>
+        <li><a href="#">RRHH</a></li>
+        <li><a href="#">Flix Media</a></li>
+        <li><a href="#">Libro de quejas online</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-info">
+      <p>&copy; 2024 Cinemark</p>
+      <p>Dirección General de Defensa y Protección al Consumidor: Para consultas y/o denuncias haga <a href="#">click aquí</a></p>
+    </div>
+
+    <div class="footer-right">
+      <div class="qrs">
+        <img src="img/qr.png" alt="QR 1">
+        <img src="img/qr2.png" alt="QR 2">
+      </div>
+      <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+
+
+(function(){
+  const slider = document.querySelector('.slider');
+  const slides = document.querySelectorAll('.slider img');
+  const navLinks = document.querySelectorAll('.slider-nav a');
+  const btnPrev = document.getElementById('prev');
+  const btnNext = document.getElementById('next');
+  const total = slides.length;
+  let index = 0; 
+
+  function update() {
+  
+    slider.style.transform = `translateX(-${index * 100}%)`;
+
+    
+    navLinks.forEach((a, i) => a.classList.toggle('active', i === index));
+  }
+
+
+  function prev() { index = (index - 1 + total) % total; update(); }
+  function next() { index = (index + 1) % total; update(); }
+
+ 
+  navLinks.forEach((a, i) => {
+    a.addEventListener('click', function(e){
+      e.preventDefault();        
+      index = i;
+      update();
+
+      
+    });
+  });
+
+  
+  if (btnPrev) btnPrev.addEventListener('click', prev);
+  if (btnNext) btnNext.addEventListener('click', next);
+
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+
+  update();
+
+ 
+  window.addEventListener('load', () => {
+    const h = location.hash;
+    if (h) {
+     
+      const el = document.querySelector(h);
+      if (el) {
+        const found = Array.from(slides).indexOf(el);
+        if (found >= 0) {
+          index = found;
+          update();
+         
+          setTimeout(() => { window.scrollTo({ top: 0 }); }, 0);
+        }
+      }
+    }
+  });
+})();
+</script>
+
+
+</body>
+</html>
