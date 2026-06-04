@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cine fan</title>
-    <link rel="stylesheet" href="pages/pagina2.css">
+    <title>Cinemark-Contactanos</title>
+    <link rel="stylesheet" href="css/pagina2.css">
     <link rel="icon" href="img/logo3.png">
 </head>
 <body>
@@ -12,9 +12,9 @@
   <nav class="navbar">
      <div class="uno">
         <h1>CINEMARK <span>Hoyts</span></h1>
-         <a href="ejercicio1.html" class="nav-link">PELÍCULAS</a>
+         <a href="ejercicio1.html" class="nav-link active">PELÍCULAS</a>
       <a href="#" class="nav-link">CANDY</a>
-      <a href="#" class="nav-link active">CINE FAN</a>
+      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
       <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
      </div>
@@ -27,54 +27,20 @@
   </nav> 
     <div class="navbar-underline"></div>
   </div>
-  <br>
-   
- <section class="planes">
-  <div class="plan black">
-    <h2>CINE FAN BLACK <span>Más beneficios</span></h2>
-    <ul>
-      <li>🎟️ 2 entradas mensuales (2D • 3D • Comfort válidas por 30 días)</li>
-      <li>🍿 25% off en combos</li>
-      <li>🎬 50% off en entradas todos los días</li>
-      <li>🎁 Regalo de bienvenida: combo nachos o popcorn</li>
-      <li>⭐ Suma y canjea puntos por entradas o combos</li>
-      <li>🏆 Funciones y concursos exclusivos</li>
-      <li>🥤 Refill de una gaseosa</li>
-      <li>🛍️ Beneficios en Cinemark Store</li>
-    </ul>
-    <p class="precio">$14.399 <span>20% de descuento x 1 mes*</span></p>
-    <button>QUIERO SER CINE FAN BLACK</button>
-  </div>
-
-  <div class="plan gold">
-    <h2>CINE FAN +</h2>
-    <ul>
-      <li>🎟️ 2 entradas mensuales (2D • 3D • Comfort válidas por 30 días)</li>
-      <li>🍿 25% off en combos</li>
-      <li>🎬 50% off en entradas de lunes a viernes</li>
-      <li>🎁 Regalo de bienvenida: combo nachos o popcorn</li>
-      <li>⭐ Suma y canjea puntos</li>
-      <li>🏆 Funciones y concursos exclusivos</li>
-      <li>🛍️ Beneficios en Cinemark Store</li>
-    </ul>
-    <p class="precio">$14.999 por mes</p>
-    <button>QUIERO SER CINE FAN +</button>
-  </div>
-
-  <div class="plan red">
-    <h2>CINE FAN</h2>
-    <ul>
-      <li>🎟️ 2 entradas a precio promocional (2D - 3D - Comfort)</li>
-      <li>🍿 15% off en combos</li>
-      <li>🎁 Regalo de bienvenida: combo nachos o popcorn</li>
-      <li>⭐ Suma y canjea puntos</li>
-      <li>🛍️ Beneficios en Cinemark Store</li>
-    </ul>
-    <p class="precio">Elegí tu película y sumate con el pack CINE FAN*</p>
-    <button>QUIERO SER CINE FAN</button>
-  </div>
-</section>
-
+   <br>
+   <form action="=registrardatos.php" method="post">
+        Nombre:
+        <input type="text" name="nombre">
+        <br>
+        Correo electrónico:
+        <input type="text" name="correo">
+        <br>
+        Problema:
+        <br>
+        <textarea name="Temas" rows="5" cols="60"></textarea><br>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Borrar">
+    </form><br>
 
   <footer class="footer">
   <div class="footer-top">
@@ -111,7 +77,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="#">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
