@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-06-2026 a las 02:10:12
+-- Tiempo de generación: 08-06-2026 a las 21:49:28
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -31,7 +31,7 @@ CREATE TABLE `clientes` (
   `id_cliente` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
-  `edad` int(11) NOT NULL,
+  `edad` int(11) NOT NULL CHECK (`edad` > 0),
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -43,7 +43,8 @@ CREATE TABLE `clientes` (
 
 CREATE TABLE `entradas` (
   `id_entrada` int(11) NOT NULL,
-  `precio` int(11) NOT NULL,
+  `precio` int(11) NOT NULL CHECK (`precio` > 0),
+  `cantidad` int(11) NOT NULL CHECK (`cantidad` between 1 and 10),
   `asiento` varchar(10) NOT NULL,
   `id_cliente` int(11) NOT NULL,
   `id_funcion` int(11) NOT NULL
@@ -74,9 +75,15 @@ CREATE TABLE `peliculas` (
   `titulo` varchar(100) NOT NULL,
   `genero` varchar(50) NOT NULL,
   `duracion` int(11) NOT NULL,
-  `clasificacion` varchar(20) NOT NULL,
+  `clasificacion` enum('ATP','+13','+16','+18') NOT NULL,
   `formato` varchar(20) DEFAULT NULL,
-  `idioma` varchar(30) DEFAULT NULL
+  `idioma` varchar(30) DEFAULT NULL,
+  `descripcion` text DEFAULT NULL,
+  `fecha_estreno` date DEFAULT NULL,
+  `distribuidor` varchar(100) DEFAULT NULL,
+  `imagen` varchar(255) DEFAULT NULL,
+  `trailer` varchar(255) DEFAULT NULL,
+  `estado` enum('Cartelera','Preventa') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -88,7 +95,7 @@ CREATE TABLE `peliculas` (
 CREATE TABLE `salas` (
   `id_sala` int(11) NOT NULL,
   `numero_sala` int(11) NOT NULL,
-  `capacidad` int(11) NOT NULL
+  `capacidad` int(11) NOT NULL CHECK (`capacidad` > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -115,7 +122,7 @@ ALTER TABLE `entradas`
 --
 ALTER TABLE `funciones`
   ADD PRIMARY KEY (`id_funcion`),
-  ADD KEY `id_sala` (`id_sala`),
+  ADD UNIQUE KEY `id_sala` (`id_sala`,`fecha`,`hora`),
   ADD KEY `id_pelicula` (`id_pelicula`);
 
 --
