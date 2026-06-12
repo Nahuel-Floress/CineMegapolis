@@ -1,13 +1,23 @@
-img{
-    
-    width: 60%;
+.planes .img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 12px;
+  border: 2px solid #ffffff;
+
+  display: block;
+  margin: 15px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Le da una sombra suave para que resalte */
 }
 
-
-
-
-
-
+.logo{
+    width: 125px;
+    height: auto;
+    display: block;
+    margin-top: -2px;
+    border-radius: 80px;
+    box-shadow: 0 0 50px rgb(0, 0, 0);
+}
 
 .footer {
   background-color: #0e0c0a;
@@ -308,7 +318,7 @@ table {
 }
 
 .Black{
- background-color: #0e0c0a;
+ background-color: #333333;
  color: white;
 }
 
@@ -403,7 +413,7 @@ table {
 
 
 .plan.black {
-  background-color: #111;
+  background-color: #881111;
 }
 
 .plan.gold {
@@ -412,7 +422,7 @@ table {
 }
 
 .plan.red {
-  background-color: #b21717;
+  background-color: #881111;
 }
 
 

@@ -17,6 +17,15 @@
     }
 
 
+    .logo{
+    width: 125px;
+    height: auto;
+    display: block;
+    margin-top: -2px;
+    border-radius: 80px;
+    box-shadow: 0 0 50px rgb(0, 0, 0);
+}
+
     /* ---------- LAYOUT PRINCIPAL ---------- */
     .container{
       display:grid;
