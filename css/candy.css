@@ -75,6 +75,18 @@ body {
     cursor: pointer;
 }
 
+.icon-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.2s, transform 0.2s;
+}
+.icon-link:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
 .dos {
     padding-right: 30%;
 }

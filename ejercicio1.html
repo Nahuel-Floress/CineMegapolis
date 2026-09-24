@@ -21,7 +21,7 @@
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <span class="icon">👤</span>
+        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
      </div>
 </nav> 
   </nav> 
@@ -510,29 +510,52 @@
   function prev() { index = (index - 1 + total) % total; update(); }
   function next() { index = (index + 1) % total; update(); }
 
+  // ---------- AUTOPLAY ----------
+  const AUTOPLAY_DELAY = 4000; // 4 segundos entre slides
+  let autoplayId = null;
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayId = setInterval(next, AUTOPLAY_DELAY);
+  }
+  function stopAutoplay() {
+    if (autoplayId) clearInterval(autoplayId);
+  }
+  function resetAutoplay() {
+    startAutoplay(); // reinicia el conteo cada vez que el usuario navega manualmente
+  }
+
  
   navLinks.forEach((a, i) => {
     a.addEventListener('click', function(e){
       e.preventDefault();        
       index = i;
       update();
-
+      resetAutoplay();
       
     });
   });
 
   
-  if (btnPrev) btnPrev.addEventListener('click', prev);
-  if (btnNext) btnNext.addEventListener('click', next);
+  if (btnPrev) btnPrev.addEventListener('click', function(){ prev(); resetAutoplay(); });
+  if (btnNext) btnNext.addEventListener('click', function(){ next(); resetAutoplay(); });
 
 
   document.addEventListener('keydown', function(e){
-    if (e.key === 'ArrowLeft') prev();
-    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') { prev(); resetAutoplay(); }
+    if (e.key === 'ArrowRight') { next(); resetAutoplay(); }
   });
+
+  // Pausa el autoplay mientras el mouse está sobre el carrusel
+  const sliderWrapper = document.querySelector('.slider-wrapper');
+  if (sliderWrapper) {
+    sliderWrapper.addEventListener('mouseenter', stopAutoplay);
+    sliderWrapper.addEventListener('mouseleave', startAutoplay);
+  }
 
 
   update();
+  startAutoplay();
 
  
   window.addEventListener('load', () => {

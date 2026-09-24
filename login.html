@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iniciar sesión</title>
+  <link rel="stylesheet" href="css/peliculas.css">
+  <link rel="icon" href="img/Logo.png">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="uno">
+      <img src="img/Logo.png" alt="logo de la pagina" class="logo">
+      <a href="ejercicio1.html" class="nav-link">PELÍCULAS</a>
+      <a href="candy.html" class="nav-link">CANDY</a>
+      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
+      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+      <a href="#" class="nav-link">STORE</a>
+    </div>
+    <div class="dos">
+      <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
+      <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
+      <a href="login.html" class="icon-link active" title="Iniciar sesión"><span class="icon">👤</span></a>
+    </div>
+  </nav>
+  <div class="navbar-underline"></div>
+
+  <main class="compra-container">
+
+    <a href="javascript:history.back()" class="btn-volver">&larr; Volver</a>
+
+    <div id="vistaLogin">
+      <h2 class="compra-titulo">Iniciar sesión</h2>
+
+      <div class="qty-card" style="max-width:420px">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div>
+            <label for="email" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Email</label>
+            <input type="email" id="email" placeholder="tu@email.com"
+              style="width:100%;padding:12px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;box-sizing:border-box">
+          </div>
+          <div>
+            <label for="pass" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Contraseña</label>
+            <input type="password" id="pass" placeholder="••••••••"
+              style="width:100%;padding:12px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;box-sizing:border-box">
+          </div>
+          <button class="btn-confirmar" id="btnLogin" style="margin-top:6px">Ingresar</button>
+          <div style="text-align:center;color:#bfbfbf;font-size:13px">
+            ¿No tenés cuenta? <a href="#" style="color:var(--accent-2);font-weight:700">Registrate</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="vistaPerfil" style="display:none">
+      <h2 class="compra-titulo">Mi perfil</h2>
+      <div class="resumen-card" style="max-width:420px">
+        <div class="resumen-row"><span>Email</span><span id="perfilEmail">-</span></div>
+        <div class="resumen-row"><span>Estado</span><span style="color:#41c453">Sesión activa</span></div>
+      </div>
+      <button class="btn-confirmar" id="btnLogout" style="max-width:420px">Cerrar sesión</button>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="footer-info">
+        <p>&copy; 2024 Cinemark</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simulación simple de sesión guardada en memoria del navegador (sessionStorage)
+    const vistaLogin = document.getElementById('vistaLogin');
+    const vistaPerfil = document.getElementById('vistaPerfil');
+    const perfilEmail = document.getElementById('perfilEmail');
+
+    function mostrarSegunSesion() {
+      const email = sessionStorage.getItem('usuarioEmail');
+      if (email) {
+        vistaLogin.style.display = 'none';
+        vistaPerfil.style.display = 'block';
+        perfilEmail.textContent = email;
+      } else {
+        vistaLogin.style.display = 'block';
+        vistaPerfil.style.display = 'none';
+      }
+    }
+
+    document.getElementById('btnLogin').addEventListener('click', () => {
+      const email = document.getElementById('email').value.trim();
+      if (!email) {
+        alert('Ingresá un email para continuar.');
+        return;
+      }
+      sessionStorage.setItem('usuarioEmail', email);
+      mostrarSegunSesion();
+    });
+
+    document.getElementById('btnLogout').addEventListener('click', () => {
+      sessionStorage.removeItem('usuarioEmail');
+      mostrarSegunSesion();
+    });
+
+    mostrarSegunSesion();
+  </script>
+
+</body>
+</html>

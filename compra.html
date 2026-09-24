@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Comprar entradas</title>
+  <link rel="stylesheet" href="css/peliculas.css">
+  <link rel="icon" href="img/Logo.png">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="uno">
+      <img src="img/Logo.png" alt="logo de la pagina" class="logo">
+      <a href="ejercicio1.html" class="nav-link">PELÍCULAS</a>
+      <a href="candy.html" class="nav-link">CANDY</a>
+      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
+      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+      <a href="#" class="nav-link">STORE</a>
+    </div>
+    <div class="dos">
+      <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
+      <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
+      <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+    </div>
+  </nav>
+  <div class="navbar-underline"></div>
+
+  <main class="compra-container">
+
+    <a href="javascript:history.back()" class="btn-volver">&larr; Volver a la película</a>
+
+    <h2 class="compra-titulo">Comprar entradas</h2>
+
+    <div class="resumen-card" id="resumenCard">
+      <div class="resumen-row"><span>Película</span><span id="rPelicula">-</span></div>
+      <div class="resumen-row"><span>Cine</span><span id="rCine">-</span></div>
+      <div class="resumen-row"><span>Día</span><span id="rDia">-</span></div>
+      <div class="resumen-row"><span>Horario</span><span id="rHorario">-</span></div>
+      <div class="resumen-row"><span>Formato / Idioma</span><span id="rDetalle">-</span></div>
+      <div class="resumen-row"><span>Disponibilidad de butacas</span><span id="rButacas">-</span></div>
+    </div>
+
+    <div class="qty-card">
+      <div class="qty-title">Cantidad de entradas</div>
+      <div class="qty-control">
+        <button class="qty-btn" id="menos">−</button>
+        <span class="qty-num" id="cantidad">1</span>
+        <button class="qty-btn" id="mas">+</button>
+      </div>
+
+      <div class="precio-total">
+        <span>Total a pagar</span>
+        <span id="total">$ 5.500</span>
+      </div>
+    </div>
+
+    <button class="btn-confirmar" id="btnConfirmar">Confirmar compra</button>
+
+    <div class="confirmacion" id="confirmacion">
+      <h3>¡Compra confirmada!</h3>
+      <p>Tu código de reserva es:</p>
+      <div class="codigo" id="codigoReserva">------</div>
+      <p style="color:#bfbfbf;font-size:13px">Presentá este código en la boletería del cine.</p>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="footer-info">
+        <p>&copy; 2024 Cinemark</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const PRECIO_UNITARIO = 5500;
+
+    // Leer los parámetros que llegan desde pelicula2.html
+    const params = new URLSearchParams(window.location.search);
+
+    document.getElementById('rPelicula').textContent = params.get('pelicula') || 'Película';
+    document.getElementById('rCine').textContent = params.get('cine') || 'Cine';
+    document.getElementById('rDia').textContent = params.get('dia') || 'HOY';
+    document.getElementById('rHorario').textContent = params.get('horario') || '-';
+    document.getElementById('rDetalle').textContent = params.get('detalle') || '-';
+    document.getElementById('rButacas').textContent = params.get('butacas') || '-';
+
+    // Selector de cantidad
+    let cantidad = 1;
+    const cantidadEl = document.getElementById('cantidad');
+    const totalEl = document.getElementById('total');
+
+    function actualizarTotal(){
+      cantidadEl.textContent = cantidad;
+      const total = cantidad * PRECIO_UNITARIO;
+      totalEl.textContent = '$ ' + total.toLocaleString('es-AR');
+    }
+
+    document.getElementById('mas').addEventListener('click', () => {
+      if (cantidad < 10) { cantidad++; actualizarTotal(); }
+    });
+
+    document.getElementById('menos').addEventListener('click', () => {
+      if (cantidad > 1) { cantidad--; actualizarTotal(); }
+    });
+
+    // Confirmar compra
+    document.getElementById('btnConfirmar').addEventListener('click', () => {
+      const codigo = 'CIN-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+      document.getElementById('codigoReserva').textContent = codigo;
+      document.getElementById('confirmacion').style.display = 'block';
+
+      const btn = document.getElementById('btnConfirmar');
+      btn.disabled = true;
+      btn.textContent = 'Compra realizada';
+
+      document.getElementById('confirmacion').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    actualizarTotal();
+  </script>
+
+</body>
+</html>

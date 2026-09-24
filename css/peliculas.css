@@ -161,6 +161,8 @@
       padding:10px 14px;border-radius:8px;font-weight:700;cursor:pointer;font-size:13px;
     }
     .tab.active{background:var(--white);color:#000}
+    .tab:hover{background:rgba(255,255,255,0.15);color:var(--white)}
+    .tab.active:hover{background:var(--white);color:#000}
 
     .filters{display:flex;gap:10px;margin:12px 0 18px 0}
     .select{
@@ -262,6 +264,18 @@
 .icon {
   font-size: 14px;
   cursor: pointer;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.icon-link:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 .dos {
@@ -369,4 +383,127 @@ img {
   font-weight: bold;
   cursor: pointer;
   font-size: 14px;
+}
+
+/* ---------- PÁGINA DE COMPRA ---------- */
+.compra-container{
+  max-width:720px;
+  margin:0 auto;
+  padding:40px 6% 80px;
+}
+
+.compra-titulo{
+  color:var(--white);
+  font-size:26px;
+  font-weight:800;
+  margin-bottom:20px;
+  letter-spacing:1px;
+}
+
+.resumen-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.35));
+  border-radius:12px;
+  padding:22px;
+  box-shadow: var(--card-shadow);
+  margin-bottom:24px;
+}
+
+.resumen-row{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 0;
+  border-top:1px solid rgba(255,255,255,0.06);
+  font-size:14px;
+}
+.resumen-row:first-child{border-top:none}
+.resumen-row span:first-child{color:#bfbfbf}
+.resumen-row span:last-child{color:var(--white);font-weight:700;text-align:right}
+
+.qty-card{
+  background: rgba(255,255,255,0.03);
+  border-radius:12px;
+  padding:22px;
+  margin-bottom:24px;
+}
+
+.qty-title{color:var(--white);font-weight:800;margin-bottom:14px;font-size:15px}
+
+.qty-control{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.qty-btn{
+  width:40px;height:40px;
+  border-radius:8px;
+  border:none;
+  background:rgba(255,255,255,0.08);
+  color:var(--white);
+  font-size:20px;
+  font-weight:800;
+  cursor:pointer;
+}
+.qty-btn:hover{background:var(--accent)}
+
+.qty-num{
+  color:var(--white);
+  font-size:20px;
+  font-weight:800;
+  min-width:24px;
+  text-align:center;
+}
+
+.precio-total{
+  margin-top:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding-top:14px;
+}
+.precio-total span:first-child{color:#bfbfbf;font-size:14px}
+.precio-total span:last-child{color:var(--accent-2);font-size:22px;font-weight:800}
+
+.btn-confirmar{
+  width:100%;
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  padding:16px;
+  border-radius:10px;
+  font-weight:800;
+  font-size:16px;
+  cursor:pointer;
+  letter-spacing:0.5px;
+}
+.btn-confirmar:hover{background:#8f1212}
+.btn-confirmar:disabled{background:#5a5a5a;cursor:not-allowed}
+
+.btn-volver{
+  display:inline-block;
+  margin-bottom:20px;
+  color:var(--muted);
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700;
+}
+.btn-volver:hover{color:var(--white)}
+
+.confirmacion{
+  display:none;
+  text-align:center;
+  padding:40px 20px;
+  background: rgba(65,196,83,0.08);
+  border:1px solid rgba(65,196,83,0.4);
+  border-radius:12px;
+  color:var(--white);
+}
+.confirmacion h3{color:#41c453;margin-top:0}
+.confirmacion .codigo{
+  font-size:22px;
+  font-weight:800;
+  letter-spacing:2px;
+  color:var(--accent-2);
+  margin:10px 0;
 }

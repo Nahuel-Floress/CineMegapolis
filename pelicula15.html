@@ -23,7 +23,7 @@
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <span class="icon">👤</span>
+        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
      </div>
 </nav> 
   </nav> 
@@ -189,6 +189,48 @@
     </div>
   </div>
 </footer>
+
+  <script>
+    // ---------- TABS DE DÍA (HOY / MAR / MIÉ) ----------
+    const dayTabs = document.querySelectorAll('.day-tabs .tab');
+    dayTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        dayTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        // Acá se podría más adelante recargar los horarios según el día elegido
+      });
+    });
+
+    // ---------- BOTONES "COMPRAR" ----------
+    const peliculaTitulo = document.querySelector('.movie-title').textContent.trim();
+    const cineNombre = document.querySelector('.cinema-name').textContent.replace('HORARIOS EN', '').trim();
+
+    document.querySelectorAll('.session').forEach(session => {
+      const btn = session.querySelector('button');
+      if (!btn) return;
+
+      btn.addEventListener('click', () => {
+        const diaActivo = document.querySelector('.day-tabs .tab.active');
+        const dia = diaActivo ? diaActivo.textContent.trim() : 'HOY';
+        const horario = session.querySelector('.time').textContent.trim();
+        const detalle = session.querySelector('small').textContent.trim();
+        const butacas = session.querySelector('small[style]')
+          ? session.querySelector('small[style]').textContent.replace('Butacas:', '').trim()
+          : '';
+
+        const params = new URLSearchParams({
+          pelicula: peliculaTitulo,
+          cine: cineNombre,
+          dia: dia,
+          horario: horario,
+          detalle: detalle,
+          butacas: butacas
+        });
+
+        window.location.href = 'compra.html?' + params.toString();
+      });
+    });
+  </script>
 
 </body>
 </html>
