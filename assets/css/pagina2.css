@@ -174,49 +174,77 @@ body {
 
 
 .navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #12100d;
-  color: white;
-  padding: 4px 20px;
-  padding-left: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #12100d;
+    color: white;
+    padding: 10px 40px; /* Padding fijo y limpio (se quita el 20%) */
+    box-sizing: border-box;
+    width: 100%;
+}
+.uno {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Separación pareja entre links */
 }
 
-.uno, .dos {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.dos {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-right: 0; /* SE ELIMINA EL padding-right: 30% QUE ROMPÍA TODO */
 }
-
-.uno h1 {
-  margin: 0
-  font-size 16px; 
-  line-height: 1.2; 
-}
-
-.uno h1 span {
-  font-weight: bold;
-}
-
 .nav-link {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  position: relative;
-  font-size: 14px; 
-  line-height: 1.2;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: nowrap; /* Evita saltos de línea */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .nav-link.active::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: white;
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: white;
 }
+
+/* ESTILOS PARA EL SELECTOR DE CINE INTEGRADO */
+.cinema-selector {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.cinema-selector .pin-icon {
+    font-size: 14px;
+}
+
+#selectCine {
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+}
+
+#selectCine option {
+    background-color: #12100d;
+    color: #ffffff;
+}
+
 
 .icon {
   font-size: 14px; 

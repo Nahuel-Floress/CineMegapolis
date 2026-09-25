@@ -133,3 +133,28 @@ margin-top: 5px;
 .container.toggle .welcome-sign-up{
     transform: translateX(-100%);
 }
+
+
+.cinema-selector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+}
+
+.cinema-selector select {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+  text-transform: uppercase;
+}
+
+/* Estilo para las opciones del desplegable */
+.cinema-selector option {
+  background-color: #12100d;
+  color: #fff;
+}

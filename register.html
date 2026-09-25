@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iniciar sesión</title>
+  <link rel="stylesheet" href="assets/css/peliculas.css">
+  <link rel="icon" href="assets/img/Logo.png">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="uno">
+      <img src="assets/img/Logo.png" alt="logo de la pagina" class="logo">
+      <a href="ejercicio1.html" class="nav-link">PELÍCULAS</a>
+      <a href="candy.html" class="nav-link">CANDY</a>
+      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
+      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+      <a href="#" class="nav-link">STORE</a>
+    </div>
+    <div class="dos">
+      <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
+      <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
+      <a href="login.html" class="icon-link active" title="Iniciar sesión"><span class="icon">👤</span></a>
+    </div>
+  </nav>
+  <div class="navbar-underline"></div>
+
+  <main class="compra-container">
+
+    <a href="javascript:history.back()" class="btn-volver">&larr; Volver</a>
+
+    <div id="vistaLogin">
+      <h2 class="compra-titulo">Crear Cuenta</h2>
+
+     <h3>Datos personales</h3>
+    <div class="qty-card" style="max-width:420px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+
+    <form action="register">
+    <div>
+      <label for="nombre" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Nombre*</label>
+      <input type="text" id="nombre" placeholder="Nombre" 
+        style="width:100%;padding:12px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;box-sizing:border-box">
+    </div>
+    <div>
+      <label for="apellido" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Apellido*</label>
+      <input type="text" id="apellido" placeholder="Apellido" 
+        style="width:100%;padding:12px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;box-sizing:border-box">
+    </div>
+    <div>
+      <label for="fecha" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Fecha de nacimiento*</label>
+      <input type="date" id="fecha" 
+        style="width:100%;padding:12px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;box-sizing:border-box">
+    </div>
+    <div>
+      <label for="email" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Email*</label>
+      <input type="email" id="email" placeholder="tu@email.com" 
+        style="width:100%;padding:12px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;box-sizing:border-box">
+    </div>
+    <div>
+      <label for="password" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Contraseña*</label>
+      <input type="password" id="password" placeholder="" 
+        style="width:100%;padding:12px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;box-sizing:border-box">
+    </div>
+    <div>
+      <label for="numero" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Número de teléfono*</label>
+      <input type="tel" id="numero" placeholder="1122334455" 
+        style="width:100%;padding:12px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;box-sizing:border-box">
+    </div>
+    <div>
+      <label for="genero" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Género*</label>
+      <select id="genero" name="genero" required 
+        style="width:100%;padding:12px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;box-sizing:border-box;outline:none;cursor:pointer;">
+        <option value="" disabled selected hidden style="background:#222;color:#a09d98">Selecciona una opción</option>
+        <option value="masculino" style="background:#222;color:#fff">Masculino</option>
+        <option value="femenino" style="background:#222;color:#fff">Femenino</option>
+        <option value="otro" style="background:#222;color:#fff">Otro</option>
+        <option value="no_especificar" style="background:#222;color:#fff">Prefiero no especificarlo</option>
+      </select>
+    </div>
+    <div>
+      <label for="complejo de preferencia" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Complejo de preferencia*</label>
+      <select id="complejo de preferencia" name="complejo de preferencia" required 
+        style="width:100%;padding:12px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;box-sizing:border-box;outline:none;cursor:pointer;">
+        <option value="" disabled selected hidden style="background:#222;color:#a09d98">Selecciona una opción</option>
+        <option value="congreso" style="background:#222;color:#fff">Congreso</option>
+        <option value="san nicolas" style="background:#222;color:#fff">San Nicolas</option>
+        <option value="palermo" style="background:#222;color:#fff">Palermo</option>
+        <option value="recoleta" style="background:#222;color:#fff">Recoleta</option>
+        <option value="recoleta" style="background:#222;color:#fff">Belgrano</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn-confirmar" id="btnRegister" style="margin-top:6px">Crear cuenta</button>
+  </div>
+</div>
+</form>
+
+    <div id="vistaPerfil" style="display:none">
+      <h2 class="compra-titulo">Mi perfil</h2>
+      <div class="resumen-card" style="max-width:420px">
+        <div class="resumen-row"><span>Email</span><span id="perfilEmail">-</span></div>
+        <div class="resumen-row"><span>Estado</span><span style="color:#41c453">Sesión activa</span></div>
+      </div>
+      <button class="btn-confirmar" id="btnLogout" style="max-width:420px">Cerrar sesión</button>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="footer-info">
+        <p>&copy; 2024 CineMegapolis</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simulación simple de sesión guardada en memoria del navegador (sessionStorage)
+    const vistaLogin = document.getElementById('vistaLogin');
+    const vistaPerfil = document.getElementById('vistaPerfil');
+    const perfilEmail = document.getElementById('perfilEmail');
+
+    function mostrarSegunSesion() {
+      const email = sessionStorage.getItem('usuarioEmail');
+      if (email) {
+        vistaLogin.style.display = 'none';
+        vistaPerfil.style.display = 'block';
+        perfilEmail.textContent = email;
+      } else {
+        vistaLogin.style.display = 'block';
+        vistaPerfil.style.display = 'none';
+      }
+    }
+
+    document.getElementById('btnLogin').addEventListener('click', () => {
+      const email = document.getElementById('email').value.trim();
+      if (!email) {
+        alert('Ingresá un email para continuar.');
+        return;
+      }
+      sessionStorage.setItem('usuarioEmail', email);
+      mostrarSegunSesion();
+    });
+
+    document.getElementById('btnLogout').addEventListener('click', () => {
+      sessionStorage.removeItem('usuarioEmail');
+      mostrarSegunSesion();
+    });
+
+    mostrarSegunSesion();
+  </script>
+
+</body>
+</html>
