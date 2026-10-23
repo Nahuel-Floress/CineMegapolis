@@ -20,7 +20,7 @@ session_start();
                 <a href="inicio.php" class="nav-link">PELÍCULAS</a>
                 <a href="candy.php" class="nav-link active">CANDY</a>
                 <a href="Cinefan.php" class="nav-link">CINE FAN</a>
-                <a href="regala.php" class="nav-link">REGALÁ CINE</a>
+                <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
                 <a href="#" class="nav-link">STORE</a>
             </div>
 
