@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lilo y stitch - Detalle</title>
-  <link rel="stylesheet" href="css/peliculas.css">
-  <link rel="icon" href="img/Logo.png">
+  <link rel="stylesheet" href="../assets/css/peliculas.css">
+  <link rel="icon" href="../assets/img/Logo.png">
 </head>
 
 <body>
@@ -13,62 +13,62 @@
   
  <nav class="navbar">
      <div class="uno">
-        <img src="img/Logo.png" alt="logo de la pagina" class="logo">
-         <a href="ejercicio1.html" class="nav-link active ">PELÍCULAS</a>
-      <a href="candy.html" class="nav-link">CANDY</a>
-      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+        <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+         <a href="inicio.php" class="nav-link active ">PELÍCULAS</a>
+      <a href="candy.php" class="nav-link">CANDY</a>
+      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
      </div>
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+        <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
      </div>
 </nav> 
   </nav> 
     <div class="navbar-underline"></div>
   </div>
+
   
   <main class="container">
 
     
     <section class="left-col">
-      <h2 class="movie-title">Ballerina</h2>
+      <h2 class="movie-title">F1: La película</h2>
 
       <div class="poster-card">
         <div class="poster">
           
-          <a href="https://www.youtube.com/watch?v=iS6CdinpJew&t=5s">
-          <img src="img/DS3.jpg" alt="Poster Bailarina">
+          <a href="https://www.youtube.com/watch?v=aw8YyC4B1EA">
+          <img src="../assets/img/ds11.jpg" alt="Poster Mision imposible">
           </a> 
-          <div class="badge-time">2h 50m</div>
+          <div class="badge-time">2h 35m</div>
           <div class="badge-age">S16</div>
           <div class="play-overlay" title="Ver trailer"></div>
         </div>
 
         <div class="poster-meta">
           <div>
-            <span class="tag">Accion</span>
+            <span class="tag">Aventura</span>
           </div>
 
           <p class="synopsis">
-            Ballerina: Una letal asesina entrenada en las tradiciones de los Ruska Roma busca venganza contra los hombres que masacraron a su familia. Ambientada entre la tercera y cuarta entrega de John Wick, Ana de Armas protagoniza este electrizante thriller de acción donde la elegancia del ballet se fusiona con la brutalidad del gun-fu.
+          F1: La películaUn veterano piloto de los años 90 (Brad Pitt) sale de su retiro para salvar a una escudería al borde del colapso y servir de mentor a un joven y talentoso novato (Damson Idris). Dirigida por Joseph Kosinski (Top Gun: Maverick), es un espectáculo visceral de velocidad real, filmado durante los fines de semana de los Grandes Premios auténticos.
           </p>
 
           <div class="info-grid">
-            <div class="info-row"><strong>Formatos disponibles</strong><br>2D . D-BOX . PREMIUM CLASS . XD DIGITAL</div>
-            <div class="info-row"><strong>Duración</strong><br>2h 50m</div>
-            <div class="info-row"><strong>Fecha de estreno</strong><br>16 Octubre, 2025</div>
-            <div class="info-row"><strong>Distribuidor</strong><br>United International Pictures S.R.L.</div>
+            <div class="info-row"><strong>Formatos disponibles</strong><br>2D</div>
+            <div class="info-row"><strong>Duración</strong><br>1h 59m</div>
+            <div class="info-row"><strong>Fecha de estreno</strong><br> 25 de junio de 2025  </div>
+            <div class="info-row"><strong>Distribuidor</strong><br>Warner Bros. Pictures</div>
           </div>
         </div>
       </div>
 
       
       <div style="margin-top:18px;color:#bfbfbf;font-size:13px;line-height:1.6">
-        <p><strong>Sinopsis completa:</strong></p>El universo de John Wick se expande con la historia de Eve Macarro (Ana de Armas), una joven reclutada desde niña por la Directora para convertirse en un arma humana. Bajo la fachada de una escuela de danza clásica, Eve es sometida a un entrenamiento implacable que combina gracia y letalidad. Cuando los fantasmas de su pasado regresan, emprenderá una sangrienta cacería que la llevará a cruzarse con viejos conocidos del Hotel Continental, incluido el mismísimo Baba Yaga. Acción coreográfica de alto impacto que redefine las reglas del inframundo criminal.
-      </div>
+        <p><strong>Sinopsis completa:</strong></p>Apodado "el más grande que nunca existió", Sonny Hayes fue la gran promesa de la Fórmula 1 hasta que un trágico accidente truncó su trayectoria. Tres dácadas más tarde, su antiguo compañero y actual dueño del equipo en crisis APXGP, Rubén Cervantes (Javier Bardem), lo convence de regresar a las pistas para una última oportunidad de redención. Sonny deberá adaptarse a las nuevas tecnologías y lidiar con la intensa rivalidad de su compañero de equipo, el prodigio estrella Joshua Pearce.
     </section>
 
 
@@ -77,8 +77,8 @@
 
       <div class="day-tabs">
         <div class="tab active">HOY</div>
-        <div class="tab">MAR 4/NOV</div>
-        <div class="tab">MIÉ 5/NOV</div>
+        <div class="tab">MAR 30/JUN</div>
+        <div class="tab">MIÉ 31/JUN</div>
       </div>
 
       <div class="filters">
@@ -168,7 +168,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -183,8 +183,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="img/qr.png" alt="QR 1">
-        <img src="img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>
@@ -228,7 +228,7 @@
           butacas: butacas
         });
 
-        window.location.href = 'compra.html?' + params.toString();
+        window.location.href = 'compra.php?' + params.toString();
       });
     });
   </script>

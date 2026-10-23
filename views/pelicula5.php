@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lilo y stitch - Detalle</title>
-  <link rel="stylesheet" href="css/peliculas.css">
-  <link rel="icon" href="img/Logo.png">
+  <link rel="stylesheet" href="../assets/css/peliculas.css">
+  <link rel="icon" href="../assets/img/Logo.png">
 </head>
 
 <body>
@@ -13,11 +13,11 @@
   
  <nav class="navbar">
      <div class="uno">
-        <img src="img/Logo.png" alt="logo de la pagina" class="logo">
-         <a href="ejercicio1.html" class="nav-link active ">PELÍCULAS</a>
-      <a href="candy.html" class="nav-link">CANDY</a>
-      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+        <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+         <a href="inicio.php" class="nav-link active ">PELÍCULAS</a>
+      <a href="candy.php" class="nav-link">CANDY</a>
+      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
      </div>
      <div class="dos">
@@ -29,45 +29,46 @@
   </nav> 
     <div class="navbar-underline"></div>
   </div>
+
   
   <main class="container">
 
     
     <section class="left-col">
-      <h2 class="movie-title">DAN DA DAN EVIL EVE</h2>
+      <h2 class="movie-title">EL ESQUEMA FENICIO</h2>
 
       <div class="poster-card">
         <div class="poster">
           
-          <a href="https://www.youtube.com/watch?v=Dk9tRbXkGzE">
-          <img src="img/ds6.jpg" alt="Poster Mision imposible">
+          <a href="https://www.youtube.com/watch?v=YHyIH-KDuy4">
+          <img src="../assets/img/ds5.jpg" alt="Poster Mision imposible">
           </a> 
-          <div class="badge-time">1h 33m</div>
+          <div class="badge-time">1h 42m</div>
           <div class="badge-age">S13</div>
           <div class="play-overlay" title="Ver trailer"></div>
         </div>
 
         <div class="poster-meta">
           <div>
-            <span class="tag">Anime</span>
+            <span class="tag">Comedia negra</span>
           </div>
 
           <p class="synopsis">
-          Momo, Okarun y su grupo viajan a un pueblo de aguas termales para resolver un misterio familiar, sin imaginar que despertarán al "Mal de Ojo", una de las maldiciones más peligrosas del mundo espiritual. El aclamado estudio Science SARU regresa a la pantalla grande con su inconfundible cóctel de acción frenética, aliens, fantasmas y romance adolescente.
+           El Esquema FenicioWes Anderson regresa con una ingeniosa comedia negra de espionaje ambientada en los años 50. Un turbio y extravagante magnate europeo (Benicio Del Toro) debe aliarse con su hija distanciada, una joven monja (Mia Threapleton), para salvar su vasto imperio empresarial de un complot internacional. Una joya visual de simetrías perfectas y humor refinado.
           </p>
 
           <div class="info-grid">
             <div class="info-row"><strong>Formatos disponibles</strong><br>2D</div>
-            <div class="info-row"><strong>Duración</strong><br>1h 33m</div>
-            <div class="info-row"><strong>Fecha de estreno</strong><br> 30 de mayo de 2025 </div>
-            <div class="info-row"><strong>Distribuidor</strong><br>Crunchyroll / GKIDS / Sugoi Co</div>
+            <div class="info-row"><strong>Duración</strong><br>1h 42m</div>
+            <div class="info-row"><strong>Fecha de estreno</strong><br> 18 de mayo de 2025 </div>
+            <div class="info-row"><strong>Distribuidor</strong><br>Universal Pictures</div>
           </div>
         </div>
       </div>
 
       
       <div style="margin-top:18px;color:#bfbfbf;font-size:13px;line-height:1.6">
-        <p><strong>Sinopsis completa:</strong></p>En Dan Da Dan: Evil Eye, Momo Ayase y Ken "Okarun" Takakura se embarcan en una nueva y paranormal aventura. El dúo viaja a una casa alquilada por Jiji, el amigo de la infancia y antiguo amor de Momo, con el objetivo de limpiar una aparente maldición sobre su familia. Sin embargo, la investigación se descarrila rápidamente cuando descubren que el lugar es el hogar de sacrificios del temible "Mal de Ojo" (Evil Eye), un Yokai despiadado obsesionado con destruir a la humanidad. Una explosiva carrera de supervivencia que mezcla la comedia romántica con el horror sobrenatural de vanguardia
+        <p><strong>Sinopsis completa:</strong></p>En El Esquema Fenicio, nos adentramos en la sofisticada mente de Anatole "Zsa-zsa" Korda, un poderoso multimillonario que sufre constantes e inexplicables intentos de asesinato. Al descubrir una intriga geopolítica que amenaza con destruir su monumental "plan fenicio" —un millonario entramado de infraestructuras globales—, Korda decide cambiar su testamento en favor de su hija Liesl. Con la ayuda de un excéntrico entomólogo noruego, padre e hija intentarán reconstruir su relación rota mientras sortean traiciones familiares, dilemas morales e inversores de dudosa reputación.
       </div>
     </section>
 
@@ -77,8 +78,8 @@
 
       <div class="day-tabs">
         <div class="tab active">HOY</div>
-        <div class="tab">MAR 30/mayo</div>
-        <div class="tab">MIÉ 31/MAY</div>
+        <div class="tab">MAR 20/mayo</div>
+        <div class="tab">MIÉ 19/MAY</div>
       </div>
 
       <div class="filters">
@@ -183,8 +184,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="img/qr.png" alt="QR 1">
-        <img src="img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>

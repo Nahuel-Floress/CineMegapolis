@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineMegapolis</title>
-    <link rel="stylesheet" href="assets/css/ejercicio1.css">
-    <link rel="icon" href="assets/img/Logo.png">
+    <link rel="stylesheet" href="../assets/css/ejercicio1.css">
+    <link rel="icon" href="../assets/img/Logo.png">
 </head>
 <body>
 
@@ -13,11 +13,11 @@
         <nav class="navbar">
             <!-- Sección Izquierda: Logo + Enlaces -->
             <div class="uno">
-                <img src="assets/img/Logo.png" alt="logo de la pagina" class="logo">
-                <a href="ejercicio1.html" class="nav-link">PELÍCULAS</a>
-                <a href="candy.html" class="nav-link active">CANDY</a>
-                <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-                <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+                <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+                <a href="inicio.php" class="nav-link">PELÍCULAS</a>
+                <a href="candy.php" class="nav-link active">CANDY</a>
+                <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+                <a href="regala.php" class="nav-link">REGALÁ CINE</a>
                 <a href="#" class="nav-link">STORE</a>
             </div>
 
@@ -32,7 +32,7 @@
                         <option value="unicenter">Cine Unicenter</option>
                     </select>
                 </div>
-                <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+                <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
             </div>
         </nav> 
         <div class="navbar-underline"></div>
@@ -43,10 +43,10 @@
   <div class="slider-wrapper">
     <div class="slider">
 
-      <img id="slider-1" src="assets/img/foton4.jpg" alt="">
-      <img id="slider-2" src="assets/img/foton7.jpg" alt="">
-      <img id="slider-3" src="assets/img/foton6.jpg" alt="">
-      <img id="slider-4" src="assets/img/banner2.webp" alt="">
+      <img id="slider-1" src="../assets/img/foton4.jpg" alt="">
+      <img id="slider-2" src="../assets/img/foton7.jpg" alt="">
+      <img id="slider-3" src="../assets/img/foton6.jpg" alt="">
+      <img id="slider-4" src="../assets/img/banner2.webp" alt="">
     </div>
 
    
@@ -97,9 +97,9 @@
 </div>
 
 <div class="peliculas">
- <div class="pelicula"> <a href="pelicula.html" class="nav-link">
+ <div class="pelicula"> <a href="pelicula.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds.jpg" alt="lilo y stich" class="poster">
+    <img src="../assets/img/ds.jpg" alt="lilo y stich" class="poster">
     <div class="tiempo">1h 48m</div>
   </div>
   <div class="info">
@@ -110,9 +110,9 @@
   </div>
   </a>
 </div>
-<div class="pelicula"> <a href="pelicula2.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula2.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds2.jpg" alt="lilo y stich" class="poster">
+    <img src="../assets/img/ds2.jpg" alt="lilo y stich" class="poster">
     <div class="tiempo">1h 50m</div>
   </div>
   <div class="info">
@@ -124,9 +124,9 @@
 </div>
 
 
-<div class="pelicula"> <a href="pelicula3.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula3.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/DS3.jpg" alt="Bailarina" class="poster">
+    <img src="../assets/img/DS3.jpg" alt="Bailarina" class="poster">
     <div class="tiempo">2h 5m</div>
   </div>
   <div class="info">
@@ -138,9 +138,9 @@
 </div>
 
 
-<div class="pelicula"> <a href="pelicula4.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula4.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds4.jpg" alt="MISION IMPOSIBLE" class="poster">
+    <img src="../assets/img/ds4.jpg" alt="MISION IMPOSIBLE" class="poster">
     <div class="tiempo">2h 49m</div>
   </div>
   <div class="info">
@@ -153,9 +153,9 @@
 
 
 
-<div class="pelicula"> <a href="pelicula5.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula5.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds5.jpg" alt="EL ESQUEMA FENICIO" class="poster">
+    <img src="../assets/img/ds5.jpg" alt="EL ESQUEMA FENICIO" class="poster">
     <div class="tiempo">1h 42m</div>
   </div>
   <div class="info">
@@ -167,9 +167,9 @@
 </div>
 
 
-<div class="pelicula"> <a href="pelicula6.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula6.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds6.jpg" alt="DAN DA DAN EVIL EVE" class="poster">
+    <img src="../assets/img/ds6.jpg" alt="DAN DA DAN EVIL EVE" class="poster">
     <div class="tiempo">1h 33m</div>
   </div>
   <div class="info">
@@ -181,9 +181,9 @@
 </div>
 
 
-<div class="pelicula"> <a href="pelicula7.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula7.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds7.jpg" alt="VERMIGILIO" class="poster">
+    <img src="../assets/img/ds7.jpg" alt="VERMIGILIO" class="poster">
     <div class="tiempo">1h 59m</div>
   </div>
   <div class="info">
@@ -195,9 +195,9 @@
 </div>
 
 
-<div class="pelicula"> <a href="pelicula8.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula8.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds8.jpg" alt="29 EDICION SDC TODAS LAS FUERZAS" class="poster">
+    <img src="../assets/img/ds8.jpg" alt="29 EDICION SDC TODAS LAS FUERZAS" class="poster">
     <div clss="tiempo">1h 43m</div>
   </div>
   <div class="info">
@@ -208,9 +208,9 @@
     </a>
 </div>
 
-<div class="pelicula"> <a href="pelicula9.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula9.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds9.jpg" alt="29 EDICION SDC TODAS LAS FUERZAS" class="poster">
+    <img src="../assets/img/ds9.jpg" alt="29 EDICION SDC TODAS LAS FUERZAS" class="poster">
     <div class="tiempo">1h 43m</div>
   </div>
   <div class="info">
@@ -229,10 +229,10 @@
 </div>
 
  
-<div class="peliculas"> <a href="pelicula10.html" class="nav-link">
+<div class="peliculas"> <a href="pelicula10.php" class="nav-link">
  <div class="pelicula">
   <div class="poster-container">
-    <img src="assets/img/ds10.jpg" alt="COMO ENTRENAR A TU DRAGON" class="poster">
+    <img src="../assets/img/ds10.jpg" alt="COMO ENTRENAR A TU DRAGON" class="poster">
     <div class="tiempo">2h 6m</div>
   </div>
   <div class="info">
@@ -242,9 +242,9 @@
 </a>  
 </div>
 </div>
-<div class="pelicula"> <a href="pelicula11.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula11.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds11.jpg" alt="F1 LA PELICULA" class="poster">
+    <img src="../assets/img/ds11.jpg" alt="F1 LA PELICULA" class="poster">
     <div class="tiempo">2h 35m</div>
   </div>
   <div class="info">
@@ -256,9 +256,9 @@
 </div>
 
 
-<div class="pelicula"> <a href="pelicula12.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula12.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds12.jpg" alt="MILEY CYRUS SOMETHING BEAUTIFUL" class="poster">
+    <img src="../assets/img/ds12.jpg" alt="MILEY CYRUS SOMETHING BEAUTIFUL" class="poster">
     <div class="tiempo">55m</div>
   </div>
   <div class="info">
@@ -270,9 +270,9 @@
 </div>
 
 
-<div class="pelicula"> <a href="pelicula13.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula13.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds13.jpg" alt="GATILLERO" class="poster">
+    <img src="../assets/img/ds13.jpg" alt="GATILLERO" class="poster">
     <div class="tiempo">  1h 20m</div>
   </div>
   <div class="info">
@@ -283,9 +283,9 @@
     </div>
 </div>
  
-<div class="pelicula"> <a href="pelicula14.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula14.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds14.jpg" alt="ROGER WATERS THIS IS NOT A DRILL" class="poster">
+    <img src="../assets/img/ds14.jpg" alt="ROGER WATERS THIS IS NOT A DRILL" class="poster">
     <div class="tiempo">  2h 23m</div>
   </div>
   <div class="info">
@@ -304,17 +304,17 @@
 </div>
   <div class="contenedor2">
     <div class="tarjeta2">
-      <img class="centrada" src="assets/img/disfruta2.jpg" alt="Promos">
+      <img class="centrada" src="../assets/img/disfruta2.jpg" alt="Promos">
       
     </div>
 
     <div class="tarjeta2">
-      <img class="centrada" src="assets/img/disfruta1.jpg" alt="15% OFF">
+      <img class="centrada" src="../assets/img/disfruta1.jpg" alt="15% OFF">
       
     </div>
 
     <div class="tarjeta2">
-      <img class="centrada" src="assets/img/disfruta3.jpg" alt="Cine Fan">
+      <img class="centrada" src="../assets/img/disfruta3.jpg" alt="Cine Fan">
       
     </div>
   </div>
@@ -335,9 +335,9 @@
 </div>
 
 <div class="peliculas">
- <div class="pelicula"> <a href="pelicula15.html" class="nav-link">
+ <div class="pelicula"> <a href="pelicula15.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/proximos estrenos2.jpg" alt="LOS CUATRO FANTASTICOS" class="poster">
+    <img src="../assets/img/proximos estrenos2.jpg" alt="LOS CUATRO FANTASTICOS" class="poster">
     <div class="tiempo">1h 30m</div>
   </div>
   <div class="info">
@@ -347,9 +347,9 @@
     </a>
   </div>
 </div>
-<div class="pelicula"> <a href="pelicula16.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula16.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/proximos estrenos3.jpg" alt="SUPERMAN" class="poster">
+    <img src="../assets/img/proximos estrenos3.jpg" alt="SUPERMAN" class="poster">
     <div class="tiempo">2h 9m</div>
   </div>
   <div class="info">
@@ -361,9 +361,9 @@
 </div>
 
 
-<div class="pelicula"> <a href="pelicula17.html" class="nav-link">
+<div class="pelicula"> <a href="pelicula17.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/proximos estrenos1.jpg" alt="AMORES MATERIALISTAS" class="poster">
+    <img src="../assets/img/proximos estrenos1.jpg" alt="AMORES MATERIALISTAS" class="poster">
     <div class="tiempo">1h 30m</div>
   </div>
   <div class="info">
@@ -375,9 +375,9 @@
 </div>
 
 
-<div class="pelicula">  <a href="pelicula13.html" class="nav-link">
+<div class="pelicula">  <a href="pelicula13.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds13.jpg" alt="GATILLERO" class="poster">
+    <img src="../assets/img/ds13.jpg" alt="GATILLERO" class="poster">
     <div class="tiempo">  1h 20m</div>
   </div>
   <div class="info">
@@ -389,9 +389,9 @@
 </div>
  
 <div class="pelicula"> 
-  <a href="pelicula14.html" class="nav-link">
+  <a href="pelicula14.php" class="nav-link">
   <div class="poster-container">
-    <img src="assets/img/ds14.jpg" alt="ROGER WATERS THIS IS NOT A DRILL" class="poster">
+    <img src="../assets/img/ds14.jpg" alt="ROGER WATERS THIS IS NOT A DRILL" class="poster">
     <div class="tiempo">  2h 23m</div>
   </div>
   <div class="info">
@@ -412,17 +412,17 @@
 </div>
   <div class="contenedor2">
     <div class="tarjeta2">
-      <img class="centrada" src="assets/img/disfruta4.jpg" alt="Promos">
+      <img class="centrada" src="../assets/img/disfruta4.jpg" alt="Promos">
       
     </div>
 
     <div class="tarjeta2">
-      <img class="centrada" src="assets/img/disfruta5.jpg" alt="15% OFF">
+      <img class="centrada" src="../assets/img/disfruta5.jpg" alt="15% OFF">
       
     </div>
 
     <div class="tarjeta2">
-      <img class="centrada" src="assets/img/disfruta6.jpg" alt="Cine Fan">
+      <img class="centrada" src="../assets/img/disfruta6.jpg" alt="Cine Fan">
       
     </div>
   </div>
@@ -474,7 +474,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -489,8 +489,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="assets/img/qr.png" alt="QR 1">
-        <img src="assets/img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>

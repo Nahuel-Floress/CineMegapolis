@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lilo y stitch - Detalle</title>
-  <link rel="stylesheet" href="css/peliculas.css">
-  <link rel="icon" href="img/Logo.png">
+  <link rel="stylesheet" href="../assets/css/peliculas.css">
+  <link rel="icon" href="../assets/img/Logo.png">
 </head>
 
 <body>
@@ -13,17 +13,17 @@
   
  <nav class="navbar">
      <div class="uno">
-        <img src="img/Logo.png" alt="logo de la pagina" class="logo">
-         <a href="ejercicio1.html" class="nav-link active ">PELÍCULAS</a>
-      <a href="candy.html" class="nav-link">CANDY</a>
-      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+        <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+         <a href="inicio.php" class="nav-link active ">PELÍCULAS</a>
+      <a href="candy.php" class="nav-link">CANDY</a>
+      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
      </div>
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+        <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
      </div>
 </nav> 
   </nav> 
@@ -34,40 +34,41 @@
 
     
     <section class="left-col">
-      <h2 class="movie-title">29 EDICION SDC VIEJO ALGO NUEVO</h2>
+      <h2 class="movie-title">Ballerina</h2>
 
       <div class="poster-card">
         <div class="poster">
           
-          <a href="https://www.youtube.com/watch?v=PsRJQlHjpUM">
-          <img src="img/ds9.jpg" alt="Poster Mision imposible">
+          <a href="https://www.youtube.com/watch?v=iS6CdinpJew&t=5s">
+          <img src="../assets/img/DS3.jpg" alt="Poster Bailarina">
           </a> 
-          <div class="badge-time">1h 43m</div>
+          <div class="badge-time">2h 50m</div>
           <div class="badge-age">S16</div>
           <div class="play-overlay" title="Ver trailer"></div>
         </div>
 
         <div class="poster-meta">
           <div>
-            <span class="tag">Drama</span>
+            <span class="tag">Accion</span>
           </div>
 
           <p class="synopsis">
-          Algo viejo, algo nuevo, algo prestadoTras la muerte de su padre, Maribel y su madre asumen el control de la red familiar de apuestas clandestinas en el Conurbano bonaerense. Un hipnótico policial suburbano que desibuja las fronteras entre el documental y la ficción, consagrado en la Quincena de Cineastas del Festival de Cannes.
+            Ballerina: Una letal asesina entrenada en las tradiciones de los Ruska Roma busca venganza contra los hombres que masacraron a su familia. Ambientada entre la tercera y cuarta entrega de John Wick, Ana de Armas protagoniza este electrizante thriller de acción donde la elegancia del ballet se fusiona con la brutalidad del gun-fu.
           </p>
 
           <div class="info-grid">
-            <div class="info-row"><strong>Formatos disponibles</strong><br>2D</div>
-            <div class="info-row"><strong>Duración</strong><br>1h 59m</div>
-            <div class="info-row"><strong>Fecha de estreno</strong><br> 15 de mayo de 2024 </div>
-            <div class="info-row"><strong>Distribuidor</strong><br>Cine ar</div>
+            <div class="info-row"><strong>Formatos disponibles</strong><br>2D . D-BOX . PREMIUM CLASS . XD DIGITAL</div>
+            <div class="info-row"><strong>Duración</strong><br>2h 50m</div>
+            <div class="info-row"><strong>Fecha de estreno</strong><br>16 Octubre, 2025</div>
+            <div class="info-row"><strong>Distribuidor</strong><br>United International Pictures S.R.L.</div>
           </div>
         </div>
       </div>
 
       
       <div style="margin-top:18px;color:#bfbfbf;font-size:13px;line-height:1.6">
-        <p><strong>Sinopsis completa:</strong></p>Los Felpeto han manejado un negocio ilegal de apuestas de quiniela durante décadas desde su hogar en el sur del Gran Buenos Aires. Con la sorpresiva muerte del patriarca, la joven Maribel y su madre Alejandra deben heredar y sostener la compleja estructura de la empresa. El ambiente se enrarece cuando surgen rumores de purgas policiales y Maribel descubre, mediante redes sociales, la posible existencia de un hermano secreto no reconocido. Un retrato tenso sobre la supervivencia económica y los lazos de sangre en la marginalidad.
+        <p><strong>Sinopsis completa:</strong></p>El universo de John Wick se expande con la historia de Eve Macarro (Ana de Armas), una joven reclutada desde niña por la Directora para convertirse en un arma humana. Bajo la fachada de una escuela de danza clásica, Eve es sometida a un entrenamiento implacable que combina gracia y letalidad. Cuando los fantasmas de su pasado regresan, emprenderá una sangrienta cacería que la llevará a cruzarse con viejos conocidos del Hotel Continental, incluido el mismísimo Baba Yaga. Acción coreográfica de alto impacto que redefine las reglas del inframundo criminal.
+      </div>
     </section>
 
 
@@ -76,8 +77,8 @@
 
       <div class="day-tabs">
         <div class="tab active">HOY</div>
-        <div class="tab">MAR 30/mayo</div>
-        <div class="tab">MIÉ 31/MAY</div>
+        <div class="tab">MAR 4/NOV</div>
+        <div class="tab">MIÉ 5/NOV</div>
       </div>
 
       <div class="filters">
@@ -167,7 +168,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -182,8 +183,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="img/qr.png" alt="QR 1">
-        <img src="img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>
@@ -227,7 +228,7 @@
           butacas: butacas
         });
 
-        window.location.href = 'compra.html?' + params.toString();
+        window.location.href = 'compra.php?' + params.toString();
       });
     });
   </script>

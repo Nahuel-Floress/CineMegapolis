@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lilo y stitch - Detalle</title>
-  <link rel="stylesheet" href="css/peliculas.css">
-  <link rel="icon" href="img/Logo.png">
+  <link rel="stylesheet" href="../assets/css/peliculas.css">
+  <link rel="icon" href="../assets/img/Logo.png">
 </head>
 
 <body>
@@ -13,38 +13,37 @@
   
  <nav class="navbar">
      <div class="uno">
-        <img src="img/Logo.png" alt="logo de la pagina" class="logo">
-         <a href="ejercicio1.html" class="nav-link active ">PELÍCULAS</a>
-      <a href="candy.html" class="nav-link">CANDY</a>
-      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+        <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+         <a href="inicio.php" class="nav-link active ">PELÍCULAS</a>
+      <a href="candy.php" class="nav-link">CANDY</a>
+      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
      </div>
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+        <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
      </div>
 </nav> 
   </nav> 
     <div class="navbar-underline"></div>
   </div>
-
   
   <main class="container">
 
     
     <section class="left-col">
-      <h2 class="movie-title">29 EDICION SDC TODAS LAS FUERZAS</h2>
+      <h2 class="movie-title">VERMIGILIO</h2>
 
       <div class="poster-card">
         <div class="poster">
           
-          <a href="https://www.youtube.com/watch?v=_LkAv5sh3QU  ">
-          <img src="img/ds8.jpg" alt="Poster Mision imposible">
+          <a href="https://www.youtube.com/watch?v=Tek66snTT4o">
+          <img src="../assets/img/ds7.jpg" alt="Poster Mision imposible">
           </a> 
-          <div class="badge-time">1h 43m</div>
-          <div class="badge-age">S16</div>
+          <div class="badge-time">1h 59m</div>
+          <div class="badge-age">S13</div>
           <div class="play-overlay" title="Ver trailer"></div>
         </div>
 
@@ -54,21 +53,21 @@
           </div>
 
           <p class="synopsis">
-          Todas las fuerzasUna cuidadora migrante en Buenos Aires emprende una búsqueda nocturna para hallar a su amiga desaparecida. Sus pistas la llevan al corazón del barrio de Once, donde descubre un submundo de mujeres con habilidades extraordinarias. Un crudo realismo social que se fusiona mágicamente con el drama fantástico.
+          VermiglioUn majestuoso y multipremiado drama histórico ambientado en los Alpes italianos durante los últimos meses de la Segunda Guerra Mundial. La monótona pero estricta vida de la numerosa familia del maestro rural se ve sacudida por completo tras la llegada de un misterioso soldado desertor. Un retrato íntimo, poético y visualmente deslumbrante sobre los secretos familiares y las huellas invisibles de la guerra.
           </p>
 
           <div class="info-grid">
             <div class="info-row"><strong>Formatos disponibles</strong><br>2D</div>
             <div class="info-row"><strong>Duración</strong><br>1h 59m</div>
-            <div class="info-row"><strong>Fecha de estreno</strong><br> 15 de mayo de 2025 </div>
-            <div class="info-row"><strong>Distribuidor</strong><br>Cine ar</div>
+            <div class="info-row"><strong>Fecha de estreno</strong><br> 25 de diciembre de 2024 </div>
+            <div class="info-row"><strong>Distribuidor</strong><br>Sideshow / Janus Films</div>
           </div>
         </div>
       </div>
 
       
       <div style="margin-top:18px;color:#bfbfbf;font-size:13px;line-height:1.6">
-        <p><strong>Sinopsis completa:</strong></p>Marlene es una mujer boliviana residente en Buenos Aires que trabaja durante el día cuidando a una anciana enferma. Sin embargo, sus noches están dedicadas a una misión desesperada: encontrar a su mejor amiga, quien ha desaparecido sin dejar rastro. Su investigación la guiará por talleres clandestinos y bares nocturnos del distrito de Once. Allí se cruzará con otras mujeres migrantes que, frente a la adversidad y la exclusión, han desarrollado dones ocultos hasta convertirlos en verdaderos superpoderes.
+        <p><strong>Sinopsis completa:</strong></p>En el remoto pueblo de montaña que da nombre a la película, la guerra se siente como una amenaza lejana pero omnipresente. Transcurrida a lo largo de las cuatro estaciones que marcaron el fin del conflicto en 1944, la trama sigue a Cesare, el respetado maestro local, y a su gran clan familiar. El destino de todos cambia radicalmente cuando un soldado refugiado llega al pueblo en busca de un escondite y se enamora perdidamente de Lucia, la hija mayor de la casa. Un emotivo relato de maduración colectiva donde las decisiones de los hombres dejan su mayor carga sobre los hombros de las mujeres.
       </div>
     </section>
 
@@ -169,7 +168,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -184,8 +183,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="img/qr.png" alt="QR 1">
-        <img src="img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>
@@ -229,7 +228,7 @@
           butacas: butacas
         });
 
-        window.location.href = 'compra.html?' + params.toString();
+        window.location.href = 'compra.php?' + params.toString();
       });
     });
   </script>

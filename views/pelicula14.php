@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lilo y stitch - Detalle</title>
-  <link rel="stylesheet" href="css/peliculas.css">
-  <link rel="icon" href="img/Logo.png">
+  <link rel="stylesheet" href="../assets/css/peliculas.css">
+  <link rel="icon" href="../assets/img/Logo.png">
 </head>
 
 <body>
@@ -13,17 +13,17 @@
   
  <nav class="navbar">
      <div class="uno">
-        <img src="img/Logo.png" alt="logo de la pagina" class="logo">
-         <a href="ejercicio1.html" class="nav-link active ">PELÍCULAS</a>
-      <a href="candy.html" class="nav-link">CANDY</a>
-      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+        <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+         <a href="inicio.php" class="nav-link active ">PELÍCULAS</a>
+      <a href="candy.php" class="nav-link">CANDY</a>
+      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
      </div>
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+        <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
      </div>
 </nav> 
   </nav> 
@@ -35,41 +35,40 @@
 
     
     <section class="left-col">
-      <h2 class="movie-title">Lilo y stitch</h2>
+      <h2 class="movie-title">GATILLERO</h2>
 
       <div class="poster-card">
         <div class="poster">
           
-          <a href="https://www.youtube.com/watch?v=9JIyINjMfcc">
-          <img src="img/ds.jpg" alt="Poster Telefono Negro 2">
+          <a href="https://www.youtube.com/watch?v=PL82_r5gSOk">
+          <img src="../assets/img/ds14.jpg" alt="Poster Mision imposible">
           </a> 
-          <div class="badge-time">1h 48m</div>
-          <div class="badge-age">S16</div>
+          <div class="badge-time">2h 23m</div>
+          <div class="badge-age">APT</div>
           <div class="play-overlay" title="Ver trailer"></div>
         </div>
 
         <div class="poster-meta">
           <div>
-            <span class="tag">Comedia</span>
+            <span class="tag">Aventura</span>
           </div>
 
           <p class="synopsis">
-            Lilo & Stitch (conocida como Lilo y Stitch en Hispanoamérica y España) es una película de ciencia ficción y comedia dramática estadounidense de 2025, dirigida por Dean Fleischer-Camp, escrita por Chris Kekaniokalani Bright y Mike Van Waes, y producida por Dan Lin y Jonathan Eirich
+          Roger Waters This Is Not A Drill: Live From PragueEl genio creativo de Pink Floyd lleva a la pantalla grande su aclamada gira mundial de despedida en un monumental evento cinematográfico. Grabado en el O2 Arena de Praga, este filme es un arsenal audiovisual de rock progresivo combinando clásicos inmortales con una feroz e incómoda crítica a la distopía corporativa actual.
           </p>
 
           <div class="info-grid">
-            <div class="info-row"><strong>Formatos disponibles</strong><br>2D · XD DIGITAL · COMFORT · PREMIUM CLASS</div>
-            <div class="info-row"><strong>Duración</strong><br>1h 48m</div>
-            <div class="info-row"><strong>Fecha de estreno</strong><br>16 Octubre, 2025</div>
-            <div class="info-row"><strong>Distribuidor</strong><br>United International Pictures S.R.L.</div>
+            <div class="info-row"><strong>Formatos disponibles</strong><br>2D</div>
+            <div class="info-row"><strong>Duración</strong><br>55m</div>
+            <div class="info-row"><strong>Fecha de estreno</strong><br> 6 de junio de 2025  </div>
+            <div class="info-row"><strong>Distribuidor</strong><br>Disney</div>
           </div>
         </div>
       </div>
 
       
       <div style="margin-top:18px;color:#bfbfbf;font-size:13px;line-height:1.6">
-        <p><strong>Sinopsis completa:</strong></p>La película sigue la historia de Lilo, una niña hawaiana con dificultades sociales, y Stitch, un experimento genético alienígena indomable que escapa y llega a la Tierra. Lilo lo adopta como su mascota, sin saber que es un extraterrestre que causa caos. La trama se enfoca en la relación de las hermanas y cómo Stitch se convierte en parte de su 'ohana (familia).
-      </div>
+        <p><strong>Sinopsis completa:</strong></p>En Roger Waters This Is Not A Drill: Live From Prague - The Movie, el cofundador de Pink Floyd nos entrega una experiencia cinematográfica inmersiva que funciona tanto como testamento musical como manifiesto político. Utilizando un innovador escenario de 360° rodeado por descomunales pantallas LED, el film captura un setlist histórico que entrelaza himnos icónicos de los álbumes The Dark Side of the Moon, The Wall, Animals y Wish You Were Here con lo mejor de su discografía solista. Un recordatorio ensordecedor de que, en un mundo al borde del colapso, el arte debe gritar para sobrevivir.
     </section>
 
 
@@ -78,8 +77,8 @@
 
       <div class="day-tabs">
         <div class="tab active">HOY</div>
-        <div class="tab">MAR 4/NOV</div>
-        <div class="tab">MIÉ 5/NOV</div>
+        <div class="tab">MAR 30/JUN</div>
+        <div class="tab">MIÉ 31/JUN</div>
       </div>
 
       <div class="filters">
@@ -169,7 +168,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -184,8 +183,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="img/qr.png" alt="QR 1">
-        <img src="img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>
@@ -229,7 +228,7 @@
           butacas: butacas
         });
 
-        window.location.href = 'compra.html?' + params.toString();
+        window.location.href = 'compra.php?' + params.toString();
       });
     });
   </script>

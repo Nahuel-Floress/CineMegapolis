@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lilo y stitch - Detalle</title>
-  <link rel="stylesheet" href="css/peliculas.css">
-  <link rel="icon" href="img/Logo.png">
+  <link rel="stylesheet" href="../assets/css/peliculas.css">
+  <link rel="icon" href="../assets/img/Logo.png">
 </head>
 
 <body>
@@ -13,17 +13,17 @@
   
  <nav class="navbar">
      <div class="uno">
-        <img src="img/Logo.png" alt="logo de la pagina" class="logo">
-         <a href="ejercicio1.html" class="nav-link active ">PELÍCULAS</a>
-      <a href="candy.html" class="nav-link">CANDY</a>
-      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+        <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+         <a href="inicio.php" class="nav-link active ">PELÍCULAS</a>
+      <a href="candy.php" class="nav-link">CANDY</a>
+      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
      </div>
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+        <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
      </div>
 </nav> 
   </nav> 
@@ -35,15 +35,15 @@
 
     
     <section class="left-col">
-      <h2 class="movie-title">SUPERMAN</h2>
+      <h2 class="movie-title">COMO ENTRENAR A TU DRAGON</h2>
 
       <div class="poster-card">
         <div class="poster">
           
-          <a href="https://www.youtube.com/watch?v=Ox8ZLF6cGM0">
-          <img src="img/proximos estrenos3.jpg" alt="Poster Mision imposible">
+          <a href="https://www.youtube.com/watch?v=liGB1ssYn38">
+          <img src="../assets/img/ds10.jpg" alt="Poster Mision imposible">
           </a> 
-          <div class="badge-time">2h 9m</div>
+          <div class="badge-time">2h 6m</div>
           <div class="badge-age">APT</div>
           <div class="play-overlay" title="Ver trailer"></div>
         </div>
@@ -54,21 +54,21 @@
           </div>
 
           <p class="synopsis">
-          El Hombre de Acero regresa en una emotiva e inspiradora aventura cinematográfica que da inicio al nuevo Universo DC. Un Clark Kent (David Corenswet) más humano que nunca intenta reconciliar su herencia kryptoniana con su crianza terrestre, mientras una retorcida conspiración internacional armada por Lex Luthor pone a prueba su compasión y confianza en el mundo.
+          El aclamado clásico de DreamWorks cobra vida en una impresionante aventura épica de carne y hueso. En la remota isla de Berk, un joven vikingo inadaptado desafía siglos de tradición al forjar una improbable y conmovedora amistad con un temido dragón Furia Nocturna. Efectos visuales asombrosos y emoción pura en pantalla grande
           </p>
 
           <div class="info-grid">
             <div class="info-row"><strong>Formatos disponibles</strong><br>2D</div>
-            <div class="info-row"><strong>Duración</strong><br>2h 9m</div>
-            <div class="info-row"><strong>Fecha de estreno</strong><br> 10 de julio de 2025  </div>
-            <div class="info-row"><strong>Distribuidor</strong><br>Warner</div>
+            <div class="info-row"><strong>Duración</strong><br>1h 59m</div>
+            <div class="info-row"><strong>Fecha de estreno</strong><br> 13  de junio de 2025 </div>
+            <div class="info-row"><strong>Distribuidor</strong><br>Dreamworks</div>
           </div>
         </div>
       </div>
 
       
       <div style="margin-top:18px;color:#bfbfbf;font-size:13px;line-height:1.6">
-        <p><strong>Sinopsis completa:</strong></p>En Superman, seguimos los pasos de un joven Clark Kent que ya ejerce como el héroe de Metrópolis pero que aún busca comprender su lugar en la Tierra. Su pacífica misión de proteger a la humanidad se complica drásticamente cuando el despiadado magnate corporativo Lex Luthor (Nicholas Hoult) orquesta un grave incidente internacional diseñado específicamente para culpar al héroe y poner a la opinión pública en su contra. Ayudado por la intrépida reportera Lois Lane, el carismático Jimmy Olsen y un ecléctico grupo de héroes establecidos, Superman deberá abrazar su verdadero linaje para desenmascarar a Luthor y convertirse en el símbolo de esperanza inquebrantable que el planeta necesita.
+        <p><strong>Sinopsis completa:</strong></p>En la escarpada Isla de Berk, la supervivencia de los vikingos depende de su capacidad para combatir a los destructivos dragones que asaltan sus tierras. Hipo, el ingenioso pero incomprendido hijo del jefe de la tribu, Stoick el Vasto, carece de la fuerza bruta necesaria para ser un guerrero. Todo cambia por completo cuando derriba en secreto a una criatura legendaria: un Furia Nocturna. Al elegir sanar al dragón —a quien bautiza como Chimuelo— en lugar de matarlo, Hipo inicia una travesía que redefinirá la relación entre humanos y dragones para siempre.
     </section>
 
 
@@ -77,8 +77,8 @@
 
       <div class="day-tabs">
         <div class="tab active">HOY</div>
-        <div class="tab">MAR 30/JUL</div>
-        <div class="tab">MIÉ 31/JUL</div>
+        <div class="tab">MAR 30/JUN</div>
+        <div class="tab">MIÉ 31/JUN</div>
       </div>
 
       <div class="filters">
@@ -168,7 +168,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -183,8 +183,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="img/qr.png" alt="QR 1">
-        <img src="img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>
@@ -228,7 +228,7 @@
           butacas: butacas
         });
 
-        window.location.href = 'compra.html?' + params.toString();
+        window.location.href = 'compra.php?' + params.toString();
       });
     });
   </script>

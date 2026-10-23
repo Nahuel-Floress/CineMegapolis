@@ -4,25 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Iniciar sesión</title>
-  <link rel="stylesheet" href="assets/css/peliculas.css">
-  <link rel="icon" href="assets/img/Logo.png">
+  <link rel="stylesheet" href="../assets/css/peliculas.css">
+  <link rel="icon" href="../assets/img/Logo.png">
 </head>
 
 <body>
 
   <nav class="navbar">
     <div class="uno">
-      <img src="assets/img/Logo.png" alt="logo de la pagina" class="logo">
-      <a href="ejercicio1.html" class="nav-link">PELÍCULAS</a>
-      <a href="candy.html" class="nav-link">CANDY</a>
-      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+      <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+      <a href="inicio.php" class="nav-link">PELÍCULAS</a>
+      <a href="candy.php" class="nav-link">CANDY</a>
+      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
     </div>
     <div class="dos">
       <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-      <a href="login.html" class="icon-link active" title="Iniciar sesión"><span class="icon">👤</span></a>
+      <a href="login.php" class="icon-link active" title="Iniciar sesión"><span class="icon">👤</span></a>
     </div>
   </nav>
   <div class="navbar-underline"></div>
@@ -48,7 +48,7 @@
           </div>
           <button class="btn-confirmar" id="btnLogin" style="margin-top:6px">Ingresar</button>
           <div style="text-align:center;color:#bfbfbf;font-size:13px">
-            ¿No tenés cuenta? <a href="register.html" style="color:var(--accent-2);font-weight:700">Registrate</a>
+            ¿No tenés cuenta? <a href="register.php" style="color:var(--accent-2);font-weight:700">Registrate</a>
           </div>
         </div>
       </div>

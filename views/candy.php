@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineMegapolis</title>
-    <link rel="stylesheet" href="../CineMegapolis/assets/css/candy.css">
-    <link rel="icon" href="assets/img/Logo.png">
+    <link rel="stylesheet" href="../assets/css/candy.css">
+    <link rel="icon" href="../assets/img/Logo.png">
 </head>
 <body>
 <header>
         <nav class="navbar">
             <!-- Sección Izquierda: Logo + Enlaces -->
             <div class="uno">
-                <img src="assets/img/Logo.png" alt="logo de la pagina" class="logo">
-                <a href="ejercicio1.html" class="nav-link">PELÍCULAS</a>
-                <a href="candy.html" class="nav-link active">CANDY</a>
-                <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-                <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+                <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+                <a href="inicio.php" class="nav-link">PELÍCULAS</a>
+                <a href="candy.php" class="nav-link active">CANDY</a>
+                <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+                <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
                 <a href="#" class="nav-link">STORE</a>
             </div>
 
@@ -31,7 +31,7 @@
                         <option value="unicenter">Cine Unicenter</option>
                     </select>
                 </div>
-                <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+                <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
             </div>
         </nav> 
         <div class="navbar-underline"></div>
@@ -53,7 +53,7 @@
             <div class="product-card" data-category="combos">
                 <div class="badge">1</div>
                 <div class="product-container-img">
-                    <img src="assets/img/02 Combo M.P..png" alt="Combo Dúo Grande" class="product-img-file">
+                    <img src="../assets/img/02 Combo M.P..png" alt="Combo Dúo Grande" class="product-img-file">
                 </div>
                 <div class="product-info">
                     <h4>Combo Dúo Grande</h4>
@@ -66,7 +66,7 @@
             <div class="product-card" data-category="combos">
                 <div class="badge">2</div>
                 <div class="product-container-img">
-                    <img src="assets/img/05 Combo DT.png" alt="Combo Dúo Grande" class="product-img-file">
+                    <img src="../assets/img/05 Combo DT.png" alt="Combo Dúo Grande" class="product-img-file">
                 </div>
                 <div class="product-info">
                     <h4>Combo Dúo Mediano</h4>
@@ -79,7 +79,7 @@
             <div class="product-card" data-category="combos">
                 <div class="badge">1</div>
                 <div class="product-container-img">
-                    <img src="assets/img/03 Combo Kids.png" alt="Combo Dúo Grande" class="product-img-file">
+                    <img src="../assets/img/03 Combo Kids.png" alt="Combo Dúo Grande" class="product-img-file">
                 </div>
                 <div class="product-info">
                     <h4>Combo Dúo Pequeño</h4>
@@ -92,7 +92,7 @@
             <div class="product-card" data-category="popcorn">
                 <div class="badge">2</div>
                 <div class="product-container-img">
-                    <img src="assets/img/palomitas-gigantes.png" alt="Palomitas Gigantes" class="product-img-file">
+                    <img src="../assets/img/palomitas-gigantes.png" alt="Palomitas Gigantes" class="product-img-file">
                 </div>
                 <div class="product-info">
                     <h4>Palomitas Gigantes</h4>
@@ -105,7 +105,7 @@
             <div class="product-card" data-category="popcorn">
                 <div class="badge">3</div>
                 <div class="product-container-img">
-                    <img src="assets/img/palomitas-dulces.png" alt="Palomitas Dulces" class="product-img-file">
+                    <img src="../assets/img/palomitas-dulces.png" alt="Palomitas Dulces" class="product-img-file">
                 </div>
                 <div class="product-info">
                     <h4>Palomitas Dulces Medianas</h4>
@@ -118,7 +118,7 @@
             <div class="product-card" data-category="drinks">
                 <div class="badge">4</div>
                 <div class="product-container-img">
-                    <img src="assets/img/Coca-Cola.png" alt="Dúo Gaseosas Grandes" class="product-img-file">
+                    <img src="../assets/img/Coca-Cola.png" alt="Dúo Gaseosas Grandes" class="product-img-file">
                 </div>
                 <div class="product-info">
                     <h4>Dúo Gaseosas Grandes</h4>
@@ -131,7 +131,7 @@
             <div class="product-card" data-category="drinks">
                 <div class="badge">5</div>
                 <div class="product-container-img">
-                    <img src="assets/img/Sprite.png" alt="Gaseosa Individual Grande" class="product-img-file">
+                    <img src="../assets/img/Sprite.png" alt="Gaseosa Individual Grande" class="product-img-file">
                 </div>
                 <div class="product-info">
                     <h4>Gaseosa Individual Grande</h4>
@@ -144,7 +144,7 @@
             <div class="product-card" data-category="drinks">
                 <div class="badge">6</div>
                 <div class="product-container-img">
-                    <img src="assets/img/agua.png" alt="Agua Mineral" class="product-img-file">
+                    <img src="../assets/img/agua.png" alt="Agua Mineral" class="product-img-file">
                 </div>
                 <div class="product-info">
                     <h4>Agua Mineral</h4>
@@ -157,7 +157,7 @@
             <div class="product-card" data-category="sweets">
                 <div class="badge">7</div>
                 <div class="product-container-img">
-                    <img src="assets/img/Chocolatin - Block.png" alt="Caja de M&M's" class="product-img-file">
+                    <img src="../assets/img/Chocolatin - Block.png" alt="Caja de M&M's" class="product-img-file">
                 </div>
                 <div class="product-info">
                     <h4>Chocolates</h4>
@@ -170,7 +170,7 @@
             <div class="product-card" data-category="sweets">
                 <div class="badge">8</div>
                 <div class="product-container-img">
-                    <img src="assets/img/Mogul - Yapa.png" alt="Gomitas Ácidas" class="product-img-file">
+                    <img src="../assets/img/Mogul - Yapa.png" alt="Gomitas Ácidas" class="product-img-file">
                 </div>
                 <div class="product-info">
                     <h4>Gomitas Ácidas</h4>
@@ -205,6 +205,6 @@
 
     </main>
 
-    <script src="../CineMegapolis/assets/js/candy.js"></script>
+    <script src="../assets/js/candy.js"></script>
 </body>
 </html>

@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lilo y stitch - Detalle</title>
-  <link rel="stylesheet" href="css/peliculas.css">
-  <link rel="icon" href="img/Logo.png">
+  <link rel="stylesheet" href="../assets/css/peliculas.css">
+  <link rel="icon" href="../assets/img/Logo.png">
 </head>
 
 <body>
@@ -13,17 +13,17 @@
   
  <nav class="navbar">
      <div class="uno">
-        <img src="img/Logo.png" alt="logo de la pagina" class="logo">
-         <a href="ejercicio1.html" class="nav-link active ">PELÍCULAS</a>
-      <a href="candy.html" class="nav-link">CANDY</a>
-      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+        <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+         <a href="inicio.php" class="nav-link active ">PELÍCULAS</a>
+      <a href="candy.php" class="nav-link">CANDY</a>
+      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
      </div>
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+        <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
      </div>
 </nav> 
   </nav> 
@@ -35,15 +35,15 @@
 
     
     <section class="left-col">
-      <h2 class="movie-title">F1: La película</h2>
+      <h2 class="movie-title">GATILLERO</h2>
 
       <div class="poster-card">
         <div class="poster">
           
-          <a href="https://www.youtube.com/watch?v=aw8YyC4B1EA">
-          <img src="img/ds11.jpg" alt="Poster Mision imposible">
+          <a href="https://www.youtube.com/watch?v=y-quQUa-ysY">
+          <img src="../assets/img/ds13.jpg" alt="Poster Mision imposible">
           </a> 
-          <div class="badge-time">2h 35m</div>
+          <div class="badge-time">1h 20m</div>
           <div class="badge-age">S16</div>
           <div class="play-overlay" title="Ver trailer"></div>
         </div>
@@ -54,21 +54,21 @@
           </div>
 
           <p class="synopsis">
-          F1: La películaUn veterano piloto de los años 90 (Brad Pitt) sale de su retiro para salvar a una escudería al borde del colapso y servir de mentor a un joven y talentoso novato (Damson Idris). Dirigida por Joseph Kosinski (Top Gun: Maverick), es un espectáculo visceral de velocidad real, filmado durante los fines de semana de los Grandes Premios auténticos.
+          GatilleroUn vertiginoso thriller de acción argentino filmado íntegramente en un asombroso plano secuencia sin cortes visibles. "El Galgo" (Sergio Podeley), un ex-sicario recién salido de prisión, acepta un encargo aparentemente simple que lo sumerge en una noche letal de traiciones en el corazón de la Isla Maciel. Adrenalina pura en tiempo real.
           </p>
 
           <div class="info-grid">
             <div class="info-row"><strong>Formatos disponibles</strong><br>2D</div>
-            <div class="info-row"><strong>Duración</strong><br>1h 59m</div>
-            <div class="info-row"><strong>Fecha de estreno</strong><br> 25 de junio de 2025  </div>
-            <div class="info-row"><strong>Distribuidor</strong><br>Warner Bros. Pictures</div>
+            <div class="info-row"><strong>Duración</strong><br>55m</div>
+            <div class="info-row"><strong>Fecha de estreno</strong><br> 6 de junio de 2025  </div>
+            <div class="info-row"><strong>Distribuidor</strong><br>Disney</div>
           </div>
         </div>
       </div>
 
       
       <div style="margin-top:18px;color:#bfbfbf;font-size:13px;line-height:1.6">
-        <p><strong>Sinopsis completa:</strong></p>Apodado "el más grande que nunca existió", Sonny Hayes fue la gran promesa de la Fórmula 1 hasta que un trágico accidente truncó su trayectoria. Tres dácadas más tarde, su antiguo compañero y actual dueño del equipo en crisis APXGP, Rubén Cervantes (Javier Bardem), lo convence de regresar a las pistas para una última oportunidad de redención. Sonny deberá adaptarse a las nuevas tecnologías y lidiar con la intensa rivalidad de su compañero de equipo, el prodigio estrella Joshua Pearce.
+        <p><strong>Sinopsis completa:</strong></p>En Gatillero, Pablo «El Galgo» Correa busca dejar atrás su pasado criminal tras cumplir una larga condena para reencontrarse con su pequeña hija. Sin embargo, la desesperación económica lo lleva a aceptar un último trabajo menor para su antigua jefa, "La Madrina" (Julieta Díaz): disparar a la fachada de un comercio local para enviar una advertencia mafiosa. Lo que parecía una tarea sencilla se transforma en una brutal trampa donde antiguos compañeros, policías corruptos y pesados de la zona inician una cacería humana en una sola e interminable noche de supervivencia.
     </section>
 
 
@@ -168,7 +168,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -183,8 +183,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="img/qr.png" alt="QR 1">
-        <img src="img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>
@@ -228,7 +228,7 @@
           butacas: butacas
         });
 
-        window.location.href = 'compra.html?' + params.toString();
+        window.location.href = 'compra.php?' + params.toString();
       });
     });
   </script>

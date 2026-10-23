@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lilo y stitch - Detalle</title>
-  <link rel="stylesheet" href="css/peliculas.css">
-  <link rel="icon" href="img/Logo.png">
+  <link rel="stylesheet" href="../assets/css/peliculas.css">
+  <link rel="icon" href="../assets/img/Logo.png">
 </head>
 
 <body>
@@ -13,36 +13,37 @@
   
  <nav class="navbar">
      <div class="uno">
-        <img src="img/Logo.png" alt="logo de la pagina" class="logo">
-         <a href="ejercicio1.html" class="nav-link active ">PELÍCULAS</a>
-      <a href="candy.html" class="nav-link">CANDY</a>
-      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+        <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+         <a href="inicio.php" class="nav-link active ">PELÍCULAS</a>
+      <a href="candy.php" class="nav-link">CANDY</a>
+      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
      </div>
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+        <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
      </div>
 </nav> 
   </nav> 
     <div class="navbar-underline"></div>
   </div>
+
   
   <main class="container">
 
     
     <section class="left-col">
-      <h2 class="movie-title">LOS CUATRO FANTASTICOS: PRIMEROS PASOS</h2>
+      <h2 class="movie-title">MILEY CYRUS SOMETHING BEAUTIFUL</h2>
 
       <div class="poster-card">
         <div class="poster">
           
-          <a href="https://www.youtube.com/watch?v=waf9snfaUFw">
-          <img src="img/proximos estrenos2.jpg" alt="Poster Mision imposible">
+          <a href="https://www.youtube.com/watch?v=y2nu8zpVBmY">
+          <img src="../assets/img/ds12.jpg" alt="Poster Mision imposible">
           </a> 
-          <div class="badge-time">1h 30m</div>
+          <div class="badge-time">55m</div>
           <div class="badge-age">APT</div>
           <div class="play-overlay" title="Ver trailer"></div>
         </div>
@@ -53,13 +54,13 @@
           </div>
 
           <p class="synopsis">
-          Los Cuatro Fantásticos: Primeros pasosLa Primera Familia de Marvel hace su entrada triunfal al MCU en una aventura ambientada en un fascinante mundo retro-futurista de los años 60. Reed, Sue, Johnny y Ben deberán aprender a equilibrar sus lazos familiares mientras defienden la Tierra de Galactus, el implacable devorador de planetas, y su heraldo Silver Surfer.
+          Miley Cyrus: Something BeautifulUna ambiciosa ópera pop y experiencia cinematográfica conceptual ideada por Miley Cyrus. A través de trece canciones originales, la ganadora del Grammy nos sumerge en una odisea visual de fantasía que explora el existencialismo, la sanación de traumas y la búsqueda de la belleza en la oscuridad.
           </p>
 
           <div class="info-grid">
             <div class="info-row"><strong>Formatos disponibles</strong><br>2D</div>
-            <div class="info-row"><strong>Duración</strong><br>1h 30m</div>
-            <div class="info-row"><strong>Fecha de estreno</strong><br> 24 de julio de 2025  </div>
+            <div class="info-row"><strong>Duración</strong><br>55m</div>
+            <div class="info-row"><strong>Fecha de estreno</strong><br> 6 de junio de 2025  </div>
             <div class="info-row"><strong>Distribuidor</strong><br>Disney</div>
           </div>
         </div>
@@ -67,7 +68,7 @@
 
       
       <div style="margin-top:18px;color:#bfbfbf;font-size:13px;line-height:1.6">
-        <p><strong>Sinopsis completa:</strong></p>En Los Cuatro Fantásticos: Primeros pasos, la historia nos traslada a una realidad paralela conocida como la Tierra-828. Tras adquirir asombrosos superpoderes en una misión espacial, el brillante científico Reed Richards, su esposa Sue Storm, su intrépido hermano Johnny y el leal Ben Grimm se convierten en celebridades mundiales. Sin embargo, la tranquilidad de su colorida sociedad retro-futurista se quiebra cuando el colosal dios espacial Galactus y su enigmática heraldo, Shalla-Bal (Silver Surfer), fijan sus ojos en el planeta. Obligados a madurar a marchas forzadas, los héroes deberán dar sus primeros pasos como equipo para salvar a la humanidad de la extinción absoluta.
+        <p><strong>Sinopsis completa:</strong></p>Más que un concierto fílmico, Something Beautiful es un largometraje musical de vanguardia que acompaña al noveno álbum de estudio de Miley Cyrus. Inspirada en estructuras épicas clásicas como The Wall de Pink Floyd pero con un enfoque pop glamuroso, la cinta entrelaza relatos de surrealismo y alta costura. Acompañada por figuras icónicas del arte y el entretenimiento, Cyrus utiliza la música y una hipnótica propuesta fímica como una terapia colectiva frente a las crisis de la sociedad contemporánea.
     </section>
 
 
@@ -76,8 +77,8 @@
 
       <div class="day-tabs">
         <div class="tab active">HOY</div>
-        <div class="tab">MAR 30/JUL</div>
-        <div class="tab">MIÉ 31/JUL</div>
+        <div class="tab">MAR 30/JUN</div>
+        <div class="tab">MIÉ 31/JUN</div>
       </div>
 
       <div class="filters">
@@ -167,7 +168,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -182,8 +183,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="img/qr.png" alt="QR 1">
-        <img src="img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>
@@ -227,7 +228,7 @@
           butacas: butacas
         });
 
-        window.location.href = 'compra.html?' + params.toString();
+        window.location.href = 'compra.php?' + params.toString();
       });
     });
   </script>

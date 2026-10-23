@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine fan</title>
-    <link rel="stylesheet" href="assets/css/pagina2.css">
-    <link rel="icon" href="assets/img/Logo.png">
+    <link rel="stylesheet" href="../assets/css/pagina2.css">
+    <link rel="icon" href="../assets/img/Logo.png">
 </head>
 <body>
 
@@ -13,11 +13,11 @@
         <nav class="navbar">
             <!-- Sección Izquierda: Logo + Enlaces -->
             <div class="uno">
-                <img src="assets/img/Logo.png" alt="logo de la pagina" class="logo">
-                <a href="ejercicio1.html" class="nav-link">PELÍCULAS</a>
-                <a href="candy.html" class="nav-link active">CANDY</a>
-                <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-                <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+                <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+                <a href="inicio.php" class="nav-link">PELÍCULAS</a>
+                <a href="candy.php" class="nav-link active">CANDY</a>
+                <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+                <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
                 <a href="#" class="nav-link">STORE</a>
             </div>
 
@@ -32,7 +32,7 @@
                         <option value="unicenter">Cine Unicenter</option>
                     </select>
                 </div>
-                <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+                <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
             </div>
         </nav> 
         <div class="navbar-underline"></div>
@@ -120,7 +120,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -135,8 +135,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="assets/img/qr.png" alt="QR 1">
-        <img src="assets/img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>

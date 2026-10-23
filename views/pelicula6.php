@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lilo y stitch - Detalle</title>
-  <link rel="stylesheet" href="css/peliculas.css">
-  <link rel="icon" href="img/Logo.png">
+  <link rel="stylesheet" href="../assets/css/peliculas.css">
+  <link rel="icon" href="../assets/img/Logo.png">
 </head>
 
 <body>
@@ -13,62 +13,62 @@
   
  <nav class="navbar">
      <div class="uno">
-        <img src="img/Logo.png" alt="logo de la pagina" class="logo">
-         <a href="ejercicio1.html" class="nav-link active ">PELÍCULAS</a>
-      <a href="candy.html" class="nav-link">CANDY</a>
-      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+        <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+         <a href="inicio.php" class="nav-link active ">PELÍCULAS</a>
+      <a href="candy.php" class="nav-link">CANDY</a>
+      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
      </div>
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+        <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
      </div>
 </nav> 
   </nav> 
     <div class="navbar-underline"></div>
   </div>
-
   
   <main class="container">
 
     
     <section class="left-col">
-      <h2 class="movie-title">GATILLERO</h2>
+      <h2 class="movie-title">DAN DA DAN EVIL EVE</h2>
 
       <div class="poster-card">
         <div class="poster">
           
-          <a href="https://www.youtube.com/watch?v=PL82_r5gSOk">
-          <img src="img/ds14.jpg" alt="Poster Mision imposible">
+          <a href="https://www.youtube.com/watch?v=Dk9tRbXkGzE">
+          <img src="../assets/img/ds6.jpg" alt="Poster Mision imposible">
           </a> 
-          <div class="badge-time">2h 23m</div>
-          <div class="badge-age">APT</div>
+          <div class="badge-time">1h 33m</div>
+          <div class="badge-age">S13</div>
           <div class="play-overlay" title="Ver trailer"></div>
         </div>
 
         <div class="poster-meta">
           <div>
-            <span class="tag">Aventura</span>
+            <span class="tag">Anime</span>
           </div>
 
           <p class="synopsis">
-          Roger Waters This Is Not A Drill: Live From PragueEl genio creativo de Pink Floyd lleva a la pantalla grande su aclamada gira mundial de despedida en un monumental evento cinematográfico. Grabado en el O2 Arena de Praga, este filme es un arsenal audiovisual de rock progresivo combinando clásicos inmortales con una feroz e incómoda crítica a la distopía corporativa actual.
+          Momo, Okarun y su grupo viajan a un pueblo de aguas termales para resolver un misterio familiar, sin imaginar que despertarán al "Mal de Ojo", una de las maldiciones más peligrosas del mundo espiritual. El aclamado estudio Science SARU regresa a la pantalla grande con su inconfundible cóctel de acción frenética, aliens, fantasmas y romance adolescente.
           </p>
 
           <div class="info-grid">
             <div class="info-row"><strong>Formatos disponibles</strong><br>2D</div>
-            <div class="info-row"><strong>Duración</strong><br>55m</div>
-            <div class="info-row"><strong>Fecha de estreno</strong><br> 6 de junio de 2025  </div>
-            <div class="info-row"><strong>Distribuidor</strong><br>Disney</div>
+            <div class="info-row"><strong>Duración</strong><br>1h 33m</div>
+            <div class="info-row"><strong>Fecha de estreno</strong><br> 30 de mayo de 2025 </div>
+            <div class="info-row"><strong>Distribuidor</strong><br>Crunchyroll / GKIDS / Sugoi Co</div>
           </div>
         </div>
       </div>
 
       
       <div style="margin-top:18px;color:#bfbfbf;font-size:13px;line-height:1.6">
-        <p><strong>Sinopsis completa:</strong></p>En Roger Waters This Is Not A Drill: Live From Prague - The Movie, el cofundador de Pink Floyd nos entrega una experiencia cinematográfica inmersiva que funciona tanto como testamento musical como manifiesto político. Utilizando un innovador escenario de 360° rodeado por descomunales pantallas LED, el film captura un setlist histórico que entrelaza himnos icónicos de los álbumes The Dark Side of the Moon, The Wall, Animals y Wish You Were Here con lo mejor de su discografía solista. Un recordatorio ensordecedor de que, en un mundo al borde del colapso, el arte debe gritar para sobrevivir.
+        <p><strong>Sinopsis completa:</strong></p>En Dan Da Dan: Evil Eye, Momo Ayase y Ken "Okarun" Takakura se embarcan en una nueva y paranormal aventura. El dúo viaja a una casa alquilada por Jiji, el amigo de la infancia y antiguo amor de Momo, con el objetivo de limpiar una aparente maldición sobre su familia. Sin embargo, la investigación se descarrila rápidamente cuando descubren que el lugar es el hogar de sacrificios del temible "Mal de Ojo" (Evil Eye), un Yokai despiadado obsesionado con destruir a la humanidad. Una explosiva carrera de supervivencia que mezcla la comedia romántica con el horror sobrenatural de vanguardia
+      </div>
     </section>
 
 
@@ -77,8 +77,8 @@
 
       <div class="day-tabs">
         <div class="tab active">HOY</div>
-        <div class="tab">MAR 30/JUN</div>
-        <div class="tab">MIÉ 31/JUN</div>
+        <div class="tab">MAR 30/mayo</div>
+        <div class="tab">MIÉ 31/MAY</div>
       </div>
 
       <div class="filters">
@@ -168,7 +168,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -183,8 +183,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="img/qr.png" alt="QR 1">
-        <img src="img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>
@@ -228,7 +228,7 @@
           butacas: butacas
         });
 
-        window.location.href = 'compra.html?' + params.toString();
+        window.location.href = 'compra.php?' + params.toString();
       });
     });
   </script>

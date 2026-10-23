@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lilo y stitch - Detalle</title>
-  <link rel="stylesheet" href="css/peliculas.css">
-  <link rel="icon" href="img/Logo.png">
+  <link rel="stylesheet" href="../assets/css/peliculas.css">
+  <link rel="icon" href="../assets/img/Logo.png">
 </head>
 
 <body>
@@ -13,62 +13,61 @@
   
  <nav class="navbar">
      <div class="uno">
-        <img src="img/Logo.png" alt="logo de la pagina" class="logo">
-         <a href="ejercicio1.html" class="nav-link active ">PELÍCULAS</a>
-      <a href="candy.html" class="nav-link">CANDY</a>
-      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+        <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+         <a href="inicio.php" class="nav-link active ">PELÍCULAS</a>
+      <a href="candy.php" class="nav-link">CANDY</a>
+      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
      </div>
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+        <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
      </div>
 </nav> 
   </nav> 
     <div class="navbar-underline"></div>
   </div>
-
   
   <main class="container">
 
     
     <section class="left-col">
-      <h2 class="movie-title">MILEY CYRUS SOMETHING BEAUTIFUL</h2>
+      <h2 class="movie-title">29 EDICION SDC VIEJO ALGO NUEVO</h2>
 
       <div class="poster-card">
         <div class="poster">
           
-          <a href="https://www.youtube.com/watch?v=y2nu8zpVBmY">
-          <img src="img/ds12.jpg" alt="Poster Mision imposible">
+          <a href="https://www.youtube.com/watch?v=PsRJQlHjpUM">
+          <img src="../assets/img/ds9.jpg" alt="Poster Mision imposible">
           </a> 
-          <div class="badge-time">55m</div>
-          <div class="badge-age">APT</div>
+          <div class="badge-time">1h 43m</div>
+          <div class="badge-age">S16</div>
           <div class="play-overlay" title="Ver trailer"></div>
         </div>
 
         <div class="poster-meta">
           <div>
-            <span class="tag">Aventura</span>
+            <span class="tag">Drama</span>
           </div>
 
           <p class="synopsis">
-          Miley Cyrus: Something BeautifulUna ambiciosa ópera pop y experiencia cinematográfica conceptual ideada por Miley Cyrus. A través de trece canciones originales, la ganadora del Grammy nos sumerge en una odisea visual de fantasía que explora el existencialismo, la sanación de traumas y la búsqueda de la belleza en la oscuridad.
+          Algo viejo, algo nuevo, algo prestadoTras la muerte de su padre, Maribel y su madre asumen el control de la red familiar de apuestas clandestinas en el Conurbano bonaerense. Un hipnótico policial suburbano que desibuja las fronteras entre el documental y la ficción, consagrado en la Quincena de Cineastas del Festival de Cannes.
           </p>
 
           <div class="info-grid">
             <div class="info-row"><strong>Formatos disponibles</strong><br>2D</div>
-            <div class="info-row"><strong>Duración</strong><br>55m</div>
-            <div class="info-row"><strong>Fecha de estreno</strong><br> 6 de junio de 2025  </div>
-            <div class="info-row"><strong>Distribuidor</strong><br>Disney</div>
+            <div class="info-row"><strong>Duración</strong><br>1h 59m</div>
+            <div class="info-row"><strong>Fecha de estreno</strong><br> 15 de mayo de 2024 </div>
+            <div class="info-row"><strong>Distribuidor</strong><br>Cine ar</div>
           </div>
         </div>
       </div>
 
       
       <div style="margin-top:18px;color:#bfbfbf;font-size:13px;line-height:1.6">
-        <p><strong>Sinopsis completa:</strong></p>Más que un concierto fílmico, Something Beautiful es un largometraje musical de vanguardia que acompaña al noveno álbum de estudio de Miley Cyrus. Inspirada en estructuras épicas clásicas como The Wall de Pink Floyd pero con un enfoque pop glamuroso, la cinta entrelaza relatos de surrealismo y alta costura. Acompañada por figuras icónicas del arte y el entretenimiento, Cyrus utiliza la música y una hipnótica propuesta fímica como una terapia colectiva frente a las crisis de la sociedad contemporánea.
+        <p><strong>Sinopsis completa:</strong></p>Los Felpeto han manejado un negocio ilegal de apuestas de quiniela durante décadas desde su hogar en el sur del Gran Buenos Aires. Con la sorpresiva muerte del patriarca, la joven Maribel y su madre Alejandra deben heredar y sostener la compleja estructura de la empresa. El ambiente se enrarece cuando surgen rumores de purgas policiales y Maribel descubre, mediante redes sociales, la posible existencia de un hermano secreto no reconocido. Un retrato tenso sobre la supervivencia económica y los lazos de sangre en la marginalidad.
     </section>
 
 
@@ -77,8 +76,8 @@
 
       <div class="day-tabs">
         <div class="tab active">HOY</div>
-        <div class="tab">MAR 30/JUN</div>
-        <div class="tab">MIÉ 31/JUN</div>
+        <div class="tab">MAR 30/mayo</div>
+        <div class="tab">MIÉ 31/MAY</div>
       </div>
 
       <div class="filters">
@@ -168,7 +167,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -183,8 +182,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="img/qr.png" alt="QR 1">
-        <img src="img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>
@@ -228,7 +227,7 @@
           butacas: butacas
         });
 
-        window.location.href = 'compra.html?' + params.toString();
+        window.location.href = 'compra.php?' + params.toString();
       });
     });
   </script>

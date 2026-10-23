@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lilo y stitch - Detalle</title>
-  <link rel="stylesheet" href="css/peliculas.css">
-  <link rel="icon" href="img/Logo.png">
+  <link rel="stylesheet" href="../assets/css/peliculas.css">
+  <link rel="icon" href="../assets/img/Logo.png">
 </head>
 
 <body>
@@ -13,17 +13,17 @@
   
  <nav class="navbar">
      <div class="uno">
-        <img src="img/Logo.png" alt="logo de la pagina" class="logo">
-         <a href="ejercicio1.html" class="nav-link active ">PELÍCULAS</a>
-      <a href="candy.html" class="nav-link">CANDY</a>
-      <a href="Cinefan.html" class="nav-link">CINE FAN</a>
-      <a href="pagina2.html" class="nav-link">REGALÁ CINE</a>
+        <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
+         <a href="inicio.php" class="nav-link active ">PELÍCULAS</a>
+      <a href="candy.php" class="nav-link">CANDY</a>
+      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
+      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
       <a href="#" class="nav-link">STORE</a>
      </div>
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+        <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
      </div>
 </nav> 
   </nav> 
@@ -35,41 +35,40 @@
 
     
     <section class="left-col">
-      <h2 class="movie-title">EL ESQUEMA FENICIO</h2>
+      <h2 class="movie-title">AMORES MATERIALISTAS</h2>
 
       <div class="poster-card">
         <div class="poster">
           
-          <a href="https://www.youtube.com/watch?v=YHyIH-KDuy4">
-          <img src="img/ds5.jpg" alt="Poster Mision imposible">
+          <a href="https://www.youtube.com/watch?v=jJyMcGr6t18">
+          <img src="../assets/img/proximos estrenos1.jpg" alt="Poster Mision imposible">
           </a> 
-          <div class="badge-time">1h 42m</div>
-          <div class="badge-age">S13</div>
+          <div class="badge-time">1h 30m</div>
+          <div class="badge-age">APT</div>
           <div class="play-overlay" title="Ver trailer"></div>
         </div>
 
         <div class="poster-meta">
           <div>
-            <span class="tag">Comedia negra</span>
+            <span class="tag">Comedia romantica</span>
           </div>
 
           <p class="synopsis">
-           El Esquema FenicioWes Anderson regresa con una ingeniosa comedia negra de espionaje ambientada en los años 50. Un turbio y extravagante magnate europeo (Benicio Del Toro) debe aliarse con su hija distanciada, una joven monja (Mia Threapleton), para salvar su vasto imperio empresarial de un complot internacional. Una joya visual de simetrías perfectas y humor refinado.
+          Amores MaterialistasUna exitosa y ambiciosa casamentera de la alta sociedad de Nueva York ve cómo su lucrativo negocio y su vida personal se complican al caer en un complejo triángulo amoroso entre el hombre ideal y su imperfecto ex. Una comedia romántica ácida y cerebral sobre el valor del amor en tiempos de lujo.
           </p>
 
           <div class="info-grid">
             <div class="info-row"><strong>Formatos disponibles</strong><br>2D</div>
-            <div class="info-row"><strong>Duración</strong><br>1h 42m</div>
-            <div class="info-row"><strong>Fecha de estreno</strong><br> 18 de mayo de 2025 </div>
-            <div class="info-row"><strong>Distribuidor</strong><br>Universal Pictures</div>
+            <div class="info-row"><strong>Duración</strong><br>2h 9m</div>
+            <div class="info-row"><strong>Fecha de estreno</strong><br> 13 de julio de 2025  </div>
+            <div class="info-row"><strong>Distribuidor</strong><br>Warner</div>
           </div>
         </div>
       </div>
 
       
       <div style="margin-top:18px;color:#bfbfbf;font-size:13px;line-height:1.6">
-        <p><strong>Sinopsis completa:</strong></p>En El Esquema Fenicio, nos adentramos en la sofisticada mente de Anatole "Zsa-zsa" Korda, un poderoso multimillonario que sufre constantes e inexplicables intentos de asesinato. Al descubrir una intriga geopolítica que amenaza con destruir su monumental "plan fenicio" —un millonario entramado de infraestructuras globales—, Korda decide cambiar su testamento en favor de su hija Liesl. Con la ayuda de un excéntrico entomólogo noruego, padre e hija intentarán reconstruir su relación rota mientras sortean traiciones familiares, dilemas morales e inversores de dudosa reputación.
-      </div>
+        <p><strong>Sinopsis completa:</strong></p>En Amores Materialistas, Lucy (Dakota Johnson) es una cotizada casamentera que organiza citas exclusivas para la élite multimillonaria de Nueva York. Sin embargo, su fría perspectiva matemática sobre el estatus y las relaciones se desmorona cuando se encuentra súbitamente dividida entre John (Chris Evans), un hombre adinerado que encarna la estabilidad perfecta, y su problemático pero apasionado exnovio (Pedro Pascal). Una brillante deconstrucción de la comedia romántica tradicional que cuestiona si el verdadero amor puede medirse con el valor del dinero.
     </section>
 
 
@@ -78,8 +77,8 @@
 
       <div class="day-tabs">
         <div class="tab active">HOY</div>
-        <div class="tab">MAR 20/mayo</div>
-        <div class="tab">MIÉ 19/MAY</div>
+        <div class="tab">MAR 30/JUL</div>
+        <div class="tab">MIÉ 31/JUL</div>
       </div>
 
       <div class="filters">
@@ -169,7 +168,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -184,8 +183,8 @@
 
     <div class="footer-right">
       <div class="qrs">
-        <img src="img/qr.png" alt="QR 1">
-        <img src="img/qr2.png" alt="QR 2">
+        <img src="../assets/img/qr.png" alt="QR 1">
+        <img src="../assets/img/qr2.png" alt="QR 2">
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>
@@ -229,7 +228,7 @@
           butacas: butacas
         });
 
-        window.location.href = 'compra.html?' + params.toString();
+        window.location.href = 'compra.php?' + params.toString();
       });
     });
   </script>
