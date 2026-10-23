@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +25,7 @@
             </div>
 
             <!-- Sección Derecha: Selector de Cine + Usuario -->
-            <div class="dos">
+            <div class="dos" style="display: flex; align-items: center; gap: 12px;">
                 <div class="cinema-selector">
                     <span class="pin-icon">📍</span>
                     <select id="selectCine">
@@ -32,7 +35,17 @@
                         <option value="unicenter">Cine Unicenter</option>
                     </select>
                 </div>
-                <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+                
+                <?php if (isset($_SESSION['usuario_email'])): ?>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <a href="login.php" class="icon-link" title="Mi perfil"><span class="icon">👤</span></a>
+                        <span style="color: #fff; font-size: 14px; font-weight: 600;">
+                            <?php echo htmlspecialchars($_SESSION['usuario_nombre'] ?? $_SESSION['usuario_email']); ?>
+                        </span>
+                    </div>
+                <?php else: ?>
+                    <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+                <?php endif; ?>
             </div>
         </nav> 
         <div class="navbar-underline"></div>
@@ -198,7 +211,7 @@
 <div class="pelicula"> <a href="pelicula8.php" class="nav-link">
   <div class="poster-container">
     <img src="../assets/img/ds8.jpg" alt="29 EDICION SDC TODAS LAS FUERZAS" class="poster">
-    <div clss="tiempo">1h 43m</div>
+    <div class="tiempo">1h 43m</div>
   </div>
   <div class="info">
     <h3 class="titulo">29 EDICION SDC TODAS LAS FUERZAS</h3>
@@ -328,7 +341,7 @@
 
 
 
-  <div class="navbar-underline"></div>
+ <div class="navbar-underline"></div>
  
  <div class="sub-contenedor">
   <h2 class="sub">PROXIMOS ESTRENOS</h2>
@@ -427,7 +440,6 @@
     </div>
   </div>
 
- 
 
 
 
@@ -438,9 +450,8 @@
 
 
 
-
-  <footer class="footer">
-  <div class="footer-top">
+ <footer class="footer">
+ <div class="footer-top">
     <div class="footer-column">
       <h4>CINES</h4>
       <ul>
@@ -468,9 +479,9 @@
         <li><a href="#">Términos y Condiciones</a></li>
       </ul>
     </div>
-  </div>
+ </div>
 
-  <div class="footer-bottom">
+ <div class="footer-bottom">
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
@@ -494,12 +505,10 @@
       </div>
       <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
     </div>
-  </div>
+ </div>
 </footer>
 
 <script>
-
-
 (function(){
   const slider = document.querySelector('.slider');
   const slides = document.querySelectorAll('.slider img');
@@ -510,10 +519,7 @@
   let index = 0; 
 
   function update() {
-  
     slider.style.transform = `translateX(-${index * 100}%)`;
-
-    
     navLinks.forEach((a, i) => a.classList.toggle('active', i === index));
   }
 
@@ -547,7 +553,7 @@
     });
   });
 
-  
+ 
   if (btnPrev) btnPrev.addEventListener('click', function(){ prev(); resetAutoplay(); });
   if (btnNext) btnNext.addEventListener('click', function(){ next(); resetAutoplay(); });
 
@@ -594,7 +600,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const urlParams = new URLSearchParams(window.location.search);
   const cineParam = urlParams.get('cine');
 
-  // 2. Si viene un cine en la URL, actualizar el menú desplegable y filtrar películas
   if (cineParam) {
     const selectCine = document.getElementById("selectCine");
     if (selectCine) {
@@ -602,13 +607,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     console.log("Cine seleccionado actualmente:", cineParam);
-    // Aquí puedes llamar a tu función para mostrar las películas de este cine
-    // Ejemplo: mostrarPeliculasPorCine(cineParam);
   }
 });
-
 </script>
-
 
 </body>
 </html>

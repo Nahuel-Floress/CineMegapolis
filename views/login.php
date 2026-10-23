@@ -1,3 +1,34 @@
+<?php
+session_start();
+require_once '../config/conexion.php';
+
+$error = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = trim($_POST['email'] ?? '');
+    $pass = $_POST['pass'] ?? '';
+
+    if (!empty($email) && !empty($pass)) {
+        $sql = "SELECT * FROM clientes WHERE email = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$email]);
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($usuario && password_verify($pass, $usuario['password'])) {
+            $_SESSION['usuario_id'] = $usuario['id_cliente'];
+            $_SESSION['usuario_email'] = $usuario['email'];
+            $_SESSION['usuario_nombre'] = $usuario['nombre'];
+
+            header("Location: inicio.php");
+            exit();
+        } else {
+            $error = "Email o contraseña incorrectos.";
+        }
+    } else {
+        $error = "Por favor, completá todos los campos.";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -34,33 +65,30 @@
     <div id="vistaLogin">
       <h2 class="compra-titulo">Iniciar sesión</h2>
 
-      <div class="qty-card" style="max-width:420px">
+      <?php if (!empty($error)): ?>
+        <div style="max-width:420px;background:rgba(255,0,0,0.1);color:#ff6b6b;padding:10px;border-radius:6px;margin-bottom:12px;font-size:13px;">
+          <?php echo $error; ?>
+        </div>
+      <?php endif; ?>
+
+      <form method="POST" action="login.php" class="qty-card" style="max-width:420px">
         <div style="display:flex;flex-direction:column;gap:14px">
           <div>
             <label for="email" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Email</label>
-            <input type="email" id="email" placeholder="tu@email.com"
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required
               style="width:100%;padding:12px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;box-sizing:border-box">
           </div>
           <div>
             <label for="pass" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Contraseña</label>
-            <input type="password" id="pass" placeholder="••••••••"
+            <input type="password" id="pass" name="pass" placeholder="••••••••" required
               style="width:100%;padding:12px;border-radius:8px;border:none;background:rgba(255,255,255,0.06);color:#fff;font-size:14px;box-sizing:border-box">
           </div>
-          <button class="btn-confirmar" id="btnLogin" style="margin-top:6px">Ingresar</button>
+          <button type="submit" class="btn-confirmar" id="btnLogin" style="margin-top:6px">Ingresar</button>
           <div style="text-align:center;color:#bfbfbf;font-size:13px">
             ¿No tenés cuenta? <a href="register.php" style="color:var(--accent-2);font-weight:700">Registrate</a>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div id="vistaPerfil" style="display:none">
-      <h2 class="compra-titulo">Mi perfil</h2>
-      <div class="resumen-card" style="max-width:420px">
-        <div class="resumen-row"><span>Email</span><span id="perfilEmail">-</span></div>
-        <div class="resumen-row"><span>Estado</span><span style="color:#41c453">Sesión activa</span></div>
-      </div>
-      <button class="btn-confirmar" id="btnLogout" style="max-width:420px">Cerrar sesión</button>
+      </form>
     </div>
 
   </main>
@@ -72,42 +100,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // Simulación simple de sesión guardada en memoria del navegador (sessionStorage)
-    const vistaLogin = document.getElementById('vistaLogin');
-    const vistaPerfil = document.getElementById('vistaPerfil');
-    const perfilEmail = document.getElementById('perfilEmail');
-
-    function mostrarSegunSesion() {
-      const email = sessionStorage.getItem('usuarioEmail');
-      if (email) {
-        vistaLogin.style.display = 'none';
-        vistaPerfil.style.display = 'block';
-        perfilEmail.textContent = email;
-      } else {
-        vistaLogin.style.display = 'block';
-        vistaPerfil.style.display = 'none';
-      }
-    }
-
-    document.getElementById('btnLogin').addEventListener('click', () => {
-      const email = document.getElementById('email').value.trim();
-      if (!email) {
-        alert('Ingresá un email para continuar.');
-        return;
-      }
-      sessionStorage.setItem('usuarioEmail', email);
-      mostrarSegunSesion();
-    });
-
-    document.getElementById('btnLogout').addEventListener('click', () => {
-      sessionStorage.removeItem('usuarioEmail');
-      mostrarSegunSesion();
-    });
-
-    mostrarSegunSesion();
-  </script>
 
 </body>
 </html>

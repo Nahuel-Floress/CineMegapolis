@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2026 a las 21:49:28
+-- Tiempo de generación: 23-10-2026 a las 12:02:27
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,9 +31,21 @@ CREATE TABLE `clientes` (
   `id_cliente` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellido` varchar(50) NOT NULL,
-  `edad` int(11) NOT NULL CHECK (`edad` > 0),
-  `email` varchar(100) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `telefono` varchar(30) NOT NULL,
+  `genero` varchar(30) NOT NULL,
+  `complejo_preferencia` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`id_cliente`, `nombre`, `apellido`, `email`, `fecha_nacimiento`, `password`, `telefono`, `genero`, `complejo_preferencia`) VALUES
+(1, 'hola', 'holaa', 'hola@gmail.com', '2008-07-06', '$2y$10$QIy.S2XOoWvwkMYfjR2SLuAt2VkIUsJgYa6/gUUa0mPecyAljhe6a', '1122334455', 'masculino', 'congreso'),
+(2, 'nose', 'queseyo', 'nose@gmail.com', '2009-07-06', '$2y$10$FAzbnVtScjjBo19V/lLl2OPN0o/PofvRgVq.ESrW5mql.3iIDu/bi', '1122334455', 'masculino', 'palermo');
 
 -- --------------------------------------------------------
 
@@ -145,7 +157,7 @@ ALTER TABLE `salas`
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `entradas`
