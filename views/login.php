@@ -1,6 +1,17 @@
 <?php
-session_start();
 require_once '../config/conexion.php';
+
+// Si ya hay sesión iniciada, no tiene sentido mostrar el login
+if (usuario_logueado()) {
+    header("Location: perfil.php");
+    exit();
+}
+
+// Página a la que volver después de loguearse (solo archivos locales .php)
+$redirect = $_POST['redirect'] ?? $_GET['redirect'] ?? '';
+if (!preg_match('/^[A-Za-z0-9_\-]+\.php$/', $redirect) || $redirect === 'login.php') {
+    $redirect = 'inicio.php';
+}
 
 $error = "";
 
@@ -15,11 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($usuario && password_verify($pass, $usuario['password'])) {
+            session_regenerate_id(true); // evita fijación de sesión
             $_SESSION['usuario_id'] = $usuario['id_cliente'];
             $_SESSION['usuario_email'] = $usuario['email'];
             $_SESSION['usuario_nombre'] = $usuario['nombre'];
 
-            header("Location: inicio.php");
+            header("Location: " . $redirect);
             exit();
         } else {
             $error = "Email o contraseña incorrectos.";
@@ -67,11 +79,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <?php if (!empty($error)): ?>
         <div style="max-width:420px;background:rgba(255,0,0,0.1);color:#ff6b6b;padding:10px;border-radius:6px;margin-bottom:12px;font-size:13px;">
-          <?php echo $error; ?>
+          <?php echo htmlspecialchars($error); ?>
         </div>
       <?php endif; ?>
 
       <form method="POST" action="login.php" class="qty-card" style="max-width:420px">
+        <input type="hidden" name="redirect" value="<?php echo htmlspecialchars($redirect); ?>">
         <div style="display:flex;flex-direction:column;gap:14px">
           <div>
             <label for="email" style="display:block;color:#bfbfbf;font-size:13px;margin-bottom:6px">Email</label>
@@ -96,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <footer class="footer">
     <div class="footer-bottom">
       <div class="footer-info">
-        <p>&copy; 2024 CineMegapolis</p>
+        <p>&copy; 2026 CineMegapolis</p>
       </div>
     </div>
   </footer>
