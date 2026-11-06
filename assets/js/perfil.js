@@ -1,165 +1,99 @@
-/* Perfil de usuario - CineMegapolis */
-(function () {
-  'use strict';
+document.addEventListener('DOMContentLoaded', () => {
+  const wrap = document.querySelector('.perfil-wrap');
+  if (!wrap) return;
+  const CSRF = wrap.dataset.csrf;
 
-  var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
-  var $$ = function (sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); };
+  const alerta = document.getElementById('alerta');
+  if (alerta) {
+    const cerrar = () => alerta.remove();
+    alerta.querySelector('.alerta-cerrar')?.addEventListener('click', cerrar);
+    setTimeout(cerrar, 7000);
+  }
 
-  /* ---------- Aviso de entradas nuevas ---------- */
-  var badge = $('#badgeEntradas');
-  var wrap = $('.perfil-wrap');
+  const items = document.querySelectorAll('.menu-item');
+  const paneles = document.querySelectorAll('.panel');
+  let vistasMarcadas = false;
 
-  // Al entrar a "Entradas compradas" el número desaparece y se avisa al servidor que ya las vio
-  function marcarEntradasVistas() {
-    if (!badge) { return; }
-    badge.remove();
-    badge = null;
+  function marcarVistas() {
+    const badge = document.getElementById('badgeEntradas');
+    if (vistasMarcadas || !badge) return;
+    vistasMarcadas = true;
 
-    var datos = new URLSearchParams();
-    datos.append('csrf', wrap ? wrap.getAttribute('data-csrf') : '');
-    datos.append('accion', 'marcar_vistas');
-
+    const body = new URLSearchParams({ accion: 'marcar_vistas', csrf: CSRF });
     fetch('perfil.php', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       credentials: 'same-origin',
-      body: datos.toString()
-    }).catch(function () { /* si falla, el número vuelve a aparecer la próxima vez */ });
+      body: body.toString()
+    })
+      .then(r => r.json())
+      .then(d => { if (d.ok) badge.remove(); else vistasMarcadas = false; })
+      .catch(() => { vistasMarcadas = false; });
   }
 
-  /* ---------- Pestañas (Configuración / Entradas compradas) ---------- */
-  var items = $$('.menu-item');
-  var paneles = $$('.panel');
-
-  function mostrarPanel(nombre, actualizarHash) {
-    var existe = paneles.some(function (p) { return p.id === 'panel-' + nombre; });
-    if (!existe) { nombre = 'config'; }
-
-    paneles.forEach(function (p) { p.classList.toggle('activo', p.id === 'panel-' + nombre); });
-    items.forEach(function (b) { b.classList.toggle('activo', b.getAttribute('data-panel') === nombre); });
-
-    if (nombre === 'entradas') { marcarEntradasVistas(); }
-
-    if (actualizarHash) {
-      if (history.replaceState) { history.replaceState(null, '', '#' + nombre); }
-      else { location.hash = nombre; }
-    }
+  function mostrarPanel(nombre, guardarHash = true) {
+    if (!document.getElementById('panel-' + nombre)) nombre = 'config';
+    items.forEach(b => b.classList.toggle('activo', b.dataset.panel === nombre));
+    paneles.forEach(p => p.classList.toggle('activo', p.id === 'panel-' + nombre));
+    if (guardarHash) history.replaceState(null, '', '#' + nombre);
+    if (nombre === 'entradas') marcarVistas();
   }
 
-  items.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      mostrarPanel(btn.getAttribute('data-panel'), true);
-    });
-  });
-
-  window.addEventListener('hashchange', function () {
-    mostrarPanel(location.hash.replace('#', ''), false);
-  });
-
-  // Panel inicial según el hash (#config / #entradas)
+  items.forEach(b => b.addEventListener('click', () => mostrarPanel(b.dataset.panel)));
   mostrarPanel(location.hash.replace('#', '') || 'config', false);
 
-  /* ---------- Foto de perfil ---------- */
-  var inputFoto = $('#inputFoto');
-  var btnCambiar = $('#btnCambiarFoto');
-  var formFoto = $('#formFoto');
-  var img = $('#avatarImg');
-  var iniciales = $('#avatarIniciales');
-  var MAX_BYTES = 2 * 1024 * 1024;
-  var TIPOS = ['image/jpeg', 'image/png', 'image/webp'];
-
-  function mostrarAlerta(texto) {
-    var alerta = $('#alerta');
-    if (!alerta) {
-      alerta = document.createElement('div');
-      alerta.id = 'alerta';
-      alerta.className = 'alerta alerta-error';
-      alerta.setAttribute('role', 'alert');
-      alerta.innerHTML = '<span></span><button type="button" class="alerta-cerrar" aria-label="Cerrar">&times;</button>';
-      $('.perfil-card').insertBefore(alerta, $('.perfil-card').firstChild);
-      activarCierre(alerta);
-    }
-    alerta.className = 'alerta alerta-error';
-    $('span', alerta).textContent = texto;
+  const bio = document.getElementById('biografia');
+  const contBio = document.getElementById('contBio');
+  if (bio && contBio) {
+    const contar = () => (contBio.textContent = bio.value.length);
+    bio.addEventListener('input', contar);
+    contar();
   }
 
-  if (btnCambiar && inputFoto) {
-    btnCambiar.addEventListener('click', function () { inputFoto.click(); });
-
-    inputFoto.addEventListener('change', function () {
-      var archivo = inputFoto.files && inputFoto.files[0];
-      if (!archivo) { return; }
-
-      if (TIPOS.indexOf(archivo.type) === -1) {
-        mostrarAlerta('Formato no válido. Usá JPG, PNG o WEBP.');
-        inputFoto.value = '';
-        return;
-      }
-      if (archivo.size > MAX_BYTES) {
-        mostrarAlerta('La imagen pesa demasiado (máximo 2 MB).');
-        inputFoto.value = '';
-        return;
-      }
-
-      // Vista previa inmediata y envío automático
-      var lector = new FileReader();
-      lector.onload = function (e) {
-        img.src = e.target.result;
-        img.hidden = false;
-        if (iniciales) { iniciales.style.display = 'none'; }
-        btnCambiar.disabled = true;
-        btnCambiar.textContent = 'Subiendo...';
-        formFoto.submit();
-      };
-      lector.readAsDataURL(archivo);
-    });
-  }
-
-  var formRestaurar = $('#formRestaurar');
-  if (formRestaurar) {
-    formRestaurar.addEventListener('submit', function (e) {
-      if (!window.confirm('¿Querés volver a la foto por defecto?')) { e.preventDefault(); }
-    });
-  }
-
-  /* ---------- Contador de la biografía ---------- */
-  var bio = $('#biografia');
-  var cont = $('#contBio');
-  function actualizarContador() { if (bio && cont) { cont.textContent = bio.value.length; } }
-  if (bio) {
-    bio.addEventListener('input', actualizarContador);
-    actualizarContador();
-  }
-
-  /* ---------- Mostrar / ocultar contraseña ---------- */
-  $$('.ver-pass').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var campo = document.getElementById(btn.getAttribute('data-target'));
-      if (!campo) { return; }
-      campo.type = campo.type === 'password' ? 'text' : 'password';
+  document.querySelectorAll('.ver-pass').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const input = document.getElementById(btn.dataset.target);
+      if (!input) return;
+      const oculto = input.type === 'password';
+      input.type = oculto ? 'text' : 'password';
+      btn.setAttribute('aria-label', oculto ? 'Ocultar contraseña' : 'Mostrar contraseña');
     });
   });
 
-  /* ---------- Validación: contraseña nueva requiere la actual ---------- */
-  var formConfig = $('#formConfig');
-  if (formConfig) {
-    formConfig.addEventListener('submit', function (e) {
-      var actual = $('#pass_actual').value;
-      var nueva = $('#pass_nueva').value;
-      if (nueva !== '' && actual === '') {
-        e.preventDefault();
-        mostrarPanel('config', true);
-        mostrarAlerta('Para cambiar la contraseña ingresá la actual.');
-        $('#pass_actual').focus();
-      }
-    });
+  const inputFoto = document.getElementById('inputFoto');
+  const formFoto = document.getElementById('formFoto');
+  const btnCambiar = document.getElementById('btnCambiarFoto');
+  const avatarImg = document.getElementById('avatarImg');
+  const avatarIniciales = document.getElementById('avatarIniciales');
+  const formRestaurar = document.getElementById('formRestaurar');
+
+  function error(msg) {
+    alert(msg);
+    inputFoto.value = '';
   }
 
-  /* ---------- Cerrar alertas (y que se oculten solas) ---------- */
-  function activarCierre(alerta) {
-    var cerrar = $('.alerta-cerrar', alerta);
-    if (cerrar) { cerrar.addEventListener('click', function () { alerta.remove(); }); }
-  }
-  var alertaInicial = $('#alerta');
-  if (alertaInicial) { activarCierre(alertaInicial); }
-})();
+  btnCambiar?.addEventListener('click', () => inputFoto.click());
+
+  inputFoto?.addEventListener('change', () => {
+    const archivo = inputFoto.files[0];
+    if (!archivo) return;
+
+    if (!['image/jpeg', 'image/png', 'image/webp'].includes(archivo.type)) {
+      return error('Formato no válido. Usá JPG, PNG o WEBP.');
+    }
+    if (archivo.size > 2 * 1024 * 1024) {
+      return error('La imagen pesa demasiado (máximo 2 MB).');
+    }
+
+    avatarImg.src = URL.createObjectURL(archivo);
+    avatarImg.hidden = false;
+    if (avatarIniciales) avatarIniciales.hidden = true;
+    btnCambiar.disabled = true;
+    btnCambiar.textContent = 'Subiendo...';
+    formFoto.submit();
+  });
+
+  formRestaurar?.addEventListener('submit', (ev) => {
+    if (!confirm('¿Querés volver a las iniciales en lugar de tu foto?')) ev.preventDefault();
+  });
+});

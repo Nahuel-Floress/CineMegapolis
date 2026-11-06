@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function() {
     selectCine.addEventListener("change", function() {
       const cineSeleccionado = this.value;
 
-      if (cineSeleccionado) {
-        // Redirige a la página principal (ejercicio1.html o index.html) 
-        // pasando el cine seleccionado como parámetro en la URL
-        window.location.href = `ejercicio1.html?cine=${cineSeleccionado}`;
+      if (cineSeleccionado) 
+      {
+
+        window.location.href = `inicio.php?cine=${cineSeleccionado}`;
       }
     });
   }

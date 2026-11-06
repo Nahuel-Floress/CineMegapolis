@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php require_once __DIR__ . '/../config/sesion.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,16 +34,7 @@ session_start();
                     </select>
                 </div>
                 
-                <?php if (isset($_SESSION['usuario_email'])): ?>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <a href="login.php" class="icon-link" title="Mi perfil"><span class="icon">👤</span></a>
-                        <span style="color: #fff; font-size: 14px; font-weight: 600;">
-                            <?php echo htmlspecialchars($_SESSION['usuario_nombre'] ?? $_SESSION['usuario_email']); ?>
-                        </span>
-                    </div>
-                <?php else: ?>
-                    <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
-                <?php endif; ?>
+                <?php include __DIR__ . '/../includes/navbar_usuario.php'; ?>
             </div>
         </nav> 
         <div class="navbar-underline"></div>

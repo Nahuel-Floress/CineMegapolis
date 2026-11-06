@@ -1,12 +1,8 @@
 <?php
-require_once '../config/conexion.php'; // sesión + conexión a la base de datos
+require_once '../config/conexion.php';
 
-const PRECIO_UNITARIO = 5500; // el precio lo define el servidor, no el navegador
+const PRECIO_UNITARIO = 5500; 
 
-/* =====================================================================
-   GUARDAR COMPRA
-   El JavaScript de esta misma página hace un POST acá y recibe JSON.
-   ===================================================================== */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Content-Type: application/json; charset=utf-8');
 
@@ -20,7 +16,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $responder(401, ['ok' => false, 'error' => 'Tenés que iniciar sesión para comprar.']);
     }
 
-    // Código de un solo uso generado al abrir esta página (evita compras duplicadas)
     $nonce = $_POST['nonce'] ?? '';
     if (empty($_SESSION['compra_nonce']) || !is_string($nonce) || !hash_equals($_SESSION['compra_nonce'], $nonce)) {
         $responder(400, ['ok' => false, 'error' => 'La compra ya se procesó o la página expiró. Volvé a elegir la función.']);
@@ -46,7 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $responder(422, ['ok' => false, 'error' => 'La cantidad de entradas debe ser entre 1 y 10.']);
     }
 
-    // El idioma viene al final del detalle: "XD • 2D · Castellano" -> "Castellano"
     $idioma = '';
     if (mb_strpos($detalle, '·') !== false) {
         $partes = explode('·', $detalle);
@@ -55,8 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $total = $cantidad * PRECIO_UNITARIO;
 
-    // Insertar con un código de reserva único (reintenta si justo se repite)
-    $alfabeto = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; // sin 0/O/1/I para evitar confusiones
+    $alfabeto = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; 
     $codigo = null;
 
     for ($intento = 0; $intento < 5 && $codigo === null; $intento++) {
@@ -73,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $codigo = $candidato;
         } catch (PDOException $ex) {
             if ($ex->getCode() === '23000' && strpos($ex->getMessage(), 'codigo') !== false) {
-                continue; // código repetido: probar con otro
+                continue; 
             }
             error_log('compra.php: ' . $ex->getMessage());
             $responder(500, ['ok' => false, 'error' => 'No se pudo guardar la compra. ¿Ejecutaste migracion_completa.sql?']);
@@ -84,14 +77,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $responder(500, ['ok' => false, 'error' => 'No se pudo generar el código de reserva. Probá de nuevo.']);
     }
 
-    unset($_SESSION['compra_nonce']); // se consume: refrescar no duplica la compra
+    unset($_SESSION['compra_nonce']);
     $responder(200, ['ok' => true, 'codigo' => $codigo, 'total' => $total]);
 }
 
-/* =====================================================================
-   MOSTRAR LA PÁGINA
-   ===================================================================== */
-requerir_login(true); // para comprar hay que iniciar sesión (después vuelve acá con los datos de la función)
+requerir_login(true); 
 
 $nonce = bin2hex(random_bytes(16));
 $_SESSION['compra_nonce'] = $nonce;
@@ -189,7 +179,6 @@ $_SESSION['compra_nonce'] = $nonce;
   <script>
     const PRECIO_UNITARIO = <?= PRECIO_UNITARIO ?>;
 
-    // Leer los parámetros que llegan desde pelicula2.html
     const params = new URLSearchParams(window.location.search);
 
     document.getElementById('rPelicula').textContent = params.get('pelicula') || 'Película';
@@ -199,7 +188,6 @@ $_SESSION['compra_nonce'] = $nonce;
     document.getElementById('rDetalle').textContent = params.get('detalle') || '-';
     document.getElementById('rButacas').textContent = params.get('butacas') || '-';
 
-    // Selector de cantidad
     let cantidad = 1;
     const cantidadEl = document.getElementById('cantidad');
     const totalEl = document.getElementById('total');
@@ -218,7 +206,6 @@ $_SESSION['compra_nonce'] = $nonce;
       if (cantidad > 1) { cantidad--; actualizarTotal(); }
     });
 
-    // Confirmar compra: se guarda en la base de datos (POST a esta misma página)
     const NONCE = <?= json_encode($nonce) ?>;
     const btnConfirmar = document.getElementById('btnConfirmar');
     const errorEl = document.getElementById('errorCompra');

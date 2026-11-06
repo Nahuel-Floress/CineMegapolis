@@ -4,13 +4,16 @@ requerir_login();
 
 $id = usuario_id();
 
-/* ---- Servir la foto de perfil guardada en la base de datos (perfil.php?foto=1) ---- */
 if (isset($_GET['foto'])) {
-  session_write_close(); // no bloquear la sesión mientras se envía la imagen
+  session_write_close();
 
-  $q = $pdo->prepare("SELECT foto, foto_tipo FROM clientes WHERE id_cliente = ?");
-  $q->execute([$id]);
-  $fila = $q->fetch(PDO::FETCH_ASSOC);
+  try {
+    $q = $pdo->prepare("SELECT foto, foto_tipo FROM clientes WHERE id_cliente = ?");
+    $q->execute([$id]);
+    $fila = $q->fetch(PDO::FETCH_ASSOC);
+  } catch (PDOException $ex) {
+    $fila = false;
+  }
 
   $bin = $fila['foto'] ?? null;
   if (is_resource($bin)) {
@@ -25,7 +28,7 @@ if (isset($_GET['foto'])) {
 
   $etag = '"' . md5($bin) . '"';
   header('ETag: ' . $etag);
-  header('Cache-Control: private, no-cache'); // el navegador pregunta si cambió; si no, usa su copia
+  header('Cache-Control: private, no-cache');
   header('X-Content-Type-Options: nosniff');
   if (($_SERVER['HTTP_IF_NONE_MATCH'] ?? '') === $etag) {
     http_response_code(304);
@@ -37,7 +40,6 @@ if (isset($_GET['foto'])) {
   exit();
 }
 
-/** Separa "XD • 2D · Castellano" en [formato, idioma]. Si ya hay un idioma guardado, lo usa. */
 function separar_detalle(string $detalle, string $idioma = ''): array
 {
   $formato = trim($detalle);
@@ -55,10 +57,6 @@ function separar_detalle(string $detalle, string $idioma = ''): array
 $generos = ['masculino' => 'Masculino', 'femenino' => 'Femenino', 'otro' => 'Otro', 'no_especificar' => 'Prefiero no especificarlo'];
 $complejos = ['congreso' => 'Congreso', 'san nicolas' => 'San Nicolas', 'palermo' => 'Palermo', 'recoleta' => 'Recoleta', 'belgrano' => 'Belgrano'];
 
-/**
- * Recorta la imagen a un cuadrado de 400x400 y la convierte a JPEG (así pesa poco en la base de datos).
- * Devuelve [binario, mime] o null si el servidor no tiene la extensión GD.
- */
 function procesar_imagen(string $ruta, int $tipo): ?array
 {
   if (!function_exists('imagecreatefromstring') || !function_exists('imagejpeg')) {
@@ -69,7 +67,6 @@ function procesar_imagen(string $ruta, int $tipo): ?array
     return null;
   }
 
-  // Respetar la orientación de las fotos sacadas con el celular
   if ($tipo === IMAGETYPE_JPEG && function_exists('exif_read_data') && function_exists('imagerotate')) {
     $exif = @exif_read_data($ruta);
     $orientacion = $exif['Orientation'] ?? 1;
@@ -103,25 +100,20 @@ function procesar_imagen(string $ruta, int $tipo): ?array
   return $binario !== '' ? [$binario, 'image/jpeg'] : null;
 }
 
-/** Vuelve a la página (evita reenviar el formulario al refrescar). Muestra un aviso si hay error u ok. */
-function volver(?string $error = null, string $panel = 'config', ?string $ok = null): void
+function volver(?string $error = null, string $panel = 'config'): void
 {
   if ($error !== null) {
     $_SESSION['flash'] = ['tipo' => 'error', 'texto' => $error];
-  } elseif ($ok !== null) {
-    $_SESSION['flash'] = ['tipo' => 'ok', 'texto' => $ok];
   }
   header('Location: perfil.php#' . $panel);
   exit();
 }
 
 $errConfig = "";
-$post = []; // valores escritos si hay error, para no perderlos
+$post = [];
 
-/* ================= ACCIONES ================= */
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  /* ---- Marcar las entradas como vistas (respuesta JSON, la llama perfil.js) ---- */
   if (($_POST['accion'] ?? '') === 'marcar_vistas') {
     header('Content-Type: application/json; charset=utf-8');
     if (!csrf_valido()) {
@@ -146,7 +138,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $accion = $_POST['accion'] ?? '';
 
-  /* ---- Cancelar una entrada comprada (solo si es del usuario logueado) ---- */
   if ($accion === 'cancelar_entrada') {
     $idEntrada = filter_var($_POST['id_entrada'] ?? null, FILTER_VALIDATE_INT);
     if ($idEntrada === false || $idEntrada < 1) {
@@ -164,10 +155,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($q->rowCount() === 0) {
       volver('La entrada no existe o ya fue cancelada.', 'entradas');
     }
-    volver(null, 'entradas', 'La entrada fue cancelada correctamente.');
+    volver(null, 'entradas');
   }
 
-  /* ---- Subir / cambiar foto (se guarda dentro de la base de datos) ---- */
   if ($accion === 'foto') {
     $f = $_FILES['foto'] ?? null;
 
@@ -191,7 +181,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($procesada) {
       [$binario, $mime] = $procesada;
     } else {
-      // Sin GD: se guarda tal cual, pero chica para no pasarse del límite de MySQL (max_allowed_packet)
       if ($f['size'] > 900 * 1024) {
         volver('No se pudo reducir la imagen. Probá con una de menos de 900 KB.');
       }
@@ -210,17 +199,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       volver('No se pudo guardar la foto en la base de datos. ¿Ejecutaste migracion_completa.sql?');
     }
 
-    volver();
+    volver(null, 'config');
   }
 
-  /* ---- Restaurar foto (volver a las iniciales) ---- */
   if ($accion === 'restaurar_foto') {
-    $q = $pdo->prepare("UPDATE clientes SET foto = NULL, foto_tipo = NULL WHERE id_cliente = ?");
-    $q->execute([$id]);
-    volver();
+    try {
+      $q = $pdo->prepare("UPDATE clientes SET foto = NULL, foto_tipo = NULL WHERE id_cliente = ?");
+      $q->execute([$id]);
+    } catch (PDOException $ex) {
+      error_log('perfil.php (restaurar): ' . $ex->getMessage());
+      volver('No se pudo restaurar la foto. ¿Ejecutaste migracion_completa.sql?');
+    }
+    volver(null, 'config');
   }
 
-  /* ---- Guardar configuración ---- */
   if ($accion === 'config') {
     $post = [
       'nombre' => trim($_POST['nombre'] ?? ''),
@@ -239,7 +231,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $errConfig = "Completá todos los campos obligatorios.";
     } elseif (mb_strlen($post['nombre']) > 50 || mb_strlen($post['apellido']) > 50) {
       $errConfig = "El nombre y el apellido pueden tener hasta 50 caracteres.";
-    } elseif (!filter_var($post['email'], FILTER_VALIDATE_EMAIL)) {
+    } elseif (!filter_var($post['email'], FILTER_VALIDATE_EMAIL) || mb_strlen($post['email']) > 100) {
       $errConfig = "El email no es válido.";
     } elseif (!isset($generos[$post['genero']]) || !isset($complejos[$post['complejo']])) {
       $errConfig = "Elegí un género y un complejo válidos.";
@@ -253,7 +245,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       }
     }
 
-    // Cambio de contraseña (opcional)
     $nuevoHash = null;
     if ($errConfig === "" && $passNueva !== '') {
       $q = $pdo->prepare("SELECT password FROM clientes WHERE id_cliente = ?");
@@ -281,38 +272,47 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $post['telefono'],
         $post['genero'],
         $post['complejo'],
-        $post['biografia']
+        $post['biografia'] === '' ? null : $post['biografia']
       ];
       if ($nuevoHash) {
         $params[] = $nuevoHash;
       }
       $params[] = $id;
-      $pdo->prepare($sql)->execute($params);
 
-      $_SESSION['usuario_nombre'] = $post['nombre'];
-      $_SESSION['usuario_email'] = $post['email'];
-      if ($nuevoHash) {
-        session_regenerate_id(true);
+      try {
+        $pdo->prepare($sql)->execute($params);
+      } catch (PDOException $ex) {
+        error_log('perfil.php (config): ' . $ex->getMessage());
+        $errConfig = "No se pudieron guardar los cambios. ¿Ejecutaste migracion_completa.sql?";
       }
 
-      volver();
+      if ($errConfig === "") {
+        $_SESSION['usuario_nombre'] = $post['nombre'];
+        $_SESSION['usuario_email'] = $post['email'];
+        if ($nuevoHash) {
+          session_regenerate_id(true);
+        }
+        volver(null, 'config');
+      }
     }
   }
 }
 
-/* ================= DATOS PARA MOSTRAR ================= */
-$q = $pdo->prepare("SELECT id_cliente, nombre, apellido, email, fecha_nacimiento, telefono, genero,
-                           complejo_preferencia, biografia, (foto IS NOT NULL) AS tiene_foto
-                    FROM clientes WHERE id_cliente = ?");
-$q->execute([$id]);
+try {
+  $q = $pdo->prepare("SELECT id_cliente, nombre, apellido, email, fecha_nacimiento, telefono, genero,
+                             complejo_preferencia, biografia, (foto IS NOT NULL) AS tiene_foto
+                      FROM clientes WHERE id_cliente = ?");
+  $q->execute([$id]);
+} catch (PDOException $ex) {
+  die('Falta preparar la base de datos: ejecutá db/migracion_completa.sql en phpMyAdmin y recargá la página.');
+}
 $u = $q->fetch(PDO::FETCH_ASSOC);
 
-if (!$u) { // la cuenta ya no existe
+if (!$u) {
   header('Location: logout.php');
   exit();
 }
 
-// Si hubo error, mostrar lo que la persona había escrito
 $v = [
   'nombre' => $post['nombre'] ?? $u['nombre'],
   'apellido' => $post['apellido'] ?? $u['apellido'],
@@ -324,20 +324,17 @@ $v = [
   'biografia' => $post['biografia'] ?? ($u['biografia'] ?? ''),
 ];
 
-// Foto (se sirve desde la base de datos con perfil.php?foto=1)
 $fotoUrl = !empty($u['tiene_foto']) ? 'perfil.php?foto=1' : null;
 $iniciales = mb_strtoupper(mb_substr($u['nombre'], 0, 1) . mb_substr($u['apellido'], 0, 1));
 
-// Mensaje flash
 $flash = $_SESSION['flash'] ?? null;
 unset($_SESSION['flash']);
 if ($errConfig !== "") {
   $flash = ['tipo' => 'error', 'texto' => $errConfig];
 }
 
-// Entradas compradas
 $entradas = [];
-$nuevas = 0; // entradas que todavía no viste
+$nuevas = 0;
 $errEntradas = false;
 try {
   $q = $pdo->prepare("
@@ -373,20 +370,6 @@ try {
   <link rel="stylesheet" href="../assets/css/peliculas.css">
   <link rel="stylesheet" href="../assets/css/perfil.css">
   <link rel="icon" href="../assets/img/Logo.png">
-  <style>
-    /* Botón de cancelar entrada */
-    .form-cancelar { margin: 0; }
-    .btn-cancelar {
-      background: transparent;
-      color: #ff6b6b;
-      border: 1px solid #ff6b6b;
-      border-radius: 6px;
-      padding: 4px 10px;
-      font-size: 12px;
-      cursor: pointer;
-    }
-    .btn-cancelar:hover { background: #ff6b6b; color: #fff; }
-  </style>
 </head>
 
 <body class="pagina-perfil">
@@ -412,13 +395,12 @@ try {
     <div class="perfil-card">
 
       <?php if ($flash): ?>
-        <div class="alerta <?= $flash['tipo'] === 'ok' ? 'alerta-ok' : 'alerta-error' ?>" id="alerta" role="alert">
+        <div class="alerta alerta-error" id="alerta" role="alert">
           <span><?= e($flash['texto']) ?></span>
           <button type="button" class="alerta-cerrar" aria-label="Cerrar">&times;</button>
         </div>
       <?php endif; ?>
 
-      <!-- ====== Columna foto ====== -->
       <section class="col-foto">
         <div class="avatar" id="avatar">
           <?php if ($fotoUrl): ?>
@@ -444,24 +426,22 @@ try {
               foto</button>
           </form>
         </div>
-        <small class="ayuda">JPG, PNG o WEBP · hasta 2 MB</small>
       </section>
 
-      <!-- ====== Columna datos principales ====== -->
       <section class="col-cabecera">
         <label for="nombre" class="etiqueta-blanca">Nombre de usuario</label>
         <input type="text" id="nombre" name="nombre" form="formConfig" class="campo campo-grande" maxlength="50"
           required value="<?= e($v['nombre']) ?>">
 
         <p class="ubicacion">Complejo preferido:
-          <strong><?= e($complejos[$v['complejo']] ?? ucfirst($v['complejo'])) ?></strong></p>
+          <strong><?= e($complejos[$v['complejo']] ?? ucfirst($v['complejo'])) ?></strong>
+        </p>
 
         <textarea id="biografia" name="biografia" form="formConfig" class="campo campo-bio" maxlength="300"
           placeholder="Escribí algo sobre vos..."><?= e($v['biografia']) ?></textarea>
-        <small class="contador"><span id="contBio">0</span>/300</small>
+        <small class="contador"><span id="contBio">0</span>/300 </small>
       </section>
 
-      <!-- ====== Menú lateral ====== -->
       <aside class="menu">
         <button type="button" class="menu-item activo" data-panel="config">Configuración</button>
         <button type="button" class="menu-item" data-panel="entradas">
@@ -472,10 +452,8 @@ try {
         <a href="logout.php" class="btn btn-ancho">Cerrar sesión</a>
       </aside>
 
-      <!-- ====== Paneles ====== -->
       <section class="paneles">
 
-        <!-- Configuración -->
         <div class="panel activo" id="panel-config">
           <h2 class="panel-titulo">Configuración de cuenta</h2>
 
@@ -520,7 +498,7 @@ try {
               </div>
             </div>
 
-            <h3 class="subtitulo">Cambiar contraseña <small>(dejalo vacío si no querés cambiarla)</small></h3>
+            <h3 class="subtitulo">Cambiar contraseña</h3>
             <div class="grid-campos">
               <div class="grupo">
                 <label for="pass_actual">Contraseña actual</label>
@@ -553,8 +531,7 @@ try {
           <?php if ($errEntradas): ?>
             <div class="vacio">
               <div class="vacio-icono">⚠️</div>
-              <p>No se pudieron cargar tus entradas. Verificá que ejecutaste <strong>migracion_compras.sql</strong> en la
-                base de datos.</p>
+              <p>No se pudieron cargar tus entradas.</p>
             </div>
           <?php elseif (empty($entradas)): ?>
             <div class="vacio">

@@ -1,13 +1,11 @@
 <?php
 require_once '../config/conexion.php';
 
-// Si ya hay sesión iniciada, no tiene sentido mostrar el login
 if (usuario_logueado()) {
     header("Location: perfil.php");
     exit();
 }
 
-// Página a la que volver después de loguearse (solo archivos locales .php)
 $redirect = $_POST['redirect'] ?? $_GET['redirect'] ?? '';
 if (!preg_match('/^[A-Za-z0-9_\-]+\.php$/', $redirect) || $redirect === 'login.php') {
     $redirect = 'inicio.php';

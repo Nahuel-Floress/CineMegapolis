@@ -1,3 +1,5 @@
+<?php require_once __DIR__ . '/../config/sesion.php'; ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,7 +33,7 @@
                         <option value="unicenter">Cine Unicenter</option>
                     </select>
                 </div>
-                <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+                <?php include __DIR__ . '/../includes/navbar_usuario.php'; ?>
             </div>
         </nav> 
         <div class="navbar-underline"></div>

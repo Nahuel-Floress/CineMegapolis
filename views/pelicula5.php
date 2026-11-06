@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/../config/sesion.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,7 +24,7 @@
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <a href="login.html" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+        <?php include __DIR__ . '/../includes/navbar_usuario.php'; ?>
      </div>
 </nav> 
   </nav> 
@@ -169,7 +170,7 @@
     <div class="footer-link">
       <ul>
         <li><a href="#">Login</a></li>
-        <li><a href="formulario.html">Contacto</a></li>
+        <li><a href="formulario.php">Contacto</a></li>
         <li><a href="#">Contacto Cine Fan</a></li>
         <li><a href="#">RRHH</a></li>
         <li><a href="#">Flix Media</a></li>
@@ -229,7 +230,7 @@
           butacas: butacas
         });
 
-        window.location.href = 'compra.html?' + params.toString();
+        window.location.href = 'compra.php?' + params.toString();
       });
     });
   </script>

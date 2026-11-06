@@ -1,3 +1,4 @@
+<?php require_once __DIR__ . '/../config/sesion.php'; ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,7 +24,7 @@
      <div class="dos">
         <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
       <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
+        <?php include __DIR__ . '/../includes/navbar_usuario.php'; ?>
      </div>
 </nav> 
   </nav> 
