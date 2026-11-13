@@ -78,7 +78,7 @@
       </div>
 
       <div class="cinema-block">
-        <div class="cinema-name">HORARIOS EN <span style="color:var(--white);">CINEMARK ALTO AVELLANEDA</span></div>
+        <div class="cinema-name">HORARIOS EN <span style="color:var(--white);">CINE</span></div>
         <div style="font-size:13px;color:#bfbfbf;margin-top:6px">Dirección: Av. Güemes 897, Shopping Alto Avellaneda</div>
 
         <div style="margin-top:12px" class="sessions">
