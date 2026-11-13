@@ -27,8 +27,8 @@
     <div class="footer-column">
       <h4>AYUDA</h4>
       <ul>
-        <li><a href="#">Preguntas Frecuentes</a></li>
-        <li><a href="#">Términos y Condiciones</a></li>
+        <li><a href="../views/politicaPrivacidad.php">Politica de privacidad</a></li>
+        <li><a href="../views/politicaEmpresa.php">Términos y Condiciones</a></li>
       </ul>
     </div>
   </div>
