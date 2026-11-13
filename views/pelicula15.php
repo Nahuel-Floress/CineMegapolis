@@ -11,26 +11,8 @@
 
 <body>
 
-  
- <nav class="navbar">
-     <div class="uno">
-        <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
-         <a href="inicio.php" class="nav-link active ">PELÍCULAS</a>
-      <a href="candy.php" class="nav-link">CANDY</a>
-      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
-      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
-      <a href="#" class="nav-link">STORE</a>
-     </div>
-     <div class="dos">
-        <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
-      <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-        <?php include __DIR__ . '/../includes/navbar_usuario.php'; ?>
-     </div>
-</nav> 
-  </nav> 
-    <div class="navbar-underline"></div>
-  </div>
-  
+
+  <?php include __DIR__ . '/../includes/navbar_usuario.php'; ?>
   <main class="container">
 
     
@@ -133,64 +115,6 @@
 
   </main>
 
-  <footer class="footer">
-  <div class="footer-top">
-    <div class="footer-column">
-      <h4>CINES</h4>
-      <ul>
-        <li><a href="#">Precios Vigentes</a></li>
-        <li><a href="#">Formatos</a></li>
-      </ul>
-    </div>
-    <div class="footer-column">
-      <h4>PROMOCIONES</h4>
-      <ul>
-        <li><a href="#">Promociones</a></li>
-        <li><a href="#">Asociá tu cuenta YPF</a></li>
-      </ul>
-    </div>
-    <div class="footer-column">
-      <h4>VENTAS CORPORATIVAS</h4>
-    </div>
-    <div class="footer-column">
-      <h4>CUMPLEAÑOS Y GRUPOS</h4>
-    </div>
-    <div class="footer-column">
-      <h4>AYUDA</h4>
-      <ul>
-        <li><a href="#">Preguntas Frecuentes</a></li>
-        <li><a href="#">Términos y Condiciones</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <div class="footer-link">
-      <ul>
-        <li><a href="#">Login</a></li>
-        <li><a href="formulario.php">Contacto</a></li>
-        <li><a href="#">Contacto Cine Fan</a></li>
-        <li><a href="#">RRHH</a></li>
-        <li><a href="#">Flix Media</a></li>
-        <li><a href="#">Libro de quejas online</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-info">
-      <p>&copy; 2024 Cinemark</p>
-      <p>Dirección General de Defensa y Protección al Consumidor: Para consultas y/o denuncias haga <a href="#">click aquí</a></p>
-    </div>
-
-    <div class="footer-right">
-      <div class="qrs">
-        <img src="../assets/img/qr.png" alt="QR 1">
-        <img src="../assets/img/qr2.png" alt="QR 2">
-      </div>
-      <button class="arrepentimiento">BOTÓN DE ARREPENTIMIENTO</button>
-    </div>
-  </div>
-</footer>
-
   <script>
     // ---------- TABS DE DÍA (HOY / MAR / MIÉ) ----------
     const dayTabs = document.querySelectorAll('.day-tabs .tab');
@@ -232,6 +156,6 @@
       });
     });
   </script>
-
+  <?php include __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

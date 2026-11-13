@@ -1,7 +1,91 @@
 <?php
 require_once '../config/conexion.php';
 
-const PRECIO_UNITARIO = 5500; 
+const PRECIO_UNITARIO = 5500;
+
+/* =====================================================================
+ *  Pósters (sin poster.php)
+ *  Una "referencia" puede ser una URL (https://...) o un archivo dentro
+ *  de assets/img (se permiten subcarpetas).
+ * ===================================================================== */
+const CARPETA_IMG = __DIR__ . '/../assets/img';
+const EXT_IMG = '/\.(png|jpe?g|webp|gif|avif)$/i';
+
+function poster_normalizar(string $s): string
+{
+    $s = mb_strtolower($s, 'UTF-8');
+    $s = strtr($s, ['á' => 'a', 'é' => 'e', 'í' => 'i', 'ó' => 'o', 'ú' => 'u', 'ü' => 'u', 'ñ' => 'n']);
+    return preg_replace('/[^a-z0-9]+/', '', $s) ?? '';
+}
+
+// Valida una referencia. Devuelve la URL o la ruta relativa a assets/img, o '' si no sirve.
+function poster_resolver(string $ref): string
+{
+    $ref = trim($ref);
+    if ($ref === '') {
+        return '';
+    }
+    if (preg_match('#^https?://#i', $ref)) {
+        return (filter_var($ref, FILTER_VALIDATE_URL) && strlen($ref) <= 500) ? $ref : '';
+    }
+    $r = str_replace('\\', '/', $ref);
+    $r = preg_replace('#^(\.{1,2}/)+#', '', $r) ?? '';
+    $r = ltrim($r, '/');
+    $r = preg_replace('#^assets/img/#i', '', $r) ?? '';
+    if ($r === '' || strpos($r, '..') !== false || !preg_match(EXT_IMG, $r)) {
+        return '';
+    }
+    return is_file(CARPETA_IMG . '/' . $r) ? $r : '';
+}
+
+// Busca en assets/img un archivo que se llame como la película.
+function poster_por_titulo(string $titulo): string
+{
+    $clave = poster_normalizar($titulo);
+    if ($clave === '') {
+        return '';
+    }
+    $parcial = '';
+    foreach (@scandir(CARPETA_IMG) ?: [] as $f) {
+        if (!preg_match(EXT_IMG, $f)) {
+            continue;
+        }
+        $norm = poster_normalizar(pathinfo($f, PATHINFO_FILENAME));
+        if ($norm === $clave) {
+            return $f;
+        }
+        if ($parcial === '' && strlen($clave) >= 4 && strpos($norm, $clave) !== false) {
+            $parcial = $f;
+        }
+    }
+    return $parcial;
+}
+
+// Busca el póster en la tabla peliculas (prueba varios nombres de columna).
+function poster_de_tabla(PDO $pdo, string $titulo): string
+{
+    if (trim($titulo) === '') {
+        return '';
+    }
+    try {
+        $q = $pdo->prepare('SELECT * FROM peliculas WHERE titulo = ? LIMIT 1');
+        $q->execute([$titulo]);
+        $fila = $q->fetch(PDO::FETCH_ASSOC);
+        if ($fila) {
+            foreach (['imagen', 'poster', 'portada', 'img', 'foto', 'imagen_url', 'url_imagen', 'cartel'] as $col) {
+                if (!empty($fila[$col])) {
+                    $ok = poster_resolver((string) $fila[$col]);
+                    if ($ok !== '') {
+                        return $ok;
+                    }
+                }
+            }
+        }
+    } catch (PDOException $ex) {
+        // la tabla o columnas no existen: se sigue con la carpeta
+    }
+    return '';
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Content-Type: application/json; charset=utf-8');
@@ -41,6 +125,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $responder(422, ['ok' => false, 'error' => 'La cantidad de entradas debe ser entre 1 y 10.']);
     }
 
+    // Póster: 1) lo que mande la página de la película (URL o archivo),
+    //         2) tabla peliculas, 3) archivo de assets/img con el nombre de la película.
+    $imagen = poster_resolver((string)($_POST['imagen'] ?? ''));
+    if ($imagen === '') {
+        $imagen = poster_de_tabla($pdo, $pelicula);
+    }
+    if ($imagen === '') {
+        $imagen = poster_por_titulo($pelicula);
+    }
+
     $idioma = '';
     if (mb_strpos($detalle, '·') !== false) {
         $partes = explode('·', $detalle);
@@ -49,10 +143,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $total = $cantidad * PRECIO_UNITARIO;
 
-    $alfabeto = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; 
+    $alfabeto = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     $codigo = null;
+    $idEntrada = null;
 
-    for ($intento = 0; $intento < 5 && $codigo === null; $intento++) {
+    for ($intento = 0; $intento < 6 && $codigo === null; $intento++) {
         $candidato = 'CIN-';
         for ($i = 0; $i < 6; $i++) {
             $candidato .= $alfabeto[random_int(0, strlen($alfabeto) - 1)];
@@ -60,28 +155,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         try {
             $q = $pdo->prepare("INSERT INTO entradas
-                (precio, cantidad, asiento, id_cliente, id_funcion, codigo, pelicula, cine, dia, horario, detalle, idioma)
-                VALUES (?, ?, NULL, ?, NULL, ?, ?, ?, ?, ?, ?, ?)");
-            $q->execute([$total, $cantidad, usuario_id(), $candidato, $pelicula, $cine, $dia, $horario, $detalle, $idioma]);
+                (precio, cantidad, asiento, id_cliente, id_funcion, codigo, pelicula, imagen, cine, dia, horario, detalle, idioma)
+                VALUES (?, ?, NULL, ?, NULL, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $q->execute([$total, $cantidad, usuario_id(), $candidato, $pelicula, ($imagen ?: null), $cine, $dia, $horario, $detalle, $idioma]);
             $codigo = $candidato;
+            $idEntrada = (int) $pdo->lastInsertId();
         } catch (PDOException $ex) {
             if ($ex->getCode() === '23000' && strpos($ex->getMessage(), 'codigo') !== false) {
-                continue; 
+                continue;
+            }
+            // La URL del póster no entra en la columna: reintentamos sin imagen (el perfil la buscará después)
+            if ($imagen !== '' && stripos($ex->getMessage(), 'Data too long') !== false) {
+                $imagen = '';
+                continue;
             }
             error_log('compra.php: ' . $ex->getMessage());
-            $responder(500, ['ok' => false, 'error' => 'No se pudo guardar la compra. ¿Ejecutaste migracion_completa.sql?']);
+            $responder(500, ['ok' => false, 'error' => 'No se pudo guardar la compra. ¿Ejecutaste el SQL que agrega la columna imagen?']);
         }
     }
 
-    if ($codigo === null) {
+    if ($codigo === null || !$idEntrada) {
         $responder(500, ['ok' => false, 'error' => 'No se pudo generar el código de reserva. Probá de nuevo.']);
     }
 
-    unset($_SESSION['compra_nonce']);
-    $responder(200, ['ok' => true, 'codigo' => $codigo, 'total' => $total]);
+    unset($_SESSION['compra_nonce'], $_SESSION['ultima_compra']);
+
+    // La entrada queda guardada y se la pasamos al Candy para armar el combo.
+    $_SESSION['candy_entrada'] = $idEntrada;
+
+    $responder(200, [
+        'ok'       => true,
+        'codigo'   => $codigo,
+        'total'    => $total,
+        'redirect' => 'candy.php',
+    ]);
 }
 
-requerir_login(true); 
+requerir_login(true);
 
 $nonce = bin2hex(random_bytes(16));
 $_SESSION['compra_nonce'] = $nonce;
@@ -97,89 +207,66 @@ $_SESSION['compra_nonce'] = $nonce;
 </head>
 
 <body>
-   <header>
-        <nav class="navbar">
-            <!-- Sección Izquierda: Logo + Enlaces -->
-            <div class="uno">
-                <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
-                <a href="inicio.php" class="nav-link">PELÍCULAS</a>
-                <a href="candy.php" class="nav-link active">CANDY</a>
-                <a href="Cinefan.php" class="nav-link">CINE FAN</a>
-                <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
-                <a href="#" class="nav-link">STORE</a>
-            </div>
 
-            <!-- Sección Derecha: Selector de Cine + Usuario -->
-            <div class="dos">
-                <div class="cinema-selector">
-                    <span class="pin-icon">📍</span>
-                    <select id="selectCine">
-                        <option value="" disabled selected>ELEGÍ CINE</option>
-                        <option value="abasto">Cine Abasto</option>
-                        <option value="palermo">Cine Palermo</option>
-                        <option value="unicenter">Cine Unicenter</option>
-                    </select>
-                </div>
-                <?php include __DIR__ . '/../includes/navbar_usuario.php'; ?>
-            </div>
-        </nav> 
-        <div class="navbar-underline"></div>
-    </header>
 
+  <?php include __DIR__ . '/../includes/navbar_usuario.php'; ?>
   <main class="compra-container">
 
-    <a href="javascript:history.back()" class="btn-volver">&larr; Volver a la película</a>
+    <!-- Todo lo de la compra va dentro de este contenedor: al confirmar se oculta -->
+    <div id="pasoCompra">
 
-    <h2 class="compra-titulo">Comprar entradas</h2>
+      <a href="javascript:history.back()" class="btn-volver">&larr; Volver a la película</a>
 
-    <div class="resumen-card" id="resumenCard">
-      <div class="resumen-row"><span>Película</span><span id="rPelicula">-</span></div>
-      <div class="resumen-row"><span>Cine</span><span id="rCine">-</span></div>
-      <div class="resumen-row"><span>Día</span><span id="rDia">-</span></div>
-      <div class="resumen-row"><span>Horario</span><span id="rHorario">-</span></div>
-      <div class="resumen-row"><span>Formato / Idioma</span><span id="rDetalle">-</span></div>
-      <div class="resumen-row"><span>Disponibilidad de butacas</span><span id="rButacas">-</span></div>
-    </div>
+      <h2 class="compra-titulo">Comprar entradas</h2>
 
-    <div class="qty-card">
-      <div class="qty-title">Cantidad de entradas</div>
-      <div class="qty-control">
-        <button class="qty-btn" id="menos">−</button>
-        <span class="qty-num" id="cantidad">1</span>
-        <button class="qty-btn" id="mas">+</button>
+      <div class="resumen-card" id="resumenCard">
+        <div class="resumen-row"><span>Película</span><span id="rPelicula">-</span></div>
+        <div class="resumen-row"><span>Cine</span><span id="rCine">-</span></div>
+        <div class="resumen-row"><span>Día</span><span id="rDia">-</span></div>
+        <div class="resumen-row"><span>Horario</span><span id="rHorario">-</span></div>
+        <div class="resumen-row"><span>Formato / Idioma</span><span id="rDetalle">-</span></div>
+        <div class="resumen-row"><span>Disponibilidad de butacas</span><span id="rButacas">-</span></div>
       </div>
 
-      <div class="precio-total">
-        <span>Total a pagar</span>
-        <span id="total">$ 5.500</span>
+      <div class="qty-card">
+        <div class="qty-title">Cantidad de entradas</div>
+        <div class="qty-control">
+          <button class="qty-btn" id="menos">−</button>
+          <span class="qty-num" id="cantidad">1</span>
+          <button class="qty-btn" id="mas">+</button>
+        </div>
+
+        <div class="precio-total">
+          <span>Total a pagar</span>
+          <span id="total">$ 5.500</span>
+        </div>
       </div>
+
+      <div id="errorCompra" style="display:none;max-width:420px;background:rgba(255,0,0,0.1);color:#ff6b6b;padding:10px;border-radius:6px;margin:12px 0;font-size:13px;"></div>
+
+      <button class="btn-confirmar" id="btnConfirmar">Confirmar compra</button>
+
     </div>
 
-    <div id="errorCompra" style="display:none;max-width:420px;background:rgba(255,0,0,0.1);color:#ff6b6b;padding:10px;border-radius:6px;margin:12px 0;font-size:13px;"></div>
-
-    <button class="btn-confirmar" id="btnConfirmar">Confirmar compra</button>
-
-    <div class="confirmacion" id="confirmacion">
-      <h3>¡Compra confirmada!</h3>
+    <!-- Aparece en lugar de la compra cuando se confirma -->
+    <div class="confirmacion" id="confirmacion" style="display:none;">
+      <h3>¡Entrada reservada!</h3>
       <p>Tu código de reserva es:</p>
       <div class="codigo" id="codigoReserva">------</div>
-      <p style="color:#bfbfbf;font-size:13px">Presentá este código en la boletería del cine.</p>
+      <p style="color:#bfbfbf;font-size:13px"></p>
+      <p style="font-size:13px"><a id="irCandy" href="candy.php" style="color:#e2b13c"></a></p>
     </div>
 
   </main>
-
-  <footer class="footer">
-    <div class="footer-bottom">
-      <div class="footer-info">
-        <p>&copy; 2024 CineMegapolis</p>
-      </div>
-    </div>
-  </footer>
 
   <script>
     const PRECIO_UNITARIO = <?= PRECIO_UNITARIO ?>;
 
     const params = new URLSearchParams(window.location.search);
+
+    // El póster puede venir con distintos nombres según la página de la película
+    const IMAGEN = params.get('imagen') || params.get('poster') || params.get('img') ||
+                   params.get('portada') || params.get('cartel') || '';
 
     document.getElementById('rPelicula').textContent = params.get('pelicula') || 'Película';
     document.getElementById('rCine').textContent = params.get('cine') || 'Cine';
@@ -209,6 +296,8 @@ $_SESSION['compra_nonce'] = $nonce;
     const NONCE = <?= json_encode($nonce) ?>;
     const btnConfirmar = document.getElementById('btnConfirmar');
     const errorEl = document.getElementById('errorCompra');
+    const pasoCompra = document.getElementById('pasoCompra');
+    const confirmacion = document.getElementById('confirmacion');
 
     function mostrarError(msg) {
       errorEl.textContent = msg;
@@ -230,6 +319,7 @@ $_SESSION['compra_nonce'] = $nonce;
         const body = new URLSearchParams({
           nonce: NONCE,
           pelicula: params.get('pelicula') || '',
+          imagen: IMAGEN,
           cine: params.get('cine') || '',
           dia: params.get('dia') || '',
           horario: params.get('horario') || '',
@@ -252,12 +342,16 @@ $_SESSION['compra_nonce'] = $nonce;
         const data = await res.json();
         if (!data.ok) { throw new Error(data.error || 'No se pudo completar la compra.'); }
 
+        // Compra OK: se oculta todo el paso de compra y se muestra la reserva en su lugar
         document.getElementById('codigoReserva').textContent = data.codigo;
-        document.getElementById('confirmacion').style.display = 'block';
-        btnConfirmar.textContent = 'Compra realizada';
-        document.getElementById('mas').disabled = true;
-        document.getElementById('menos').disabled = true;
-        document.getElementById('confirmacion').scrollIntoView({ behavior: 'smooth' });
+        pasoCompra.style.display = 'none';
+        confirmacion.style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Después de comprar la entrada, vamos directo al Candy.
+        const destino = data.redirect || 'candy.php';
+        document.getElementById('irCandy').setAttribute('href', destino);
+        setTimeout(() => { window.location.href = destino; }, 2500);
       } catch (err) {
         mostrarError(err.message || 'Error de conexión. Probá de nuevo.');
         btnConfirmar.disabled = false;
@@ -267,6 +361,6 @@ $_SESSION['compra_nonce'] = $nonce;
 
     actualizarTotal();
   </script>
-
+  <?php include __DIR__ . '/../includes/footer.php'; ?>
 </body>
 </html>

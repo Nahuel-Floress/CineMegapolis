@@ -1,8 +1,8 @@
 :root {
     --bg-dark: #0f0f12;
     --bg-card: #18171c;
-    --primary-color: #b30000;    
-    --accent-color: #e2b13c;       
+    --primary-color: #b30000;
+    --accent-color: #e2b13c;
     --text-color: #ffffff;
     --text-muted: #b0aeb5;
     --border-color: #2b2933;
@@ -11,7 +11,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #12100d;    
+    background-color: #12100d;
     color: var(--text-color);
 }
 
@@ -30,31 +30,34 @@ body {
     justify-content: space-between;
     background-color: #12100d;
     color: white;
-    padding: 10px 40px; /* Padding fijo y limpio (se quita el 20%) */
+    padding: 10px 40px;
     box-sizing: border-box;
     width: 100%;
 }
+
 .uno {
     display: flex;
     align-items: center;
-    gap: 25px; /* Separación pareja entre links */
+    gap: 25px;
 }
 
 .dos {
     display: flex;
     align-items: center;
     gap: 20px;
-    padding-right: 0; /* SE ELIMINA EL padding-right: 30% QUE ROMPÍA TODO */
+    padding-right: 0;
 }
+
 .nav-link {
     color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: 13px;
     line-height: 1.2;
-    white-space: nowrap; /* Evita saltos de línea */
+    white-space: nowrap;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    position: relative;
 }
 
 .nav-link.active::after {
@@ -96,7 +99,6 @@ body {
     color: #ffffff;
 }
 
-
 .icon {
     font-size: 14px;
     cursor: pointer;
@@ -109,13 +111,10 @@ body {
     opacity: 0.9;
     transition: opacity 0.2s, transform 0.2s;
 }
+
 .icon-link:hover {
     opacity: 1;
     transform: scale(1.1);
-}
-
-.dos {
-    padding-right: 30%;
 }
 
 .navbar-underline {
@@ -210,9 +209,10 @@ body {
     font-size: 12px;
 }
 
+/* Contenedor de la imagen: más alto, con fondo sutil y la imagen completa */
 .product-container-img {
-    height: 160px;
-    background-color: #111014;
+    height: 200px;
+    background: radial-gradient(circle at 50% 55%, #26232d 0%, #111014 75%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -223,12 +223,15 @@ body {
 .product-img-file {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: contain;
+    object-position: center;
+    padding: 14px;
+    box-sizing: border-box;
     transition: transform 0.5s ease;
 }
 
 .product-card:hover .product-img-file {
-    transform: scale(1.06);
+    transform: scale(1.04);
 }
 
 .product-info {
@@ -444,4 +447,789 @@ body {
 
 .btn-express:hover {
     border-color: var(--accent-color);
+}
+
+
+/* ================================================================
+   Banner de entrada reservada + "sin combos"
+   ================================================================ */
+.banner-entrada {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 20px 30px 0;
+    padding: 16px 20px;
+    background: rgba(65, 196, 83, 0.08);
+    border: 1px solid rgba(65, 196, 83, 0.4);
+    border-radius: 12px;
+}
+
+.banner-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+}
+
+.banner-texto strong {
+    color: #41c453;
+    font-size: 16px;
+}
+
+.banner-texto b {
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+
+.banner-sub {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.form-sin-combos {
+    margin: 0;
+}
+
+.btn-sin-combos {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-sin-combos:hover {
+    background: #ffffff;
+    color: #12100d;
+}
+
+.form-sin-combos-panel {
+    margin: 14px 0 0;
+    text-align: center;
+}
+
+.btn-sin-combos-link {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: underline;
+}
+
+.btn-sin-combos-link:hover {
+    color: var(--accent-color);
+}
+
+/* ================================================================
+   Carrito: controles de cantidad y errores
+   ================================================================ */
+.cart-qty-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    font-size: 13px;
+}
+
+.qty-mini {
+    width: 22px;
+    height: 22px;
+    line-height: 1;
+    padding: 0;
+    background: #1e1b24;
+    color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.qty-mini:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.candy-error {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff6b6b;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
+/* ================================================================
+   Paso de pago (rediseñado)
+   Tarjeta con filo dorado, resumen estilo ticket, métodos de pago
+   seleccionables y botón de pago destacado.
+   ================================================================ */
+.paso-pago {
+    flex: 3;
+    align-self: flex-start;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(120% 80% at 100% 0%, rgba(226, 177, 60, 0.07) 0%, transparent 55%),
+        linear-gradient(180deg, #1d1b22 0%, #16151a 100%);
+    border: 1px solid #34313d;
+    border-radius: 18px;
+    padding: 32px 30px 28px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    animation: pago-entrada 0.45s ease both;
+}
+
+/* Filo superior rojo -> dorado */
+.paso-pago::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+/* ---- Resumen del pedido: estilo ticket ---- */
+.modal-resumen {
+    position: relative;
+    background: #0e0d11;
+    border: 1px solid #2f2c38;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 26px;
+}
+
+/* Muescas laterales del ticket */
+.modal-resumen::before,
+.modal-resumen::after {
+    content: "";
+    position: absolute;
+    right: -9px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #18171c;
+    border: 1px solid #2f2c38;
+}
+
+.modal-resumen::before {
+    top: -9px;
+}
+
+.modal-resumen::after {
+    bottom: -9px;
+}
+
+.modal-linea {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 14px;
+    padding: 7px 0;
+    color: #d9d7de;
+}
+
+.modal-linea span:last-child {
+    color: #ffffff;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.modal-total {
+    border-top: 2px dashed #3a3744;
+    margin-top: 10px;
+    padding-top: 14px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.modal-total span:last-child {
+    color: var(--accent-color);
+    font-size: 24px;
+    text-shadow: 0 0 18px rgba(226, 177, 60, 0.35);
+}
+
+/* ---- Grupos de opciones ---- */
+.modal-grupo {
+    border: none;
+    padding: 0;
+    margin: 0 0 24px;
+}
+
+.modal-grupo legend {
+    padding: 0;
+    margin-bottom: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ---- Opciones tipo tarjeta seleccionable ---- */
+.opcion {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 18px;
+    margin-bottom: 10px;
+    background: #121116;
+    border: 1.5px solid #2f2c38;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    color: #e6e4ea;
+    transition: border-color 0.2s ease, background 0.2s ease,
+                box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.opcion:hover {
+    border-color: rgba(226, 177, 60, 0.7);
+    background: #17151b;
+    transform: translateY(-1px);
+}
+
+/* Radio personalizado */
+.opcion input {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    border: 2px solid #5a5666;
+    border-radius: 50%;
+    background: transparent;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.opcion input::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    transform: scale(0);
+    transition: transform 0.18s ease;
+}
+
+.opcion input:checked {
+    border-color: var(--accent-color);
+}
+
+.opcion input:checked::before {
+    transform: scale(1);
+}
+
+.opcion input:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+/* Opción elegida: resaltada completa */
+.opcion:has(input:checked) {
+    border-color: var(--accent-color);
+    background: linear-gradient(90deg, rgba(226, 177, 60, 0.14), rgba(226, 177, 60, 0.03));
+    box-shadow: 0 0 0 1px rgba(226, 177, 60, 0.25), 0 8px 22px rgba(0, 0, 0, 0.35);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* ---- Botones de pago: viven en el panel derecho, debajo del total ---- */
+.acciones-pago {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.acciones-pago .btn-modal-pagar,
+.acciones-pago .btn-modal-cancelar {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+/* Precio dentro del botón Pagar (lo completa un pequeño script con el total del carrito) */
+.btn-modal-pagar[data-precio]:not([data-precio=""])::after {
+    content: " · " attr(data-precio);
+}
+
+.btn-modal-cancelar,
+.btn-modal-pagar {
+    flex: 1;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-modal-cancelar {
+    background: transparent;
+    color: #cfcdd4;
+    border: 1.5px solid #3a3744;
+}
+
+.btn-modal-cancelar:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.btn-modal-pagar {
+    flex: 2;
+    background: linear-gradient(135deg, #d40000 0%, var(--primary-color) 55%, #8a0000 100%);
+    color: #ffffff;
+    border: none;
+    letter-spacing: 0.4px;
+    box-shadow: 0 8px 22px rgba(179, 0, 0, 0.4);
+}
+
+.btn-modal-pagar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(179, 0, 0, 0.55);
+    background: linear-gradient(135deg, #e60000 0%, #c20000 55%, #9a0000 100%);
+}
+
+.btn-modal-pagar:active {
+    transform: translateY(0);
+}
+
+.btn-modal-pagar:focus-visible,
+.btn-modal-cancelar:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+.btn-modal-pagar:disabled {
+    background: #3b3a40;
+    color: #8d8b93;
+    box-shadow: none;
+    transform: none;
+    cursor: not-allowed;
+}
+
+@keyframes pago-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .paso-pago {
+        animation: none;
+    }
+
+    .opcion,
+    .opcion input,
+    .opcion input::before,
+    .btn-modal-pagar,
+    .btn-modal-cancelar {
+        transition: none;
+    }
+}
+
+/* ================================================================
+   Página "Compra realizada con éxito"
+   ================================================================ */
+.exito-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px 80px;
+}
+
+.exito-card {
+    width: 100%;
+    max-width: 620px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 36px 30px;
+    text-align: center;
+}
+
+.exito-icono {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: rgba(65, 196, 83, 0.15);
+    border: 2px solid #41c453;
+    color: #41c453;
+    font-size: 36px;
+    line-height: 68px;
+}
+
+.exito-card h1 {
+    margin: 0 0 8px;
+    font-size: 26px;
+}
+
+.exito-sub {
+    margin: 0 0 26px;
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.exito-bloque {
+    text-align: left;
+    background: #111014;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 16px;
+}
+
+.exito-bloque h2 {
+    margin: 0 0 10px;
+    font-size: 16px;
+    color: var(--accent-color);
+}
+
+.exito-fila {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 8px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 14px;
+}
+
+.exito-fila span:first-child {
+    color: var(--text-muted);
+}
+
+.exito-fila span:last-child {
+    text-align: right;
+}
+
+.exito-codigo {
+    color: var(--accent-color);
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.exito-total {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.exito-nota {
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0 0 16px;
+}
+
+.exito-botones {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+.btn-inicio,
+.btn-perfil {
+    flex: 1;
+    min-width: 180px;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    font-size: 15px;
+}
+
+.btn-inicio {
+    background: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-inicio:hover {
+    background: #cc0000;
+}
+
+.btn-perfil {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid var(--border-color);
+}
+
+.btn-perfil:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* ================================================================
+   RESPONSIVE
+   Escritorio grande: > 1200px (estilos base de arriba)
+   Escritorio chico / tablet horizontal: <= 1200px
+   Tablet: <= 992px
+   Celular: <= 600px
+   Celular chico: <= 360px
+   ================================================================ */
+
+/* ---- Escritorio chico ---- */
+@media (max-width: 1200px) {
+    .main-container {
+        padding: 24px 20px;
+        gap: 20px;
+    }
+
+    .sidebar-categories {
+        max-width: 190px;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+        gap: 18px;
+    }
+
+    .banner-entrada {
+        margin: 20px 20px 0;
+    }
+}
+
+/* ---- Tablet ---- */
+@media (max-width: 992px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 10px 20px;
+        gap: 10px;
+    }
+
+    .uno {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
+
+    .dos {
+        flex-wrap: wrap;
+        gap: 12px 16px;
+    }
+
+    /* Todo en una columna: categorías -> productos -> carrito */
+    .main-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .sidebar-categories {
+        flex: 0 0 auto;
+        max-width: none;
+        width: 100%;
+    }
+
+    .sidebar-categories h3 {
+        margin-bottom: 12px;
+        font-size: 16px;
+    }
+
+    /* Categorías en una fila con scroll horizontal */
+    .sidebar-categories ul {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding-bottom: 6px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .category-item {
+        flex: 0 0 auto;
+        margin-bottom: 0;
+        white-space: nowrap;
+        padding: 11px 16px;
+    }
+
+    .products-grid {
+        flex: 0 0 auto;
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+
+    .checkout-panel,
+    .paso-pago {
+        flex: 0 0 auto;
+        width: 100%;
+        align-self: stretch;
+    }
+
+    .cart-items {
+        max-height: 260px;
+    }
+}
+
+/* ---- Celular ---- */
+@media (max-width: 600px) {
+    .navbar {
+        justify-content: center;
+        padding: 10px 14px;
+    }
+
+    .uno,
+    .dos {
+        justify-content: center;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    .nav-link {
+        font-size: 12px;
+    }
+
+    .main-container {
+        padding: 14px;
+        gap: 16px;
+    }
+
+    .banner-entrada {
+        margin: 14px 14px 0;
+        padding: 14px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .banner-texto strong {
+        font-size: 15px;
+    }
+
+    .btn-sin-combos {
+        width: 100%;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .product-container-img {
+        height: 140px;
+    }
+
+    .product-img-file {
+        padding: 10px;
+    }
+
+    .product-info {
+        padding: 12px;
+    }
+
+    .product-info h4 {
+        font-size: 14px;
+    }
+
+    .product-info p {
+        font-size: 11.5px;
+        margin-bottom: 10px;
+    }
+
+    .price {
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
+
+    .btn-add {
+        padding: 9px;
+        font-size: 13px;
+    }
+
+    .badge {
+        top: 8px;
+        left: 8px;
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+
+    .checkout-panel {
+        padding: 16px;
+    }
+
+    .total-row {
+        font-size: 18px;
+    }
+
+    .paso-pago {
+        padding: 24px 16px 20px;
+        border-radius: 14px;
+    }
+
+    .modal-resumen {
+        padding: 14px 14px;
+    }
+
+    .modal-total span:last-child {
+        font-size: 21px;
+    }
+
+    .opcion {
+        padding: 13px 14px;
+        font-size: 14px;
+    }
+
+    .btn-modal-cancelar,
+    .btn-modal-pagar {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    .exito-container {
+        padding: 20px 12px 50px;
+    }
+
+    .exito-card {
+        padding: 26px 18px;
+    }
+
+    .exito-card h1 {
+        font-size: 22px;
+    }
+
+    .exito-fila {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .exito-fila span:last-child {
+        text-align: left;
+    }
+
+    .btn-inicio,
+    .btn-perfil {
+        min-width: 100%;
+    }
+}
+
+/* ---- Celular chico ---- */
+@media (max-width: 360px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-container-img {
+        height: 180px;
+    }
 }

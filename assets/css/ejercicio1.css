@@ -1,4 +1,3 @@
-
 .combo1{
     width: 125px;
     height: auto;
@@ -21,48 +20,7 @@ body {
   font-family: Arial, sans-serif;
   background-color: #12100d;
 }
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #12100d;
-    color: white;
-    padding: 10px 40px; /* Padding fijo y limpio (se quita el 20%) */
-    box-sizing: border-box;
-    width: 100%;
-}
-.uno {
-    display: flex;
-    align-items: center;
-    gap: 25px; /* Separación pareja entre links */
-}
 
-.dos {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding-right: 0; /* SE ELIMINA EL padding-right: 30% QUE ROMPÍA TODO */
-}
-.nav-link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 1.2;
-    white-space: nowrap; /* Evita saltos de línea */
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.nav-link.active::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: white;
-}
 
 /* ESTILOS PARA EL SELECTOR DE CINE INTEGRADO */
 .cinema-selector {
@@ -93,7 +51,6 @@ body {
     color: #ffffff;
 }
 
-
 .icon {
   font-size: 14px;
   cursor: pointer;
@@ -120,7 +77,6 @@ body {
   background-color: white;
   width: 100%;
 }
-
 
 .sub-contenedor {
   display: flex;
@@ -152,8 +108,6 @@ body {
 }
 
 
-
-
 .caja-grande {
   display: flex;
   gap: 15px;
@@ -176,7 +130,6 @@ body {
   outline: 2px solid red;
 }
 
-
 .carreras {
   display: flex;
   padding-left: 30%;
@@ -190,34 +143,16 @@ body {
   width: 10%;
 }
 
-
-
 section {
   padding: 20px;
   margin: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 :root {
   --height: 360px;
   --dot-size: 14px;
   --gap: 10px;
 }
-
-
 
 .container-carrusel {
   max-width: 900px;
@@ -232,7 +167,6 @@ section {
   background: #000;
 }
 
-
 .slider {
   display: flex;
   transition: transform 0.6s ease;
@@ -246,7 +180,6 @@ section {
   object-fit: cover;
   display: block;
 }
-
 
 .slider-nav {
   display: flex;
@@ -318,17 +251,6 @@ section {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 .peliculas {
   display: flex;
   flex-wrap: wrap;
@@ -360,7 +282,6 @@ section {
   object-fit: cover;
 }
 
-
 .tiempo {
   position: absolute;
   top: 8px;
@@ -371,7 +292,6 @@ section {
   border-radius: 5px;
   font-size: 12px;
 }
-
 
 .info {
   padding: 12px;
@@ -421,19 +341,6 @@ section {
   justify-content: center;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 .contenedor2 {
   display: flex;
   justify-content: center;
@@ -462,7 +369,6 @@ section {
   object-fit: cover;
 }
 
-
 .centrada {
   max-width: 100%;
   max-height: 100%;
@@ -471,21 +377,6 @@ section {
   padding: 10px;
   object-fit: contain;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .footer {
   background-color: #0e0c0a;
@@ -574,4 +465,261 @@ section {
   font-weight: bold;
   cursor: pointer;
   font-size: 14px;
+}
+
+
+/* ================================================================
+   RESPONSIVE
+   Escritorio grande: > 1200px (estilos base de arriba)
+   Escritorio chico: <= 1200px
+   Tablet: <= 992px
+   Celular: <= 600px
+   Celular chico: <= 360px
+   ================================================================ */
+
+/* ---- Escritorio chico ---- */
+@media (max-width: 1200px) {
+  .navbar {
+    padding: 10px 24px;
+  }
+
+  .dos {
+    padding-right: 0;
+  }
+
+  .sub-contenedor,
+  .peliculas,
+  .disfruta {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  .caja-grande {
+    padding-left: 8%;
+  }
+
+  .carreras {
+    padding-left: 12%;
+  }
+}
+
+/* ---- Tablet ---- */
+@media (max-width: 992px) {
+  :root {
+    --height: 280px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    padding: 10px 20px;
+    gap: 10px;
+  }
+
+  .uno {
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+
+  .dos {
+    flex-wrap: wrap;
+    gap: 12px 16px;
+    padding-right: 0;
+  }
+
+  .sub-contenedor {
+    padding: 40px 5% 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .caja-grande {
+    flex-wrap: wrap;
+    padding: 16px 5% 0;
+  }
+
+  .carreras {
+    padding-left: 5%;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .tarjeta {
+    width: auto;
+    min-width: 120px;
+  }
+
+  .peliculas {
+    padding: 24px 5%;
+    gap: 18px;
+    justify-content: center;
+  }
+
+  .pelicula {
+    width: calc(33.333% - 12px);
+    min-width: 180px;
+  }
+
+  .disfruta {
+    padding: 24px 5%;
+    justify-content: center;
+  }
+
+  .tar {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .contenedor2 {
+    flex-wrap: wrap;
+    padding: 24px 5%;
+  }
+
+  .container-carrusel {
+    padding: 0 16px;
+  }
+
+  section {
+    padding: 14px;
+    margin: 14px;
+  }
+}
+
+/* ---- Celular ---- */
+@media (max-width: 600px) {
+  .navbar {
+    justify-content: center;
+    padding: 10px 14px;
+  }
+
+  .uno,
+  .dos {
+    justify-content: center;
+  }
+
+  .logo {
+    width: 90px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .sub-contenedor {
+    padding: 28px 16px 12px;
+  }
+
+  .sub {
+    font-size: 22px;
+  }
+
+  .destacado {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+
+  .caja-grande {
+    padding: 12px 16px 0;
+    gap: 10px;
+  }
+
+  .caja {
+    flex: 1 1 130px;
+    padding: 10px 14px;
+  }
+
+  .carreras {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .peliculas {
+    padding: 20px 16px;
+    gap: 14px;
+  }
+
+  .pelicula {
+    width: calc(50% - 7px);
+    min-width: 0;
+  }
+
+  .poster {
+    height: 220px;
+  }
+
+  .info {
+    padding: 10px;
+  }
+
+  .titulo {
+    font-size: 14px;
+  }
+
+  .formatos {
+    font-size: 12px;
+  }
+
+  .disfruta {
+    padding: 20px 16px;
+  }
+
+  .contenedor2 {
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .tarjeta2 {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .tarjeta2:hover {
+    transform: none;
+  }
+
+  .container-carrusel {
+    padding: 0 10px;
+  }
+
+  .arrow {
+    width: 30px;
+    height: 30px;
+  }
+
+  section {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .footer {
+    padding: 30px 16px;
+  }
+
+  .footer-top,
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .footer-column {
+    flex: 1 1 auto;
+    margin: 8px 0;
+  }
+
+  .footer-right {
+    align-items: flex-start;
+  }
+
+  .arrepentimiento {
+    width: 100%;
+  }
+}
+
+/* ---- Celular chico ---- */
+@media (max-width: 360px) {
+  .pelicula {
+    width: 100%;
+  }
+
+  .poster {
+    height: 320px;
+  }
 }

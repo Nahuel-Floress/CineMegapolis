@@ -1,0 +1,219 @@
+/* ================================================================
+   candy_extra.css
+   Se carga DESPUÉS de candy.css. Completa los estilos que faltaban
+   (carrito, paso de pago, "continuar sin combos") y corrige el navbar.
+   ================================================================ */
+
+:root {
+    --bg-card: #18171c;
+    --primary-color: #b30000;
+    --accent-color: #e2b13c;
+    --text-muted: #b0aeb5;
+    --border-color: #2b2933;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* El navbar quedaba corrido por un padding-right: 30% */
+.navbar .dos {
+    padding-right: 0;
+}
+
+.nav-link {
+    position: relative;
+}
+
+/* ---------- Carrito ---------- */
+.cart-qty-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    font-size: 13px;
+}
+
+.qty-mini {
+    width: 24px;
+    height: 24px;
+    line-height: 1;
+    padding: 0;
+    background: #1e1b24;
+    color: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.qty-mini:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+.candy-error {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff6b6b;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    word-break: break-word;
+}
+
+/* ---------- "Continuar sin combos" ---------- */
+.form-sin-combos-panel {
+    margin: 14px 0 0;
+}
+
+.btn-sin-combos-link {
+    width: 100%;
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-sin-combos-link:hover {
+    background: #ffffff;
+    color: #12100d;
+}
+
+/* ---------- Paso de pago ---------- */
+.paso-pago {
+    flex: 3;
+    align-self: flex-start;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 26px;
+}
+
+.paso-pago h3 {
+    margin: 0 0 16px;
+    font-size: 20px;
+    color: var(--accent-color);
+}
+
+.modal-resumen {
+    background: #111014;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+}
+
+.modal-linea {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    padding: 5px 0;
+}
+
+.modal-total {
+    border-top: 1px solid var(--border-color);
+    margin-top: 6px;
+    padding-top: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.modal-total span:last-child {
+    color: var(--accent-color);
+}
+
+.modal-grupo {
+    border: none;
+    padding: 0;
+    margin: 0 0 16px;
+}
+
+.modal-grupo legend {
+    padding: 0;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.opcion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    background: #111014;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.opcion:hover {
+    border-color: var(--accent-color);
+}
+
+.opcion input {
+    accent-color: var(--primary-color);
+}
+
+.modal-botones {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btn-modal-cancelar,
+.btn-modal-pagar {
+    flex: 1;
+    padding: 13px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.btn-modal-cancelar {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid var(--border-color);
+}
+
+.btn-modal-cancelar:hover {
+    border-color: #ffffff;
+}
+
+.btn-modal-pagar {
+    flex: 2;
+    background: var(--primary-color);
+    color: #ffffff;
+    border: none;
+}
+
+.btn-modal-pagar:hover {
+    background: #cc0000;
+}
+
+.btn-modal-pagar:disabled {
+    background: #5a5a5a;
+    cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .sidebar-categories {
+        max-width: none;
+    }
+}

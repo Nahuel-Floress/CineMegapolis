@@ -1,12 +1,33 @@
 <?php
+/**
+ * includes/navbar_usuario.php
+ * Navbar único para todas las páginas.
+ * Uso en cada página (dentro del <body>):  <?php include __DIR__ . '/../includes/navbar_usuario.php'; ?>
+ */
 require_once __DIR__ . '/../config/sesion.php';
-?>
-<?php if (usuario_logueado()):
-  require_once __DIR__ . '/../config/conexion.php'; 
+
+// Ruta del CSS (ajustala si tu carpeta es distinta). Es relativa a la página que incluye el navbar.
+$navCssHref = '../assets/css/navbar_usuario.css';
+$navLogoSrc = '../assets/img/Logo.png';
+
+// Enlaces del menú (archivo => texto)
+$navLinks = [
+  'inicio.php'     => 'PELÍCULAS',
+  'candy.php'      => 'CANDY',
+  'Cinefan.php'    => 'CINE FAN',
+  'regalacine.php' => 'REGALÁ CINE',
+];
+$navPaginaActual = basename($_SERVER['SCRIPT_NAME'] ?? '');
+
+// Datos del usuario logueado
+$navNombre = '';
+$navApellido = '';
+$navTieneFoto = false;
+
+if (usuario_logueado()) {
+  require_once __DIR__ . '/../config/conexion.php';
 
   $navNombre = (string) ($_SESSION['usuario_nombre'] ?? '');
-  $navApellido = '';
-  $navTieneFoto = false;
   try {
     $navQ = $pdo->prepare("SELECT nombre, apellido, (foto IS NOT NULL) AS tiene_foto FROM clientes WHERE id_cliente = ?");
     $navQ->execute([usuario_id()]);
@@ -16,111 +37,76 @@ require_once __DIR__ . '/../config/sesion.php';
       $navTieneFoto = (bool) $navFila['tiene_foto'];
     }
   } catch (PDOException $navEx) {
-
+    // Si falla la consulta, se usan los datos de la sesión
   }
   if ($navNombre === '') {
     $navNombre = (string) ($_SESSION['usuario_email'] ?? 'Mi cuenta');
   }
   $navIniciales = mb_strtoupper(mb_substr($navNombre, 0, 1) . mb_substr($navApellido, 0, 1));
-  ?>
-  <style>
-    .user-menu {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      cursor: pointer
-    }
+}
+?>
+<link rel="stylesheet" href="<?= e($navCssHref) ?>">
 
-    .user-menu .user-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      text-decoration: none
-    }
+<header class="nu-header">
+  <nav class="nu-navbar">
 
-    .user-menu .user-avatar {
-      width: 34px !important;
-      height: 34px !important;
-      max-width: none !important;
-      border-radius: 50% !important;
-      border: 2px solid #c4a052;
-      box-sizing: border-box;
-      object-fit: cover;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      background: #2a1210;
-      color: #c4a052;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .5px
-    }
-
-    .user-menu .user-name {
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      max-width: 140px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap
-    }
-
-    .user-menu .user-dropdown {
-      display: none;
-      position: absolute;
-      right: 0;
-      top: 100%;
-      padding-top: 10px;
-      min-width: 170px;
-      z-index: 999
-    }
-
-    .user-menu .user-dropdown-inner {
-      background: #12100d;
-      border: 1px solid rgba(255, 255, 255, .15);
-      border-radius: 8px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .6);
-      overflow: hidden
-    }
-
-    .user-menu:hover .user-dropdown,
-    .user-menu:focus-within .user-dropdown {
-      display: block
-    }
-
-    .user-menu .user-dropdown a {
-      display: block;
-      padding: 11px 14px;
-      color: #fff;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700
-    }
-
-    .user-menu .user-dropdown a:hover {
-      background: rgba(255, 255, 255, .08)
-    }
-
-    .user-menu .user-dropdown a.salir {
-      color: #ff6b6b;
-      border-top: 1px solid rgba(255, 255, 255, .1)
-    }
-  </style>
-  <div class="user-menu" tabindex="0">
-    <a href="perfil.php" class="user-link" title="Mi perfil">
-      <?php if ($navTieneFoto): ?>
-        <img class="user-avatar" src="perfil.php?foto=1" alt="Foto de perfil">
-      <?php else: ?>
-        <span class="user-avatar"><?= e($navIniciales) ?></span>
-      <?php endif; ?>
-      <span class="user-name"><?= e($navNombre) ?></span>
-    </a>
-    <div class="user-dropdown">
-
+    <!-- Izquierda: logo + enlaces -->
+    <div class="nu-left">
+      <a href="inicio.php" class="nu-logo-link">
+        <img src="<?= e($navLogoSrc) ?>" alt="Logo de la página" class="nu-logo">
+      </a>
+      <?php foreach ($navLinks as $archivo => $texto): ?>
+        <a href="<?= e($archivo) ?>"
+           class="nu-link<?= strcasecmp($navPaginaActual, $archivo) === 0 ? ' active' : '' ?>">
+          <?= e($texto) ?>
+        </a>
+      <?php endforeach; ?>
     </div>
-  </div>
-<?php else: ?>
-  <a href="login.php" class="icon-link" title="Iniciar sesión"><span class="icon">👤</span></a>
-<?php endif; ?>
+
+    <!-- Derecha: selector de cine + usuario -->
+    <div class="nu-right">
+      <div class="nu-cinema">
+        <span class="nu-pin">📍</span>
+        <select id="selectCine" aria-label="Elegí tu cine">
+          <option value="" disabled selected>ELEGÍ CINE</option>
+          <option value="abasto">Cine Abasto</option>
+          <option value="palermo">Cine Palermo</option>
+          <option value="unicenter">Cine Unicenter</option>
+        </select>
+      </div>
+
+      <?php if (usuario_logueado()): ?>
+        <div class="nu-user" tabindex="0">
+          <a href="perfil.php" class="nu-user-link" title="Mi perfil">
+            <span class="nu-avatar">
+              <?= e($navIniciales) ?>
+              <?php if ($navTieneFoto): ?>
+                <img class="nu-avatar-img" src="perfil.php?foto=1" alt="" onerror="this.remove()">
+              <?php endif; ?>
+            </span>
+            <span class="nu-user-name"><?= e($navNombre) ?></span>
+          </a>
+        </div>
+      <?php else: ?>
+        <a href="login.php" class="nu-login" title="Iniciar sesión"><span>👤</span></a>
+      <?php endif; ?>
+    </div>
+
+  </nav>
+  <div class="nu-underline"></div>
+</header>
+
+<script>
+  // El cine elegido se mantiene al cambiar de página
+  (function () {
+    var sel = document.getElementById('selectCine');
+    if (!sel) return;
+    try {
+      var guardado = localStorage.getItem('cineElegido');
+      if (guardado) sel.value = guardado;
+      sel.addEventListener('change', function () {
+        localStorage.setItem('cineElegido', sel.value);
+      });
+    } catch (e) { /* localStorage no disponible */ }
+  })();
+</script>

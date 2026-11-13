@@ -1,3 +1,4 @@
+
 <?php
 require_once '../config/conexion.php';
 
@@ -50,23 +51,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
-  <nav class="navbar">
-    <div class="uno">
-      <img src="../assets/img/Logo.png" alt="logo de la pagina" class="logo">
-      <a href="inicio.php" class="nav-link">PELÍCULAS</a>
-      <a href="candy.php" class="nav-link">CANDY</a>
-      <a href="Cinefan.php" class="nav-link">CINE FAN</a>
-      <a href="regalacine.php" class="nav-link">REGALÁ CINE</a>
-      <a href="#" class="nav-link">STORE</a>
-    </div>
-    <div class="dos">
-      <a href="#" class="nav-link">📍 ELEGÍ CINE ▼</a>
-      <a href="#" class="nav-link">ELEGÍ PELÍCULA ▼</a>
-      <a href="login.php" class="icon-link active" title="Iniciar sesión"><span class="icon">👤</span></a>
-    </div>
-  </nav>
-  <div class="navbar-underline"></div>
 
+  <?php include __DIR__ . '/../includes/navbar_usuario.php'; ?>
   <main class="compra-container">
 
     <a href="javascript:history.back()" class="btn-volver">&larr; Volver</a>
@@ -150,13 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   </main>
 
-  <footer class="footer">
-    <div class="footer-bottom">
-      <div class="footer-info">
-        <p>&copy; 2024 CineMegapolis</p>
-      </div>
-    </div>
-  </footer>
+ <?php include __DIR__ . '/../includes/footer.php'; ?>
 
 </body>
 </html>

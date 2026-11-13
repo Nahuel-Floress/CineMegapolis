@@ -1,30 +1,213 @@
-.nav-user {
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nu-header {
+  width: 100%;
+  background: #12100d;
+  position: relative;
+  z-index: 1000;
+}
+
+.nu-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 142px;
+  padding: 0 38px 0 40px;
+  box-sizing: border-box;
+}
+
+.nu-left,
+.nu-right {
+  display: flex;
+  align-items: center;
+}
+
+.nu-left { gap: 25px; }
+.nu-right { gap: 34px; }
+
+/* ---------- Logo ---------- */
+.nu-logo-link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: #fff;
-  opacity: 0.92;
-  transition: opacity 0.2s, transform 0.2s;
+  margin-right: 25px;
 }
-.nav-user:hover { opacity: 1; transform: scale(1.04); }
-
-.nav-user .nav-user-foto {
-  width: 30px;
-  height: 30px;
-  min-width: 30px;
+.nu-logo {
+  width: 125px;
+  height: 125px;
+  padding: 14px;
+  box-sizing: border-box;
+  object-fit: contain;
   border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #c4a052;
-  background: #1b1714;
   display: block;
 }
 
-.nav-user .nav-user-nombre {
-  font-size: 13px;
+/* ---------- Enlaces ---------- */
+.nu-link {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  padding: 4px 0;
+  transition: opacity .2s;
+}
+.nu-link:hover { opacity: .75; }
+.nu-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  background: #fff;
+}
+
+/* ---------- Selector de cine ---------- */
+.nu-cinema {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+.nu-pin { font-size: 14px; line-height: 1; }
+.nu-cinema select {
+  min-width: 130px;
+  background: transparent;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.nu-cinema select option { background: #12100d; color: #fff; }
+
+/* ---------- Usuario ---------- */
+.nu-user {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.nu-user-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+}
+
+.nu-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #c4a052;
+  box-sizing: border-box;
+  object-fit: cover;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #2a1210;
+  color: #c4a052;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* La foto se superpone a las iniciales; si falla, se ven las iniciales */
+.nu-avatar-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nu-user-name {
+  color: #fff;
+  font-size: 14px;
   font-weight: 700;
-  max-width: 120px;
+  max-width: 160px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.nu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  padding-top: 10px;
+  min-width: 170px;
+  z-index: 999;
+}
+.nu-dropdown-inner {
+  background: #12100d;
+  border: 1px solid rgba(255, 255, 255, .15);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .6);
+  overflow: hidden;
+}
+.nu-user:hover .nu-dropdown,
+.nu-user:focus-within .nu-dropdown { display: block; }
+
+.nu-dropdown a {
+  display: block;
+  padding: 11px 14px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+.nu-dropdown a:hover { background: rgba(255, 255, 255, .08); }
+.nu-dropdown a.salir {
+  color: #ff6b6b;
+  border-top: 1px solid rgba(255, 255, 255, .1);
+}
+
+/* ---------- Login (sin sesión) ---------- */
+.nu-login {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #c4a052;
+  text-decoration: none;
+  font-size: 16px;
+  transition: transform .2s;
+}
+.nu-login:hover { transform: scale(1.08); }
+
+/* ---------- Línea inferior ---------- */
+.nu-underline {
+  height: 1px;
+  background: #fff;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .nu-navbar { flex-wrap: wrap; min-height: 0; padding: 10px 16px; }
+  .nu-left { gap: 16px; flex-wrap: wrap; }
+  .nu-logo-link { margin-right: 8px; }
+  .nu-logo { width: 80px; height: 80px; padding: 9px; }
+  .nu-right { gap: 18px; }
+  .nu-user-name { display: none; }
 }

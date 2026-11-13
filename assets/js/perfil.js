@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const items = document.querySelectorAll('.menu-item');
   const paneles = document.querySelectorAll('.panel');
+
+  // Entradas y combos se muestran juntos, así que se marcan juntos
   let vistasMarcadas = false;
 
   function marcarVistas() {
