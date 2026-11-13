@@ -46,7 +46,7 @@
     </div>
 
     <div class="footer-info">
-      <p>&copy; 2024 CineMegapolis</p>
+      <p>&copy; 2026 CineMegapolis</p>
       <p>Dirección General de Defensa y Protección al Consumidor: Para consultas y/o denuncias haga <a href="#">click aquí</a></p>
     </div>
 
